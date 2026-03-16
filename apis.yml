@@ -1,0 +1,72 @@
+aid: amazon-mechanical-turk
+name: Amazon Mechanical Turk
+description: >-
+  Amazon Mechanical Turk (MTurk) is a crowdsourcing marketplace that makes it
+  easier for individuals and businesses to coordinate the use of human
+  intelligence to perform tasks that computers are currently unable to do well.
+  It enables access to a global, on-demand, 24x7 workforce.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Crowdsourcing
+  - Human Intelligence
+  - Tasks
+  - Labor
+  - AWS
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/apis.yml
+created: '2026-03-16'
+modified: '2026-03-16'
+specificationVersion: '0.19'
+apis:
+  - aid: amazon-mechanical-turk:amazon-mturk-api
+    name: Amazon Mechanical Turk API
+    description: >-
+      The Amazon Mechanical Turk API provides programmatic access to create
+      and manage HITs, qualifications, workers, assignments, and bonuses for
+      coordinating crowdsourced human intelligence tasks.
+    humanURL: https://www.mturk.com/
+    baseURL: https://mturk-requester.amazonaws.com
+    tags:
+      - Crowdsourcing
+      - Human Intelligence
+      - Tasks
+    properties:
+      - type: Documentation
+        url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+      - type: OpenAPI
+        url: https://api.apis.guru/v2/specs/amazonaws.com/mturk-requester/2017-01-17/openapi.yaml
+      - type: Getting Started
+        url: https://www.mturk.com/get-started
+      - type: Pricing
+        url: https://www.mturk.com/pricing
+      - type: FAQ
+        url: https://www.mturk.com/faqs
+common:
+  - type: Portal
+    url: https://www.mturk.com/
+  - type: Website
+    url: https://www.mturk.com/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/mturk/
+  - type: Terms of Service
+    url: https://www.mturk.com/participation-agreement
+  - type: Privacy Policy
+    url: https://aws.amazon.com/privacy/
+  - type: Support
+    url: https://www.mturk.com/contact
+  - type: Blog
+    url: https://blog.mturk.com/
+  - type: GitHub Organization
+    url: https://github.com/aws
+  - type: Sign Up
+    url: https://www.mturk.com/get-started
+  - type: Login
+    url: https://requester.mturk.com/
+  - type: Status
+    url: https://health.aws.amazon.com/health/status
+  - type: Contact
+    url: https://www.mturk.com/contact
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
