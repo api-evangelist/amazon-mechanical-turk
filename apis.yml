@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
+  - AWS
   - Crowdsourcing
   - Human Intelligence
-  - Tasks
   - Labor
-  - AWS
+  - Tasks
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/apis.yml
 created: '2026-03-16'
