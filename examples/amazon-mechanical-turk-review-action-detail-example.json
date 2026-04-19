@@ -1,0 +1,10 @@
+{
+  "ActionId": "abc12345",
+  "ActionName": "my-resource",
+  "TargetId": "abc12345",
+  "TargetType": "example-value",
+  "Status": "ACTIVE",
+  "CompleteTime": "example-value",
+  "Result": "example-value",
+  "ErrorCode": "example-value"
+}

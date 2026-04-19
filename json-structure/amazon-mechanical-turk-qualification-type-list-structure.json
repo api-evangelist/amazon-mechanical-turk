@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-qualification-type-list-structure.json",
+  "name": "QualificationTypeList",
+  "description": "QualificationTypeList schema from Amazon Mechanical Turk API",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/QualificationType"
+  }
+}

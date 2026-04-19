@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-reject-qualification-request-request-schema.json",
+  "title": "RejectQualificationRequestRequest",
+  "description": "RejectQualificationRequestRequest schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "QualificationRequestId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": " The ID of the Qualification request, as returned by the <code>ListQualificationRequests</code> operation. "
+        }
+      ]
+    },
+    "Reason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "A text message explaining why the request was rejected, to be shown to the Worker who made the request."
+        }
+      ]
+    }
+  },
+  "required": [
+    "QualificationRequestId"
+  ]
+}

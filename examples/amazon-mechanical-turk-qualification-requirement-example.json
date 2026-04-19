@@ -1,0 +1,8 @@
+{
+  "QualificationTypeId": "abc12345",
+  "Comparator": "example-value",
+  "IntegerValues": "example-value",
+  "LocaleValues": "example-value",
+  "RequiredToPreview": "example-value",
+  "ActionsGuarded": "example-value"
+}

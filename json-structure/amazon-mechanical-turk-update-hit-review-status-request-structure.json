@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-update-hit-review-status-request-structure.json",
+  "name": "UpdateHITReviewStatusRequest",
+  "description": "UpdateHITReviewStatusRequest schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "HITId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": " The ID of the HIT to update. "
+        }
+      ]
+    },
+    "Revert": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "<p> Specifies how to update the HIT status. Default is <code>False</code>. </p> <ul> <li> <p> Setting this to false will only transition a HIT from <code>Reviewable</code> to <code>Reviewing</code> </p> </li> <li> <p> Setting this to true will only transition a HIT from <code>Reviewing</code> to <code>Reviewable</code> </p> </li> </ul>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "HITId"
+  ]
+}

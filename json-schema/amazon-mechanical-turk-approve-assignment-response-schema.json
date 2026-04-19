@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-approve-assignment-response-schema.json",
+  "title": "ApproveAssignmentResponse",
+  "description": "ApproveAssignmentResponse schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {}
+}

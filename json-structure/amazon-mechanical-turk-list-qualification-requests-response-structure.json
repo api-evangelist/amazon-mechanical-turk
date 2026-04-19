@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-list-qualification-requests-response-structure.json",
+  "name": "ListQualificationRequestsResponse",
+  "description": "ListQualificationRequestsResponse schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "NumResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The number of Qualification requests on this page in the filtered results list, equivalent to the number of Qualification requests being returned by this call."
+        }
+      ]
+    },
+    "NextToken": {
+      "$ref": "#/components/schemas/PaginationToken"
+    },
+    "QualificationRequests": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/QualificationRequestList"
+        },
+        {
+          "description": "The Qualification request. The response includes one QualificationRequest element for each Qualification request returned by the query."
+        }
+      ]
+    }
+  }
+}

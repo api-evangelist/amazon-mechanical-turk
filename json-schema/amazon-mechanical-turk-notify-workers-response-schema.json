@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-notify-workers-response-schema.json",
+  "title": "NotifyWorkersResponse",
+  "description": "NotifyWorkersResponse schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "NotifyWorkersFailureStatuses": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NotifyWorkersFailureStatusList"
+        },
+        {
+          "description": " When MTurk sends notifications to the list of Workers, it returns back any failures it encounters in this list of NotifyWorkersFailureStatus objects. "
+        }
+      ]
+    }
+  }
+}

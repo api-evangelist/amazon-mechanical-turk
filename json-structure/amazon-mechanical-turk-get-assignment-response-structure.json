@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-get-assignment-response-structure.json",
+  "name": "GetAssignmentResponse",
+  "description": "GetAssignmentResponse schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "Assignment": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Assignment"
+        },
+        {
+          "description": " The assignment. The response includes one Assignment element. "
+        }
+      ]
+    },
+    "HIT": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HIT"
+        },
+        {
+          "description": " The HIT associated with this assignment. The response includes one HIT element."
+        }
+      ]
+    }
+  }
+}

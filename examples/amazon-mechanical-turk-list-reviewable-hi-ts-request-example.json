@@ -1,0 +1,6 @@
+{
+  "HITTypeId": "abc12345",
+  "Status": "ACTIVE",
+  "NextToken": "example-value",
+  "MaxResults": "example-value"
+}

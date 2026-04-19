@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-get-qualification-type-response-schema.json",
+  "title": "GetQualificationTypeResponse",
+  "description": "GetQualificationTypeResponse schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "QualificationType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/QualificationType"
+        },
+        {
+          "description": " The returned Qualification Type"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "MaxAssignments": "example-value",
+  "AutoApprovalDelayInSeconds": "example-value",
+  "LifetimeInSeconds": "example-value",
+  "AssignmentDurationInSeconds": "example-value",
+  "Reward": "example-value",
+  "Title": "example-value",
+  "Keywords": "example-value",
+  "Description": "Example resource description",
+  "Question": "example-value",
+  "RequesterAnnotation": "example-value",
+  "QualificationRequirements": "example-value",
+  "UniqueRequestToken": "example-value",
+  "AssignmentReviewPolicy": "example-value",
+  "HITReviewPolicy": "example-value",
+  "HITLayoutId": "abc12345",
+  "HITLayoutParameters": "example-value"
+}

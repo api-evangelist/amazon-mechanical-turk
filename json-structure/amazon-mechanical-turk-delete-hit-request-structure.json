@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-delete-hit-request-structure.json",
+  "name": "DeleteHITRequest",
+  "description": "DeleteHITRequest schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "HITId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": "The ID of the HIT to be deleted."
+        }
+      ]
+    }
+  },
+  "required": [
+    "HITId"
+  ]
+}

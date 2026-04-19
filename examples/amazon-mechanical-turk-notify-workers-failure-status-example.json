@@ -1,0 +1,5 @@
+{
+  "NotifyWorkersFailureCode": "example-value",
+  "NotifyWorkersFailureMessage": "example-value",
+  "WorkerId": "abc12345"
+}

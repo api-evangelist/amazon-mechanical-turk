@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-review-action-detail-schema.json",
+  "title": "ReviewActionDetail",
+  "description": " Both the AssignmentReviewReport and the HITReviewReport elements contains the ReviewActionDetail data structure. This structure is returned multiple times for each action specified in the Review Policy. ",
+  "type": "object",
+  "properties": {
+    "ActionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": "The unique identifier for the action."
+        }
+      ]
+    },
+    "ActionName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": " The nature of the action itself. The Review Policy is responsible for examining the HIT and Assignments, emitting results, and deciding which other actions will be necessary. "
+        }
+      ]
+    },
+    "TargetId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": " The specific HITId or AssignmentID targeted by the action."
+        }
+      ]
+    },
+    "TargetType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": " The type of object in TargetId."
+        }
+      ]
+    },
+    "Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ReviewActionStatus"
+        },
+        {
+          "description": " The current disposition of the action: INTENDED, SUCCEEDED, FAILED, or CANCELLED. "
+        }
+      ]
+    },
+    "CompleteTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": " The date when the action was completed."
+        }
+      ]
+    },
+    "Result": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": " A description of the outcome of the review."
+        }
+      ]
+    },
+    "ErrorCode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": " Present only when the Results have a FAILED Status."
+        }
+      ]
+    }
+  }
+}

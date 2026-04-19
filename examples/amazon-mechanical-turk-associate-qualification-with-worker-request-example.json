@@ -1,0 +1,6 @@
+{
+  "QualificationTypeId": "abc12345",
+  "WorkerId": "abc12345",
+  "IntegerValue": "example-value",
+  "SendNotification": "example-value"
+}

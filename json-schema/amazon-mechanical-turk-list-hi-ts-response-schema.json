@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-list-hi-ts-response-schema.json",
+  "title": "ListHITsResponse",
+  "description": "ListHITsResponse schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "NextToken": {
+      "$ref": "#/components/schemas/PaginationToken"
+    },
+    "NumResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call."
+        }
+      ]
+    },
+    "HITs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HITList"
+        },
+        {
+          "description": " The list of HIT elements returned by the query."
+        }
+      ]
+    }
+  }
+}

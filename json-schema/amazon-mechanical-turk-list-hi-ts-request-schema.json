@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-list-hi-ts-request-schema.json",
+  "title": "ListHITsRequest",
+  "description": "ListHITsRequest schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "Pagination token"
+        }
+      ]
+    },
+    "MaxResults": {
+      "$ref": "#/components/schemas/ResultSize"
+    }
+  }
+}

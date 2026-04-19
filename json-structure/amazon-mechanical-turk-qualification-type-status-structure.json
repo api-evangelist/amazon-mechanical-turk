@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-qualification-type-status-structure.json",
+  "name": "QualificationTypeStatus",
+  "description": "QualificationTypeStatus schema from Amazon Mechanical Turk API",
+  "type": "string",
+  "enum": [
+    "Active",
+    "Inactive"
+  ]
+}

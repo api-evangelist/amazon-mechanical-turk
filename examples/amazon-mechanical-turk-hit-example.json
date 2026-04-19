@@ -1,0 +1,23 @@
+{
+  "HITId": "abc12345",
+  "HITTypeId": "abc12345",
+  "HITGroupId": "abc12345",
+  "HITLayoutId": "abc12345",
+  "CreationTime": "example-value",
+  "Title": "example-value",
+  "Description": "Example resource description",
+  "Question": "example-value",
+  "Keywords": "example-value",
+  "HITStatus": "ACTIVE",
+  "MaxAssignments": "example-value",
+  "Reward": "example-value",
+  "AutoApprovalDelayInSeconds": "example-value",
+  "Expiration": "example-value",
+  "AssignmentDurationInSeconds": "example-value",
+  "RequesterAnnotation": "example-value",
+  "QualificationRequirements": "example-value",
+  "HITReviewStatus": "ACTIVE",
+  "NumberOfAssignmentsPending": "example-value",
+  "NumberOfAssignmentsAvailable": "example-value",
+  "NumberOfAssignmentsCompleted": "example-value"
+}

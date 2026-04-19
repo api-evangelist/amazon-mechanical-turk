@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-list-qualification-types-response-schema.json",
+  "title": "ListQualificationTypesResponse",
+  "description": "ListQualificationTypesResponse schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "NumResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": " The number of Qualification types on this page in the filtered results list, equivalent to the number of types this operation returns. "
+        }
+      ]
+    },
+    "NextToken": {
+      "$ref": "#/components/schemas/PaginationToken"
+    },
+    "QualificationTypes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/QualificationTypeList"
+        },
+        {
+          "description": " The list of QualificationType elements returned by the query. "
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "Name": "my-resource",
+  "Keywords": "example-value",
+  "Description": "Example resource description",
+  "QualificationTypeStatus": "ACTIVE",
+  "RetryDelayInSeconds": "example-value",
+  "Test": "example-value",
+  "AnswerKey": "example-value",
+  "TestDurationInSeconds": "example-value",
+  "AutoGranted": "example-value",
+  "AutoGrantedValue": "example-value"
+}

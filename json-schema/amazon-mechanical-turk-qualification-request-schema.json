@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-qualification-request-schema.json",
+  "title": "QualificationRequest",
+  "description": " The QualificationRequest data structure represents a request a Worker has made for a Qualification. ",
+  "type": "object",
+  "properties": {
+    "QualificationRequestId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The ID of the Qualification request, a unique identifier generated when the request was submitted. "
+        }
+      ]
+    },
+    "QualificationTypeId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": " The ID of the Qualification type the Worker is requesting, as returned by the CreateQualificationType operation. "
+        }
+      ]
+    },
+    "WorkerId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CustomerId"
+        },
+        {
+          "description": " The ID of the Worker requesting the Qualification."
+        }
+      ]
+    },
+    "Test": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": " The contents of the Qualification test that was presented to the Worker, if the type has a test and the Worker has submitted answers. This value is identical to the QuestionForm associated with the Qualification type at the time the Worker requests the Qualification."
+        }
+      ]
+    },
+    "Answer": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": " The Worker's answers for the Qualification type's test contained in a QuestionFormAnswers document, if the type has a test and the Worker has submitted answers. If the Worker does not provide any answers, Answer may be empty. "
+        }
+      ]
+    },
+    "SubmitTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time the Qualification request had a status of Submitted. This is either the time the Worker submitted answers for a Qualification test, or the time the Worker requested the Qualification if the Qualification type does not have a test. "
+        }
+      ]
+    }
+  }
+}

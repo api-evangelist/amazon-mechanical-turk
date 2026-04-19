@@ -1,0 +1,464 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "amtu": "https://amtu.amazonaws.com/schema/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AcceptQualificationRequestRequest": "amtu:AcceptQualificationRequestRequest",
+    "AcceptQualificationRequestResponse": "amtu:AcceptQualificationRequestResponse",
+    "ApproveAssignmentRequest": "amtu:ApproveAssignmentRequest",
+    "ApproveAssignmentResponse": "amtu:ApproveAssignmentResponse",
+    "Assignment": "amtu:Assignment",
+    "AssociateQualificationWithWorkerRequest": "amtu:AssociateQualificationWithWorkerRequest",
+    "AssociateQualificationWithWorkerResponse": "amtu:AssociateQualificationWithWorkerResponse",
+    "BonusPayment": "amtu:BonusPayment",
+    "CreateAdditionalAssignmentsForHITRequest": "amtu:CreateAdditionalAssignmentsForHITRequest",
+    "CreateAdditionalAssignmentsForHITResponse": "amtu:CreateAdditionalAssignmentsForHITResponse",
+    "CreateHITRequest": "amtu:CreateHITRequest",
+    "CreateHITResponse": "amtu:CreateHITResponse",
+    "CreateHITTypeRequest": "amtu:CreateHITTypeRequest",
+    "CreateHITTypeResponse": "amtu:CreateHITTypeResponse",
+    "CreateHITWithHITTypeRequest": "amtu:CreateHITWithHITTypeRequest",
+    "CreateHITWithHITTypeResponse": "amtu:CreateHITWithHITTypeResponse",
+    "CreateQualificationTypeRequest": "amtu:CreateQualificationTypeRequest",
+    "CreateQualificationTypeResponse": "amtu:CreateQualificationTypeResponse",
+    "CreateWorkerBlockRequest": "amtu:CreateWorkerBlockRequest",
+    "CreateWorkerBlockResponse": "amtu:CreateWorkerBlockResponse",
+    "DeleteHITRequest": "amtu:DeleteHITRequest",
+    "DeleteHITResponse": "amtu:DeleteHITResponse",
+    "DeleteQualificationTypeRequest": "amtu:DeleteQualificationTypeRequest",
+    "DeleteQualificationTypeResponse": "amtu:DeleteQualificationTypeResponse",
+    "DeleteWorkerBlockRequest": "amtu:DeleteWorkerBlockRequest",
+    "DeleteWorkerBlockResponse": "amtu:DeleteWorkerBlockResponse",
+    "DisassociateQualificationFromWorkerRequest": "amtu:DisassociateQualificationFromWorkerRequest",
+    "DisassociateQualificationFromWorkerResponse": "amtu:DisassociateQualificationFromWorkerResponse",
+    "GetAccountBalanceRequest": "amtu:GetAccountBalanceRequest",
+    "GetAccountBalanceResponse": "amtu:GetAccountBalanceResponse",
+    "GetAssignmentRequest": "amtu:GetAssignmentRequest",
+    "GetAssignmentResponse": "amtu:GetAssignmentResponse",
+    "GetFileUploadURLRequest": "amtu:GetFileUploadURLRequest",
+    "GetFileUploadURLResponse": "amtu:GetFileUploadURLResponse",
+    "GetHITRequest": "amtu:GetHITRequest",
+    "GetHITResponse": "amtu:GetHITResponse",
+    "GetQualificationScoreRequest": "amtu:GetQualificationScoreRequest",
+    "GetQualificationScoreResponse": "amtu:GetQualificationScoreResponse",
+    "GetQualificationTypeRequest": "amtu:GetQualificationTypeRequest",
+    "GetQualificationTypeResponse": "amtu:GetQualificationTypeResponse",
+    "HIT": "amtu:HIT",
+    "HITLayoutParameter": "amtu:HITLayoutParameter",
+    "ListAssignmentsForHITRequest": "amtu:ListAssignmentsForHITRequest",
+    "ListAssignmentsForHITResponse": "amtu:ListAssignmentsForHITResponse",
+    "ListBonusPaymentsRequest": "amtu:ListBonusPaymentsRequest",
+    "ListBonusPaymentsResponse": "amtu:ListBonusPaymentsResponse",
+    "ListHITsForQualificationTypeRequest": "amtu:ListHITsForQualificationTypeRequest",
+    "ListHITsForQualificationTypeResponse": "amtu:ListHITsForQualificationTypeResponse",
+    "ListHITsRequest": "amtu:ListHITsRequest",
+    "ListHITsResponse": "amtu:ListHITsResponse",
+    "ListQualificationRequestsRequest": "amtu:ListQualificationRequestsRequest",
+    "ListQualificationRequestsResponse": "amtu:ListQualificationRequestsResponse",
+    "ListQualificationTypesRequest": "amtu:ListQualificationTypesRequest",
+    "ListQualificationTypesResponse": "amtu:ListQualificationTypesResponse",
+    "ListReviewPolicyResultsForHITRequest": "amtu:ListReviewPolicyResultsForHITRequest",
+    "ListReviewPolicyResultsForHITResponse": "amtu:ListReviewPolicyResultsForHITResponse",
+    "ListReviewableHITsRequest": "amtu:ListReviewableHITsRequest",
+    "ListReviewableHITsResponse": "amtu:ListReviewableHITsResponse",
+    "ListWorkerBlocksRequest": "amtu:ListWorkerBlocksRequest",
+    "ListWorkerBlocksResponse": "amtu:ListWorkerBlocksResponse",
+    "ListWorkersWithQualificationTypeRequest": "amtu:ListWorkersWithQualificationTypeRequest",
+    "ListWorkersWithQualificationTypeResponse": "amtu:ListWorkersWithQualificationTypeResponse",
+    "Locale": "amtu:Locale",
+    "NotificationSpecification": "amtu:NotificationSpecification",
+    "NotifyWorkersFailureStatus": "amtu:NotifyWorkersFailureStatus",
+    "NotifyWorkersRequest": "amtu:NotifyWorkersRequest",
+    "NotifyWorkersResponse": "amtu:NotifyWorkersResponse",
+    "ParameterMapEntry": "amtu:ParameterMapEntry",
+    "PolicyParameter": "amtu:PolicyParameter",
+    "Qualification": "amtu:Qualification",
+    "QualificationRequest": "amtu:QualificationRequest",
+    "QualificationRequirement": "amtu:QualificationRequirement",
+    "QualificationType": "amtu:QualificationType",
+    "RejectAssignmentRequest": "amtu:RejectAssignmentRequest",
+    "RejectAssignmentResponse": "amtu:RejectAssignmentResponse",
+    "RejectQualificationRequestRequest": "amtu:RejectQualificationRequestRequest",
+    "RejectQualificationRequestResponse": "amtu:RejectQualificationRequestResponse",
+    "ReviewActionDetail": "amtu:ReviewActionDetail",
+    "ReviewPolicy": "amtu:ReviewPolicy",
+    "ReviewReport": "amtu:ReviewReport",
+    "ReviewResultDetail": "amtu:ReviewResultDetail",
+    "SendBonusRequest": "amtu:SendBonusRequest",
+    "SendBonusResponse": "amtu:SendBonusResponse",
+    "SendTestEventNotificationRequest": "amtu:SendTestEventNotificationRequest",
+    "SendTestEventNotificationResponse": "amtu:SendTestEventNotificationResponse",
+    "UpdateExpirationForHITRequest": "amtu:UpdateExpirationForHITRequest",
+    "UpdateExpirationForHITResponse": "amtu:UpdateExpirationForHITResponse",
+    "UpdateHITReviewStatusRequest": "amtu:UpdateHITReviewStatusRequest",
+    "UpdateHITReviewStatusResponse": "amtu:UpdateHITReviewStatusResponse",
+    "UpdateHITTypeOfHITRequest": "amtu:UpdateHITTypeOfHITRequest",
+    "UpdateHITTypeOfHITResponse": "amtu:UpdateHITTypeOfHITResponse",
+    "UpdateNotificationSettingsRequest": "amtu:UpdateNotificationSettingsRequest",
+    "UpdateNotificationSettingsResponse": "amtu:UpdateNotificationSettingsResponse",
+    "UpdateQualificationTypeRequest": "amtu:UpdateQualificationTypeRequest",
+    "UpdateQualificationTypeResponse": "amtu:UpdateQualificationTypeResponse",
+    "WorkerBlock": "amtu:WorkerBlock",
+    "AcceptTime": {
+      "@id": "amtu:AcceptTime"
+    },
+    "ActionId": {
+      "@id": "amtu:ActionId"
+    },
+    "ActionName": {
+      "@id": "amtu:ActionName"
+    },
+    "ActionsGuarded": {
+      "@id": "amtu:ActionsGuarded"
+    },
+    "Active": {
+      "@id": "amtu:Active"
+    },
+    "Answer": {
+      "@id": "amtu:Answer"
+    },
+    "AnswerKey": {
+      "@id": "amtu:AnswerKey"
+    },
+    "ApprovalTime": {
+      "@id": "amtu:ApprovalTime"
+    },
+    "AssignmentDurationInSeconds": {
+      "@id": "amtu:AssignmentDurationInSeconds"
+    },
+    "AssignmentId": {
+      "@id": "amtu:AssignmentId"
+    },
+    "AssignmentReviewPolicy": {
+      "@id": "amtu:AssignmentReviewPolicy"
+    },
+    "AssignmentReviewReport": {
+      "@id": "amtu:AssignmentReviewReport"
+    },
+    "AssignmentStatus": {
+      "@id": "amtu:AssignmentStatus"
+    },
+    "AssignmentStatuses": {
+      "@id": "amtu:AssignmentStatuses"
+    },
+    "Assignments": {
+      "@id": "amtu:Assignments"
+    },
+    "AutoApprovalDelayInSeconds": {
+      "@id": "amtu:AutoApprovalDelayInSeconds"
+    },
+    "AutoApprovalTime": {
+      "@id": "amtu:AutoApprovalTime"
+    },
+    "AutoGranted": {
+      "@id": "amtu:AutoGranted"
+    },
+    "AutoGrantedValue": {
+      "@id": "amtu:AutoGrantedValue"
+    },
+    "AvailableBalance": {
+      "@id": "amtu:AvailableBalance"
+    },
+    "BonusAmount": {
+      "@id": "amtu:BonusAmount"
+    },
+    "BonusPayments": {
+      "@id": "amtu:BonusPayments"
+    },
+    "Comparator": {
+      "@id": "amtu:Comparator"
+    },
+    "CompleteTime": {
+      "@id": "amtu:CompleteTime"
+    },
+    "Country": {
+      "@id": "amtu:Country"
+    },
+    "CreationTime": {
+      "@id": "amtu:CreationTime"
+    },
+    "Deadline": {
+      "@id": "amtu:Deadline"
+    },
+    "Description": {
+      "@id": "amtu:Description"
+    },
+    "Destination": {
+      "@id": "amtu:Destination"
+    },
+    "ErrorCode": {
+      "@id": "amtu:ErrorCode"
+    },
+    "EventTypes": {
+      "@id": "amtu:EventTypes"
+    },
+    "Expiration": {
+      "@id": "amtu:Expiration"
+    },
+    "ExpireAt": {
+      "@id": "amtu:ExpireAt"
+    },
+    "FileUploadURL": {
+      "@id": "amtu:FileUploadURL"
+    },
+    "GrantTime": {
+      "@id": "amtu:GrantTime"
+    },
+    "HITGroupId": {
+      "@id": "amtu:HITGroupId"
+    },
+    "HITId": {
+      "@id": "amtu:HITId"
+    },
+    "HITLayoutId": {
+      "@id": "amtu:HITLayoutId"
+    },
+    "HITLayoutParameters": {
+      "@id": "amtu:HITLayoutParameters"
+    },
+    "HITReviewPolicy": {
+      "@id": "amtu:HITReviewPolicy"
+    },
+    "HITReviewReport": {
+      "@id": "amtu:HITReviewReport"
+    },
+    "HITReviewStatus": {
+      "@id": "amtu:HITReviewStatus"
+    },
+    "HITStatus": {
+      "@id": "amtu:HITStatus"
+    },
+    "HITTypeId": {
+      "@id": "amtu:HITTypeId"
+    },
+    "HITs": {
+      "@id": "amtu:HITs"
+    },
+    "IntegerValue": {
+      "@id": "amtu:IntegerValue"
+    },
+    "IntegerValues": {
+      "@id": "amtu:IntegerValues"
+    },
+    "IsRequestable": {
+      "@id": "amtu:IsRequestable"
+    },
+    "Key": {
+      "@id": "amtu:Key"
+    },
+    "Keywords": {
+      "@id": "amtu:Keywords"
+    },
+    "LifetimeInSeconds": {
+      "@id": "amtu:LifetimeInSeconds"
+    },
+    "LocaleValue": {
+      "@id": "amtu:LocaleValue"
+    },
+    "LocaleValues": {
+      "@id": "amtu:LocaleValues"
+    },
+    "MapEntries": {
+      "@id": "amtu:MapEntries"
+    },
+    "MaxAssignments": {
+      "@id": "amtu:MaxAssignments"
+    },
+    "MaxResults": {
+      "@id": "amtu:MaxResults"
+    },
+    "MessageText": {
+      "@id": "amtu:MessageText"
+    },
+    "MustBeOwnedByCaller": {
+      "@id": "amtu:MustBeOwnedByCaller"
+    },
+    "MustBeRequestable": {
+      "@id": "amtu:MustBeRequestable"
+    },
+    "Name": {
+      "@id": "amtu:Name"
+    },
+    "NextToken": {
+      "@id": "amtu:NextToken"
+    },
+    "Notification": {
+      "@id": "amtu:Notification"
+    },
+    "NotifyWorkersFailureCode": {
+      "@id": "amtu:NotifyWorkersFailureCode"
+    },
+    "NotifyWorkersFailureMessage": {
+      "@id": "amtu:NotifyWorkersFailureMessage"
+    },
+    "NotifyWorkersFailureStatuses": {
+      "@id": "amtu:NotifyWorkersFailureStatuses"
+    },
+    "NumResults": {
+      "@id": "amtu:NumResults"
+    },
+    "NumberOfAdditionalAssignments": {
+      "@id": "amtu:NumberOfAdditionalAssignments"
+    },
+    "NumberOfAssignmentsAvailable": {
+      "@id": "amtu:NumberOfAssignmentsAvailable"
+    },
+    "NumberOfAssignmentsCompleted": {
+      "@id": "amtu:NumberOfAssignmentsCompleted"
+    },
+    "NumberOfAssignmentsPending": {
+      "@id": "amtu:NumberOfAssignmentsPending"
+    },
+    "OnHoldBalance": {
+      "@id": "amtu:OnHoldBalance"
+    },
+    "OverrideRejection": {
+      "@id": "amtu:OverrideRejection"
+    },
+    "Parameters": {
+      "@id": "amtu:Parameters"
+    },
+    "PolicyLevels": {
+      "@id": "amtu:PolicyLevels"
+    },
+    "PolicyName": {
+      "@id": "amtu:PolicyName"
+    },
+    "QualificationRequestId": {
+      "@id": "amtu:QualificationRequestId"
+    },
+    "QualificationRequests": {
+      "@id": "amtu:QualificationRequests"
+    },
+    "QualificationRequirements": {
+      "@id": "amtu:QualificationRequirements"
+    },
+    "QualificationTypeId": {
+      "@id": "amtu:QualificationTypeId"
+    },
+    "QualificationTypeStatus": {
+      "@id": "amtu:QualificationTypeStatus"
+    },
+    "QualificationTypes": {
+      "@id": "amtu:QualificationTypes"
+    },
+    "Qualifications": {
+      "@id": "amtu:Qualifications"
+    },
+    "Query": {
+      "@id": "amtu:Query"
+    },
+    "Question": {
+      "@id": "amtu:Question"
+    },
+    "QuestionId": {
+      "@id": "amtu:QuestionId"
+    },
+    "QuestionIdentifier": {
+      "@id": "amtu:QuestionIdentifier"
+    },
+    "Reason": {
+      "@id": "amtu:Reason"
+    },
+    "RejectionTime": {
+      "@id": "amtu:RejectionTime"
+    },
+    "RequesterAnnotation": {
+      "@id": "amtu:RequesterAnnotation"
+    },
+    "RequesterFeedback": {
+      "@id": "amtu:RequesterFeedback"
+    },
+    "RequiredToPreview": {
+      "@id": "amtu:RequiredToPreview"
+    },
+    "Result": {
+      "@id": "amtu:Result"
+    },
+    "RetrieveActions": {
+      "@id": "amtu:RetrieveActions"
+    },
+    "RetrieveResults": {
+      "@id": "amtu:RetrieveResults"
+    },
+    "RetryDelayInSeconds": {
+      "@id": "amtu:RetryDelayInSeconds"
+    },
+    "Revert": {
+      "@id": "amtu:Revert"
+    },
+    "ReviewActions": {
+      "@id": "amtu:ReviewActions"
+    },
+    "ReviewResults": {
+      "@id": "amtu:ReviewResults"
+    },
+    "Reward": {
+      "@id": "amtu:Reward"
+    },
+    "SendNotification": {
+      "@id": "amtu:SendNotification"
+    },
+    "Status": {
+      "@id": "amtu:Status"
+    },
+    "Subdivision": {
+      "@id": "amtu:Subdivision"
+    },
+    "Subject": {
+      "@id": "amtu:Subject"
+    },
+    "SubjectId": {
+      "@id": "amtu:SubjectId"
+    },
+    "SubjectType": {
+      "@id": "amtu:SubjectType"
+    },
+    "SubmitTime": {
+      "@id": "amtu:SubmitTime"
+    },
+    "TargetId": {
+      "@id": "amtu:TargetId"
+    },
+    "TargetType": {
+      "@id": "amtu:TargetType"
+    },
+    "Test": {
+      "@id": "amtu:Test"
+    },
+    "TestDurationInSeconds": {
+      "@id": "amtu:TestDurationInSeconds"
+    },
+    "TestEventType": {
+      "@id": "amtu:TestEventType"
+    },
+    "Title": {
+      "@id": "amtu:Title"
+    },
+    "Transport": {
+      "@id": "amtu:Transport"
+    },
+    "UniqueRequestToken": {
+      "@id": "amtu:UniqueRequestToken"
+    },
+    "Value": {
+      "@id": "amtu:Value"
+    },
+    "Values": {
+      "@id": "amtu:Values"
+    },
+    "Version": {
+      "@id": "amtu:Version"
+    },
+    "WorkerBlocks": {
+      "@id": "amtu:WorkerBlocks"
+    },
+    "WorkerId": {
+      "@id": "amtu:WorkerId"
+    },
+    "WorkerIds": {
+      "@id": "amtu:WorkerIds"
+    }
+  }
+}

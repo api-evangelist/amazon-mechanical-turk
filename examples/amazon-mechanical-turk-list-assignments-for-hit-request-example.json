@@ -1,0 +1,6 @@
+{
+  "HITId": "abc12345",
+  "NextToken": "example-value",
+  "MaxResults": "example-value",
+  "AssignmentStatuses": "ACTIVE"
+}

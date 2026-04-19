@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-notification-specification-structure.json",
+  "name": "NotificationSpecification",
+  "description": "The NotificationSpecification data structure describes a HIT event notification for a HIT type.",
+  "type": "object",
+  "properties": {
+    "Destination": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "<p> The target for notification messages. The Destination\u2019s format is determined by the specified Transport: </p> <ul> <li> <p>When Transport is Email, the Destination is your email address.</p> </li> <li> <p>When Transport is SQS, the Destination is your queue URL.</p> </li> <li> <p>When Transport is SNS, the Destination is the ARN of your topic.</p> </li> </ul>"
+        }
+      ]
+    },
+    "Transport": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NotificationTransport"
+        },
+        {
+          "description": " The method Amazon Mechanical Turk uses to send the notification. Valid Values: Email | SQS | SNS. "
+        }
+      ]
+    },
+    "Version": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The version of the Notification API to use. Valid value is 2006-05-05."
+        }
+      ]
+    },
+    "EventTypes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EventTypeList"
+        },
+        {
+          "description": " The list of events that should cause notifications to be sent. Valid Values: AssignmentAccepted | AssignmentAbandoned | AssignmentReturned | AssignmentSubmitted | AssignmentRejected | AssignmentApproved | HITCreated | HITExtended | HITDisposed | HITReviewable | HITExpired | Ping. The Ping event is only valid for the SendTestEventNotification operation. "
+        }
+      ]
+    }
+  },
+  "required": [
+    "Destination",
+    "Transport",
+    "Version",
+    "EventTypes"
+  ]
+}

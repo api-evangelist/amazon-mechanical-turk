@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-event-type-structure.json",
+  "name": "EventType",
+  "description": "EventType schema from Amazon Mechanical Turk API",
+  "type": "string",
+  "enum": [
+    "AssignmentAccepted",
+    "AssignmentAbandoned",
+    "AssignmentReturned",
+    "AssignmentSubmitted",
+    "AssignmentRejected",
+    "AssignmentApproved",
+    "HITCreated",
+    "HITExpired",
+    "HITReviewable",
+    "HITExtended",
+    "HITDisposed",
+    "Ping"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-hit-access-actions-structure.json",
+  "name": "HITAccessActions",
+  "description": "HITAccessActions schema from Amazon Mechanical Turk API",
+  "type": "string",
+  "enum": [
+    "Accept",
+    "PreviewAndAccept",
+    "DiscoverPreviewAndAccept"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-entity-id-structure.json",
+  "name": "EntityId",
+  "description": "EntityId schema from Amazon Mechanical Turk API",
+  "type": "string",
+  "pattern": "^[A-Z0-9]+$"
+}

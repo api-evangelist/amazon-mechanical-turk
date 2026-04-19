@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-list-assignments-for-hit-request-structure.json",
+  "name": "ListAssignmentsForHITRequest",
+  "description": "ListAssignmentsForHITRequest schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "HITId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": "The ID of the HIT."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "Pagination token"
+        }
+      ]
+    },
+    "MaxResults": {
+      "$ref": "#/components/schemas/ResultSize"
+    },
+    "AssignmentStatuses": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssignmentStatusList"
+        },
+        {
+          "description": "The status of the assignments to return: Submitted | Approved | Rejected"
+        }
+      ]
+    }
+  },
+  "required": [
+    "HITId"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-review-action-status-structure.json",
+  "name": "ReviewActionStatus",
+  "description": "ReviewActionStatus schema from Amazon Mechanical Turk API",
+  "type": "string",
+  "enum": [
+    "Intended",
+    "Succeeded",
+    "Failed",
+    "Cancelled"
+  ]
+}

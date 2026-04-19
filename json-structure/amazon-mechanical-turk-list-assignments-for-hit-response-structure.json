@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-list-assignments-for-hit-response-structure.json",
+  "name": "ListAssignmentsForHITResponse",
+  "description": "ListAssignmentsForHITResponse schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "NextToken": {
+      "$ref": "#/components/schemas/PaginationToken"
+    },
+    "NumResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": " The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call."
+        }
+      ]
+    },
+    "Assignments": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssignmentList"
+        },
+        {
+          "description": " The collection of Assignment data structures returned by this call."
+        }
+      ]
+    }
+  }
+}

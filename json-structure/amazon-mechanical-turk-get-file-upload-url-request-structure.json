@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-get-file-upload-url-request-structure.json",
+  "name": "GetFileUploadURLRequest",
+  "description": "GetFileUploadURLRequest schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "AssignmentId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": "The ID of the assignment that contains the question with a FileUploadAnswer."
+        }
+      ]
+    },
+    "QuestionIdentifier": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The identifier of the question with a FileUploadAnswer, as specified in the QuestionForm of the HIT."
+        }
+      ]
+    }
+  },
+  "required": [
+    "AssignmentId",
+    "QuestionIdentifier"
+  ]
+}

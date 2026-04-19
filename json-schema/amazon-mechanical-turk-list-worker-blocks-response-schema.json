@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-list-worker-blocks-response-schema.json",
+  "title": "ListWorkerBlocksResponse",
+  "description": "ListWorkerBlocksResponse schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "NextToken": {
+      "$ref": "#/components/schemas/PaginationToken"
+    },
+    "NumResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": " The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call."
+        }
+      ]
+    },
+    "WorkerBlocks": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkerBlockList"
+        },
+        {
+          "description": " The list of WorkerBlocks, containing the collection of Worker IDs and reasons for blocking."
+        }
+      ]
+    }
+  }
+}

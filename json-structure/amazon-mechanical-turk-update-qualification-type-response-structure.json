@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-update-qualification-type-response-structure.json",
+  "name": "UpdateQualificationTypeResponse",
+  "description": "UpdateQualificationTypeResponse schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "QualificationType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/QualificationType"
+        },
+        {
+          "description": " Contains a QualificationType data structure."
+        }
+      ]
+    }
+  }
+}

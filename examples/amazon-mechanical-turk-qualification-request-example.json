@@ -1,0 +1,8 @@
+{
+  "QualificationRequestId": "abc12345",
+  "QualificationTypeId": "abc12345",
+  "WorkerId": "abc12345",
+  "Test": "example-value",
+  "Answer": "example-value",
+  "SubmitTime": "example-value"
+}

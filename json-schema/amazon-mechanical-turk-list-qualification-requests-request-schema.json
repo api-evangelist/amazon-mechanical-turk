@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-list-qualification-requests-request-schema.json",
+  "title": "ListQualificationRequestsRequest",
+  "description": "ListQualificationRequestsRequest schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "QualificationTypeId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": "The ID of the QualificationType."
+        }
+      ]
+    },
+    "NextToken": {
+      "$ref": "#/components/schemas/PaginationToken"
+    },
+    "MaxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResultSize"
+        },
+        {
+          "description": " The maximum number of results to return in a single call. "
+        }
+      ]
+    }
+  }
+}

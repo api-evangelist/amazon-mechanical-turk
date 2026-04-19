@@ -1,0 +1,246 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Amazon Mechanical Turk"
+  description: "Unified vocabulary for the Amazon Mechanical Turk Requester API covering HITs, assignments, qualifications, workers, and bonuses for crowdsourced human intelligence tasks."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - namespace: mturk-requester
+      version: "2017-01-17"
+      baseUrl: https://mturk-requester.us-east-1.amazonaws.com
+      status: active
+
+  resources:
+    - name: hits
+      description: "Human Intelligence Tasks - the primary unit of work assigned to workers."
+      apis:
+        - mturk-requester
+      actions: [create, get, list, delete, update]
+    - name: assignments
+      description: "Worker submissions for HITs that require requester review and approval."
+      apis:
+        - mturk-requester
+      actions: [get, list, approve, reject]
+    - name: qualifications
+      description: "Qualification types used to target specific worker pools based on skills."
+      apis:
+        - mturk-requester
+      actions: [create, get, list, delete, update]
+    - name: workers
+      description: "MTurk workers who complete HITs and receive payments."
+      apis:
+        - mturk-requester
+      actions: [notify, block, unblock, list]
+    - name: bonuses
+      description: "Bonus payments awarded to workers for exceptional HIT completion."
+      apis:
+        - mturk-requester
+      actions: [send, list]
+    - name: account
+      description: "Requester account balance and prepaid funds."
+      apis:
+        - mturk-requester
+      actions: [get]
+
+  actions:
+    - name: create
+      description: "Create a new resource such as a HIT or qualification type."
+      httpMethod: POST
+      pattern: write
+    - name: get
+      description: "Retrieve details of a specific resource."
+      httpMethod: POST
+      pattern: read
+    - name: list
+      description: "Retrieve a collection of resources."
+      httpMethod: POST
+      pattern: read
+    - name: delete
+      description: "Remove a resource."
+      httpMethod: POST
+      pattern: destructive
+    - name: update
+      description: "Modify an existing resource."
+      httpMethod: POST
+      pattern: write
+    - name: approve
+      description: "Accept and release payment for a completed assignment."
+      httpMethod: POST
+      pattern: write
+    - name: reject
+      description: "Decline a completed assignment with feedback."
+      httpMethod: POST
+      pattern: write
+    - name: send
+      description: "Send a payment or notification to a worker."
+      httpMethod: POST
+      pattern: write
+    - name: notify
+      description: "Send a notification message to workers."
+      httpMethod: POST
+      pattern: write
+    - name: block
+      description: "Prevent a worker from working on requester's HITs."
+      httpMethod: POST
+      pattern: write
+
+  schemas:
+    core:
+      - name: HIT
+        description: "A Human Intelligence Task containing instructions, rewards, and requirements."
+        properties: [HITId, HITTypeId, Title, Description, Reward, MaxAssignments, HITStatus, Expiration]
+      - name: Assignment
+        description: "A worker's response to a HIT including answers and status."
+        properties: [AssignmentId, WorkerId, HITId, AssignmentStatus, Answer, SubmitTime, AutoApprovalTime]
+    supporting:
+      - name: QualificationType
+        description: "A qualification used to filter workers for specific HITs."
+        properties: [QualificationTypeId, Name, Description, QualificationTypeStatus, Test]
+      - name: BonusPayment
+        description: "A bonus payment made to a worker."
+        properties: [WorkerId, BonusAmount, AssignmentId, Reason, GrantTime]
+
+  parameters:
+    identifiers:
+      - name: HITId
+        description: "Unique identifier for a Human Intelligence Task."
+      - name: AssignmentId
+        description: "Unique identifier for a worker assignment."
+      - name: WorkerId
+        description: "Unique identifier for an MTurk worker."
+      - name: QualificationTypeId
+        description: "Unique identifier for a qualification type."
+    filters:
+      - name: AssignmentStatus
+        description: "Filter assignments by status (Submitted, Approved, Rejected)."
+      - name: HITTypeId
+        description: "Filter HITs by HIT type."
+
+  enums:
+    hit-status:
+      - Assignable
+      - Unassignable
+      - Reviewable
+      - Reviewing
+      - Disposed
+    assignment-status:
+      - Submitted
+      - Approved
+      - Rejected
+    qualification-status:
+      - Active
+      - Inactive
+
+  authentication:
+    schemes:
+      - type: AWS Signature Version 4
+        description: "AWS SigV4 signing for all MTurk API requests."
+        apis:
+          - mturk-requester
+
+capability:
+  workflows:
+    - name: Crowdsourcing Workflow
+      file: capabilities/crowdsourcing-workflow.yaml
+      description: "Workflow for data scientists and researchers to manage HITs and worker assignments on Amazon Mechanical Turk."
+      apisComposed:
+        - mturk-requester
+      toolCount: 10
+      personas:
+        - Data Scientist
+        - Researcher
+
+  personas:
+    - id: data-scientist
+      name: Data Scientist
+      description: "Data scientist using MTurk for data labeling, annotation, and validation tasks."
+      workflows:
+        - Crowdsourcing Workflow
+    - id: researcher
+      name: Researcher
+      description: "Academic or market researcher coordinating human intelligence tasks for studies and surveys."
+      workflows:
+        - Crowdsourcing Workflow
+
+  domains:
+    - name: Task Management
+      description: "Creating and managing HITs for crowdsourced work."
+      resources: [hits, assignments]
+    - name: Worker Management
+      description: "Managing worker qualifications, blocks, bonuses, and notifications."
+      resources: [workers, qualifications, bonuses]
+    - name: Account Management
+      description: "Managing account balance and prepaid funds."
+      resources: [account]
+
+  namespaces:
+    - name: mturk-requester
+      type: consumed
+      description: "Amazon Mechanical Turk Requester API"
+    - name: mturk-crowdsourcing-api
+      type: rest-exposed
+      port: 8080
+    - name: mturk-crowdsourcing-mcp
+      type: mcp-exposed
+      port: 9090
+
+  binds:
+    - name: AWS_ACCESS_KEY_ID
+      description: "AWS access key for MTurk API authentication."
+      workflows:
+        - Crowdsourcing Workflow
+    - name: AWS_SECRET_ACCESS_KEY
+      description: "AWS secret key for MTurk API authentication."
+      workflows:
+        - Crowdsourcing Workflow
+    - name: AWS_REGION
+      description: "AWS region for MTurk API endpoint."
+      workflows:
+        - Crowdsourcing Workflow
+
+crossReference:
+  - resource: hits
+    operations:
+      - CreateHIT
+      - GetHIT
+      - ListHITs
+      - DeleteHIT
+      - CreateHITType
+      - CreateHITWithHITType
+    workflows:
+      - Crowdsourcing Workflow
+    personas:
+      - Data Scientist
+      - Researcher
+  - resource: assignments
+    operations:
+      - GetAssignment
+      - ListAssignmentsForHIT
+      - ApproveAssignment
+      - RejectAssignment
+    workflows:
+      - Crowdsourcing Workflow
+    personas:
+      - Data Scientist
+      - Researcher
+  - resource: workers
+    operations:
+      - NotifyWorkers
+      - CreateWorkerBlock
+      - DeleteWorkerBlock
+      - ListWorkerBlocks
+    workflows:
+      - Crowdsourcing Workflow
+    personas:
+      - Data Scientist
+  - resource: bonuses
+    operations:
+      - SendBonus
+      - ListBonusPayments
+    workflows:
+      - Crowdsourcing Workflow
+    personas:
+      - Data Scientist

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-get-account-balance-response-schema.json",
+  "title": "GetAccountBalanceResponse",
+  "description": "GetAccountBalanceResponse schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "AvailableBalance": {
+      "$ref": "#/components/schemas/CurrencyAmount"
+    },
+    "OnHoldBalance": {
+      "$ref": "#/components/schemas/CurrencyAmount"
+    }
+  }
+}

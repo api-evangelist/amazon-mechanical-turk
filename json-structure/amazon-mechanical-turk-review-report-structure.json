@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-review-report-structure.json",
+  "name": "ReviewReport",
+  "description": " Contains both ReviewResult and ReviewAction elements for a particular HIT. ",
+  "type": "object",
+  "properties": {
+    "ReviewResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ReviewResultDetailList"
+        },
+        {
+          "description": " A list of ReviewResults objects for each action specified in the Review Policy. "
+        }
+      ]
+    },
+    "ReviewActions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ReviewActionDetailList"
+        },
+        {
+          "description": " A list of ReviewAction objects for each action specified in the Review Policy. "
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "AutoApprovalDelayInSeconds": "example-value",
+  "AssignmentDurationInSeconds": "example-value",
+  "Reward": "example-value",
+  "Title": "example-value",
+  "Keywords": "example-value",
+  "Description": "Example resource description",
+  "QualificationRequirements": "example-value"
+}

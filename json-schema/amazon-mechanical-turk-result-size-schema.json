@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-result-size-schema.json",
+  "title": "ResultSize",
+  "description": "ResultSize schema from Amazon Mechanical Turk API",
+  "type": "integer",
+  "minimum": 1,
+  "maximum": 100
+}

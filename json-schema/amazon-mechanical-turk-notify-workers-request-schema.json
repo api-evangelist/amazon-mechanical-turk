@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-notify-workers-request-schema.json",
+  "title": "NotifyWorkersRequest",
+  "description": "NotifyWorkersRequest schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "Subject": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The subject line of the email message to send. Can include up to 200 characters."
+        }
+      ]
+    },
+    "MessageText": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The text of the email message to send. Can include up to 4,096 characters"
+        }
+      ]
+    },
+    "WorkerIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CustomerIdList"
+        },
+        {
+          "description": "A list of Worker IDs you wish to notify. You can notify upto 100 Workers at a time."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Subject",
+    "MessageText",
+    "WorkerIds"
+  ]
+}

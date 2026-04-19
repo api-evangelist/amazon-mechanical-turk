@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-service-fault-structure.json",
+  "name": "ServiceFault",
+  "description": "ServiceFault schema from Amazon Mechanical Turk API"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-delete-qualification-type-request-schema.json",
+  "title": "DeleteQualificationTypeRequest",
+  "description": "DeleteQualificationTypeRequest schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "QualificationTypeId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": "The ID of the QualificationType to dispose."
+        }
+      ]
+    }
+  },
+  "required": [
+    "QualificationTypeId"
+  ]
+}

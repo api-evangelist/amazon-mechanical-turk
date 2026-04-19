@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-associate-qualification-with-worker-request-schema.json",
+  "title": "AssociateQualificationWithWorkerRequest",
+  "description": "AssociateQualificationWithWorkerRequest schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "QualificationTypeId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": "The ID of the Qualification type to use for the assigned Qualification."
+        }
+      ]
+    },
+    "WorkerId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CustomerId"
+        },
+        {
+          "description": " The ID of the Worker to whom the Qualification is being assigned. Worker IDs are included with submitted HIT assignments and Qualification requests. "
+        }
+      ]
+    },
+    "IntegerValue": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The value of the Qualification to assign."
+        }
+      ]
+    },
+    "SendNotification": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": " Specifies whether to send a notification email message to the Worker saying that the qualification was assigned to the Worker. Note: this is true by default. "
+        }
+      ]
+    }
+  },
+  "required": [
+    "QualificationTypeId",
+    "WorkerId"
+  ]
+}

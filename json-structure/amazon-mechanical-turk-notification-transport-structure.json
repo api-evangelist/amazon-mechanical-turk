@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-notification-transport-structure.json",
+  "name": "NotificationTransport",
+  "description": "NotificationTransport schema from Amazon Mechanical Turk API",
+  "type": "string",
+  "enum": [
+    "Email",
+    "SQS",
+    "SNS"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-hit-review-status-structure.json",
+  "name": "HITReviewStatus",
+  "description": "HITReviewStatus schema from Amazon Mechanical Turk API",
+  "type": "string",
+  "enum": [
+    "NotReviewed",
+    "MarkedForReview",
+    "ReviewedAppropriate",
+    "ReviewedInappropriate"
+  ]
+}

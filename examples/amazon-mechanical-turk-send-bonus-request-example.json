@@ -1,0 +1,7 @@
+{
+  "WorkerId": "abc12345",
+  "BonusAmount": "example-value",
+  "AssignmentId": "abc12345",
+  "Reason": "example-value",
+  "UniqueRequestToken": "example-value"
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-accept-qualification-request-request-structure.json",
+  "name": "AcceptQualificationRequestRequest",
+  "description": "AcceptQualificationRequestRequest schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "QualificationRequestId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The ID of the Qualification request, as returned by the <code>GetQualificationRequests</code> operation."
+        }
+      ]
+    },
+    "IntegerValue": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": " The value of the Qualification. You can omit this value if you are using the presence or absence of the Qualification as the basis for a HIT requirement. "
+        }
+      ]
+    }
+  },
+  "required": [
+    "QualificationRequestId"
+  ]
+}

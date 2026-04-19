@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-list-hi-ts-for-qualification-type-request-schema.json",
+  "title": "ListHITsForQualificationTypeRequest",
+  "description": "ListHITsForQualificationTypeRequest schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "QualificationTypeId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": " The ID of the Qualification type to use when querying HITs. "
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "Pagination Token"
+        }
+      ]
+    },
+    "MaxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResultSize"
+        },
+        {
+          "description": " Limit the number of results returned. "
+        }
+      ]
+    }
+  },
+  "required": [
+    "QualificationTypeId"
+  ]
+}

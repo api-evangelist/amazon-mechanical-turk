@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-bonus-payment-schema.json",
+  "title": "BonusPayment",
+  "description": "An object representing a Bonus payment paid to a Worker.",
+  "type": "object",
+  "properties": {
+    "WorkerId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CustomerId"
+        },
+        {
+          "description": "The ID of the Worker to whom the bonus was paid."
+        }
+      ]
+    },
+    "BonusAmount": {
+      "$ref": "#/components/schemas/CurrencyAmount"
+    },
+    "AssignmentId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": "The ID of the assignment associated with this bonus payment."
+        }
+      ]
+    },
+    "Reason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The Reason text given when the bonus was granted, if any."
+        }
+      ]
+    },
+    "GrantTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time of when the bonus was granted."
+        }
+      ]
+    }
+  }
+}

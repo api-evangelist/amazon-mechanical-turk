@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-list-worker-blocks-request-structure.json",
+  "name": "ListWorkerBlocksRequest",
+  "description": "ListWorkerBlocksRequest schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "Pagination token"
+        }
+      ]
+    },
+    "MaxResults": {
+      "$ref": "#/components/schemas/ResultSize"
+    }
+  }
+}

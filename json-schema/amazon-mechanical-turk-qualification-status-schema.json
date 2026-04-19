@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-qualification-status-schema.json",
+  "title": "QualificationStatus",
+  "description": "QualificationStatus schema from Amazon Mechanical Turk API",
+  "type": "string",
+  "enum": [
+    "Granted",
+    "Revoked"
+  ]
+}

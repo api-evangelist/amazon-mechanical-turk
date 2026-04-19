@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-update-hit-review-status-response-schema.json",
+  "title": "UpdateHITReviewStatusResponse",
+  "description": "UpdateHITReviewStatusResponse schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {}
+}

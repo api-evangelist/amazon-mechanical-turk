@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-reviewable-hit-status-schema.json",
+  "title": "ReviewableHITStatus",
+  "description": "ReviewableHITStatus schema from Amazon Mechanical Turk API",
+  "type": "string",
+  "enum": [
+    "Reviewable",
+    "Reviewing"
+  ]
+}

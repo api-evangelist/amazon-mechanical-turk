@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-update-expiration-for-hit-request-schema.json",
+  "title": "UpdateExpirationForHITRequest",
+  "description": "UpdateExpirationForHITRequest schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "HITId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": " The HIT to update. "
+        }
+      ]
+    },
+    "ExpireAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": " The date and time at which you want the HIT to expire "
+        }
+      ]
+    }
+  },
+  "required": [
+    "HITId",
+    "ExpireAt"
+  ]
+}

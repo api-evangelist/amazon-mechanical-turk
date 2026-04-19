@@ -1,0 +1,14 @@
+{
+  "AssignmentId": "abc12345",
+  "WorkerId": "abc12345",
+  "HITId": "abc12345",
+  "AssignmentStatus": "ACTIVE",
+  "AutoApprovalTime": "example-value",
+  "AcceptTime": "example-value",
+  "SubmitTime": "example-value",
+  "ApprovalTime": "example-value",
+  "RejectionTime": "example-value",
+  "Deadline": "example-value",
+  "Answer": "example-value",
+  "RequesterFeedback": "example-value"
+}

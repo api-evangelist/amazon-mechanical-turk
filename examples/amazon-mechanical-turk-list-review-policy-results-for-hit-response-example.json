@@ -1,0 +1,8 @@
+{
+  "HITId": "abc12345",
+  "AssignmentReviewPolicy": "example-value",
+  "HITReviewPolicy": "example-value",
+  "AssignmentReviewReport": "example-value",
+  "HITReviewReport": "example-value",
+  "NextToken": "example-value"
+}

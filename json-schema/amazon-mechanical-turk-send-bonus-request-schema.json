@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-send-bonus-request-schema.json",
+  "title": "SendBonusRequest",
+  "description": "SendBonusRequest schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "WorkerId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CustomerId"
+        },
+        {
+          "description": "The ID of the Worker being paid the bonus."
+        }
+      ]
+    },
+    "BonusAmount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CurrencyAmount"
+        },
+        {
+          "description": " The Bonus amount is a US Dollar amount specified using a string (for example, \"5\" represents $5.00 USD and \"101.42\" represents $101.42 USD). Do not include currency symbols or currency codes. "
+        }
+      ]
+    },
+    "AssignmentId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": "The ID of the assignment for which this bonus is paid."
+        }
+      ]
+    },
+    "Reason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "A message that explains the reason for the bonus payment. The Worker receiving the bonus can see this message."
+        }
+      ]
+    },
+    "UniqueRequestToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IdempotencyToken"
+        },
+        {
+          "description": "A unique identifier for this request, which allows you to retry the call on error without granting multiple bonuses. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the bonus already exists in the system from a previous call using the same UniqueRequestToken, subsequent calls will return an error with a message containing the request ID."
+        }
+      ]
+    }
+  },
+  "required": [
+    "WorkerId",
+    "BonusAmount",
+    "AssignmentId",
+    "Reason"
+  ]
+}

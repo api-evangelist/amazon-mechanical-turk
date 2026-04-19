@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-create-hit-response-structure.json",
+  "name": "CreateHITResponse",
+  "description": "CreateHITResponse schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "HIT": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HIT"
+        },
+        {
+          "description": " Contains the newly created HIT data. For a description of the HIT data structure as it appears in responses, see the HIT Data Structure documentation. "
+        }
+      ]
+    }
+  }
+}

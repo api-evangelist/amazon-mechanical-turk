@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-update-expiration-for-hit-response-structure.json",
+  "name": "UpdateExpirationForHITResponse",
+  "description": "UpdateExpirationForHITResponse schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {}
+}

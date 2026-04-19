@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-create-worker-block-request-schema.json",
+  "title": "CreateWorkerBlockRequest",
+  "description": "CreateWorkerBlockRequest schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "WorkerId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CustomerId"
+        },
+        {
+          "description": "The ID of the Worker to block."
+        }
+      ]
+    },
+    "Reason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "A message explaining the reason for blocking the Worker. This parameter enables you to keep track of your Workers. The Worker does not see this message."
+        }
+      ]
+    }
+  },
+  "required": [
+    "WorkerId",
+    "Reason"
+  ]
+}

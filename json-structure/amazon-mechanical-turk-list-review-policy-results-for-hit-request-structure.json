@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-list-review-policy-results-for-hit-request-structure.json",
+  "name": "ListReviewPolicyResultsForHITRequest",
+  "description": "ListReviewPolicyResultsForHITRequest schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "HITId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": "The unique identifier of the HIT to retrieve review results for."
+        }
+      ]
+    },
+    "PolicyLevels": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ReviewPolicyLevelList"
+        },
+        {
+          "description": " The Policy Level(s) to retrieve review results for - HIT or Assignment. If omitted, the default behavior is to retrieve all data for both policy levels. For a list of all the described policies, see Review Policies. "
+        }
+      ]
+    },
+    "RetrieveActions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": " Specify if the operation should retrieve a list of the actions taken executing the Review Policies and their outcomes. "
+        }
+      ]
+    },
+    "RetrieveResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": " Specify if the operation should retrieve a list of the results computed by the Review Policies. "
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "Pagination token"
+        }
+      ]
+    },
+    "MaxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResultSize"
+        },
+        {
+          "description": "Limit the number of results returned."
+        }
+      ]
+    }
+  },
+  "required": [
+    "HITId"
+  ]
+}

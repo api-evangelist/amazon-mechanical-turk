@@ -1,0 +1,15 @@
+{
+  "QualificationTypeId": "abc12345",
+  "CreationTime": "example-value",
+  "Name": "my-resource",
+  "Description": "Example resource description",
+  "Keywords": "example-value",
+  "QualificationTypeStatus": "ACTIVE",
+  "Test": "example-value",
+  "TestDurationInSeconds": "example-value",
+  "AnswerKey": "example-value",
+  "RetryDelayInSeconds": "example-value",
+  "IsRequestable": "example-value",
+  "AutoGranted": "example-value",
+  "AutoGrantedValue": "example-value"
+}

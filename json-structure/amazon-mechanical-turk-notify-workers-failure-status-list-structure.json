@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-notify-workers-failure-status-list-structure.json",
+  "name": "NotifyWorkersFailureStatusList",
+  "description": "NotifyWorkersFailureStatusList schema from Amazon Mechanical Turk API",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/NotifyWorkersFailureStatus"
+  }
+}

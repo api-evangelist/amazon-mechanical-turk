@@ -1,0 +1,8 @@
+{
+  "HITId": "abc12345",
+  "PolicyLevels": "example-value",
+  "RetrieveActions": "example-value",
+  "RetrieveResults": "example-value",
+  "NextToken": "example-value",
+  "MaxResults": "example-value"
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-assignment-status-list-structure.json",
+  "name": "AssignmentStatusList",
+  "description": "AssignmentStatusList schema from Amazon Mechanical Turk API",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/AssignmentStatus"
+  }
+}

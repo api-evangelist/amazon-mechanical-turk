@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-list-reviewable-hi-ts-request-schema.json",
+  "title": "ListReviewableHITsRequest",
+  "description": "ListReviewableHITsRequest schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "HITTypeId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": " The ID of the HIT type of the HITs to consider for the query. If not specified, all HITs for the Reviewer are considered "
+        }
+      ]
+    },
+    "Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ReviewableHITStatus"
+        },
+        {
+          "description": " Can be either <code>Reviewable</code> or <code>Reviewing</code>. Reviewable is the default value. "
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "Pagination Token"
+        }
+      ]
+    },
+    "MaxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResultSize"
+        },
+        {
+          "description": " Limit the number of results returned. "
+        }
+      ]
+    }
+  }
+}

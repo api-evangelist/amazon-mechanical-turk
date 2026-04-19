@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-policy-parameter-structure.json",
+  "name": "PolicyParameter",
+  "description": " Name of the parameter from the Review policy. ",
+  "type": "object",
+  "properties": {
+    "Key": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": " Name of the parameter from the list of Review Polices. "
+        }
+      ]
+    },
+    "Values": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StringList"
+        },
+        {
+          "description": " The list of values of the Parameter"
+        }
+      ]
+    },
+    "MapEntries": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ParameterMapEntryList"
+        },
+        {
+          "description": " List of ParameterMapEntry objects. "
+        }
+      ]
+    }
+  }
+}

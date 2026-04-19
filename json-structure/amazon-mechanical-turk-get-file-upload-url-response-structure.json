@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-get-file-upload-url-response-structure.json",
+  "name": "GetFileUploadURLResponse",
+  "description": "GetFileUploadURLResponse schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "FileUploadURL": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": " A temporary URL for the file that the Worker uploaded for the answer. "
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-currency-amount-structure.json",
+  "name": "CurrencyAmount",
+  "description": "A string representing a currency amount.",
+  "type": "string",
+  "pattern": "^[0-9]+(\\.)?[0-9]{0,2}$"
+}

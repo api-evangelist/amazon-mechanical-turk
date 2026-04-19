@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-update-hit-type-of-hit-request-schema.json",
+  "title": "UpdateHITTypeOfHITRequest",
+  "description": "UpdateHITTypeOfHITRequest schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "HITId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": "The HIT to update."
+        }
+      ]
+    },
+    "HITTypeId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": "The ID of the new HIT type."
+        }
+      ]
+    }
+  },
+  "required": [
+    "HITId",
+    "HITTypeId"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-list-review-policy-results-for-hit-response-structure.json",
+  "name": "ListReviewPolicyResultsForHITResponse",
+  "description": "ListReviewPolicyResultsForHITResponse schema from Amazon Mechanical Turk API",
+  "type": "object",
+  "properties": {
+    "HITId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": "The HITId of the HIT for which results have been returned."
+        }
+      ]
+    },
+    "AssignmentReviewPolicy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ReviewPolicy"
+        },
+        {
+          "description": " The name of the Assignment-level Review Policy. This contains only the PolicyName element. "
+        }
+      ]
+    },
+    "HITReviewPolicy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ReviewPolicy"
+        },
+        {
+          "description": "The name of the HIT-level Review Policy. This contains only the PolicyName element."
+        }
+      ]
+    },
+    "AssignmentReviewReport": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ReviewReport"
+        },
+        {
+          "description": " Contains both ReviewResult and ReviewAction elements for an Assignment. "
+        }
+      ]
+    },
+    "HITReviewReport": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ReviewReport"
+        },
+        {
+          "description": "Contains both ReviewResult and ReviewAction elements for a particular HIT. "
+        }
+      ]
+    },
+    "NextToken": {
+      "$ref": "#/components/schemas/PaginationToken"
+    }
+  }
+}

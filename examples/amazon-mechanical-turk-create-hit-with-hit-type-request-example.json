@@ -1,0 +1,12 @@
+{
+  "HITTypeId": "abc12345",
+  "MaxAssignments": "example-value",
+  "LifetimeInSeconds": "example-value",
+  "Question": "example-value",
+  "RequesterAnnotation": "example-value",
+  "UniqueRequestToken": "example-value",
+  "AssignmentReviewPolicy": "example-value",
+  "HITReviewPolicy": "example-value",
+  "HITLayoutId": "abc12345",
+  "HITLayoutParameters": "example-value"
+}

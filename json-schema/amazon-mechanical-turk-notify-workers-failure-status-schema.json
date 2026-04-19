@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-notify-workers-failure-status-schema.json",
+  "title": "NotifyWorkersFailureStatus",
+  "description": " When MTurk encounters an issue with notifying the Workers you specified, it returns back this object with failure details. ",
+  "type": "object",
+  "properties": {
+    "NotifyWorkersFailureCode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NotifyWorkersFailureCode"
+        },
+        {
+          "description": " Encoded value for the failure type. "
+        }
+      ]
+    },
+    "NotifyWorkersFailureMessage": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": " A message detailing the reason the Worker could not be notified. "
+        }
+      ]
+    },
+    "WorkerId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CustomerId"
+        },
+        {
+          "description": " The ID of the Worker."
+        }
+      ]
+    }
+  }
+}

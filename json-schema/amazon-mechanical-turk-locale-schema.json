@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-schema/amazon-mechanical-turk-locale-schema.json",
+  "title": "Locale",
+  "description": "The Locale data structure represents a geographical region or location.",
+  "type": "object",
+  "properties": {
+    "Country": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CountryParameters"
+        },
+        {
+          "description": " The country of the locale. Must be a valid ISO 3166 country code. For example, the code US refers to the United States of America. "
+        }
+      ]
+    },
+    "Subdivision": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CountryParameters"
+        },
+        {
+          "description": "The state or subdivision of the locale. A valid ISO 3166-2 subdivision code. For example, the code WA refers to the state of Washington."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Country"
+  ]
+}

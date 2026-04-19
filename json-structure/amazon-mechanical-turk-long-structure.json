@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/json-structure/amazon-mechanical-turk-long-structure.json",
+  "name": "Long",
+  "description": "Long schema from Amazon Mechanical Turk API",
+  "type": "int32"
+}
