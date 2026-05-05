@@ -1,0 +1,8 @@
+---
+title: "Amazon Mechanical Turk @ HCOMP 2019"
+url: "https://blog.mturk.com/amazon-mechanical-turk-hcomp-2019-9f582ecc3dc0?source=rss----45f383204474---4"
+date: "Wed, 16 Oct 2019 23:21:02 GMT"
+author: "Amazon Mechanical Turk"
+feed_url: "https://blog.mturk.com/feed"
+---
+<p>Members of the MTurk team will be attending the the Association for the Advancement of Artificial Intelligence (AAAI) <a href="http://www.humancomputation.com/2019/">Conference on Human Computation and Crowdsourcing (HCOMP 2019)</a> in Skamania, Washington from October 28th through October 30th. <br /> <br /> HCOMP is the premier venue for disseminating the latest research findings on crowdsourcing and human computation. MTurk has the privilege of sponsoring the conference this year. We are looking forward to learning about the latest research in crowdsourcing and are excited to hear about the new ways people are using MTurk. We are continuously impressed with the innovative ideas that researchers are developing to advance the state of crowdsourcing. It’s clear that there is tremendous potential; things are just getting started. <br /> <br />Stop by the MTurk booth to say hello and pick up some great SWAG. We look forward to seeing you there!</p><img alt="" height="1" src="https://medium.com/_/stat?event=post.clientViewed&amp;referrerSource=full_rss&amp;postId=9f582ecc3dc0" width="1" /><hr /><p><a href="https://blog.mturk.com/amazon-mechanical-turk-hcomp-2019-9f582ecc3dc0">Amazon Mechanical Turk @ HCOMP 2019</a> was originally published in <a href="https://blog.mturk.com">Happenings at MTurk</a> on Medium, where people are continuing the conversation by highlighting and responding to this story.</p>

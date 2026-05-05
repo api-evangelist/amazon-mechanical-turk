@@ -1,0 +1,13 @@
+{
+  "repo": "amazon-mechanical-turk",
+  "feeds": [
+    {
+      "source": "https://blog.mturk.com/",
+      "feed_url": "https://blog.mturk.com/feed",
+      "saved": 10,
+      "title": "Happenings at MTurk - Medium"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:21:44Z"
+}
