@@ -1,211 +1,403 @@
-naftiko: "1.0.0-alpha1"
-
+naftiko: 1.0.0-alpha2
 info:
-  label: "Amazon Mechanical Turk - Crowdsourcing Workflow"
-  description: "Workflow capability for data scientists and researchers to create HITs, manage worker assignments, approve work, and coordinate crowdsourced human intelligence tasks through Amazon Mechanical Turk."
+  label: Amazon Mechanical Turk - Crowdsourcing Workflow
+  description: Workflow capability for data scientists and researchers to create HITs, manage worker assignments, approve
+    work, and coordinate crowdsourced human intelligence tasks through Amazon Mechanical Turk.
   tags:
-    - Amazon
-    - Mechanical Turk
-    - Crowdsourcing
-    - Human Intelligence
-    - Tasks
-    - Machine Learning
-  created: "2026-04-19"
-  modified: "2026-04-19"
-
+  - Amazon
+  - Mechanical Turk
+  - Crowdsourcing
+  - Human Intelligence
+  - Tasks
+  - Machine Learning
+  created: '2026-04-19'
+  modified: '2026-05-06'
 binds:
-  - namespace: env
-    keys:
-      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
-      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
-      AWS_REGION: AWS_REGION
-
+- namespace: env
+  keys:
+    AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+    AWS_REGION: AWS_REGION
 capability:
   consumes:
-    - import: mturk-requester
-      location: ./shared/mturk-requester.yaml
-
+  - type: http
+    namespace: mturk-requester
+    baseUri: https://mturk-requester.us-east-1.amazonaws.com
+    description: Amazon Mechanical Turk Requester API for managing HITs and worker tasks.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{AWS_ACCESS_KEY_ID}}'
+      placement: header
+    resources:
+    - name: hits
+      path: /
+      description: Human Intelligence Tasks (HITs) - the core unit of work in MTurk.
+      operations:
+      - name: create-hit
+        method: POST
+        description: Create a new HIT.
+        body:
+          type: json
+          data:
+            title: '{{tools.title}}'
+            description: '{{tools.description}}'
+            reward: '{{tools.reward}}'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: get-hit
+        method: POST
+        description: Get details of a specific HIT.
+        body:
+          type: json
+          data:
+            HITId: '{{tools.hitId}}'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: list-hits
+        method: POST
+        description: List all HITs for the requester account.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: delete-hit
+        method: POST
+        description: Delete a HIT that has been completed or abandoned.
+        body:
+          type: json
+          data:
+            HITId: '{{tools.hitId}}'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: assignments
+      path: /
+      description: Worker assignments submitted for HITs.
+      operations:
+      - name: list-assignments-for-hit
+        method: POST
+        description: List all assignments for a specific HIT.
+        body:
+          type: json
+          data:
+            HITId: '{{tools.hitId}}'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: get-assignment
+        method: POST
+        description: Get details of a specific assignment.
+        body:
+          type: json
+          data:
+            AssignmentId: '{{tools.assignmentId}}'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: approve-assignment
+        method: POST
+        description: Approve a completed assignment and release payment to the worker.
+        body:
+          type: json
+          data:
+            AssignmentId: '{{tools.assignmentId}}'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: reject-assignment
+        method: POST
+        description: Reject a completed assignment.
+        body:
+          type: json
+          data:
+            AssignmentId: '{{tools.assignmentId}}'
+            RequesterFeedback: '{{tools.feedback}}'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: qualifications
+      path: /
+      description: Qualification types and worker qualification management.
+      operations:
+      - name: create-qualification-type
+        method: POST
+        description: Create a new qualification type.
+        body:
+          type: json
+          data:
+            name: '{{tools.name}}'
+            description: '{{tools.description}}'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: list-qualification-types
+        method: POST
+        description: List all qualification types for the requester.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: get-qualification-type
+        method: POST
+        description: Get details of a specific qualification type.
+        body:
+          type: json
+          data:
+            QualificationTypeId: '{{tools.qualificationTypeId}}'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workers
+      path: /
+      description: Worker management including blocks, bonuses, and notifications.
+      operations:
+      - name: list-bonus-payments
+        method: POST
+        description: List bonus payments made to workers.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: send-bonus
+        method: POST
+        description: Pay a bonus to a worker for a completed assignment.
+        body:
+          type: json
+          data:
+            WorkerId: '{{tools.workerId}}'
+            BonusAmount: '{{tools.bonusAmount}}'
+            AssignmentId: '{{tools.assignmentId}}'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: notify-workers
+        method: POST
+        description: Send notification messages to workers.
+        body:
+          type: json
+          data:
+            Subject: '{{tools.subject}}'
+            MessageText: '{{tools.messageText}}'
+            WorkerIds: '{{tools.workerIds}}'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: get-account-balance
+        method: POST
+        description: Get the prepaid balance in the requester's MTurk account.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
   exposes:
-    - type: rest
-      port: 8080
-      namespace: mturk-crowdsourcing-api
-      description: "Unified REST API for Amazon Mechanical Turk crowdsourcing workflows."
-      resources:
-        - path: /v1/hits
-          name: hits
-          description: "Create and manage Human Intelligence Tasks."
-          operations:
-            - method: POST
-              name: create-hit
-              description: "Create a new HIT for crowdsourced task execution."
-              call: "mturk-requester.create-hit"
-              with:
-                title: "rest.title"
-                description: "rest.description"
-                reward: "rest.reward"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-            - method: GET
-              name: list-hits
-              description: "List all HITs in the requester account."
-              call: "mturk-requester.list-hits"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/assignments
-          name: assignments
-          description: "Review and manage worker assignment submissions."
-          operations:
-            - method: GET
-              name: list-assignments
-              description: "List all assignments submitted for a HIT."
-              call: "mturk-requester.list-assignments-for-hit"
-              with:
-                hitId: "rest.hitId"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-            - method: POST
-              name: approve-assignment
-              description: "Approve a completed assignment and release payment."
-              call: "mturk-requester.approve-assignment"
-              with:
-                assignmentId: "rest.assignmentId"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/workers
-          name: workers
-          description: "Manage worker bonuses and notifications."
-          operations:
-            - method: POST
-              name: send-bonus
-              description: "Send a bonus payment to a worker."
-              call: "mturk-requester.send-bonus"
-              with:
-                workerId: "rest.workerId"
-                bonusAmount: "rest.bonusAmount"
-                assignmentId: "rest.assignmentId"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/account
-          name: account
-          description: "Account balance and status."
-          operations:
-            - method: GET
-              name: get-account-balance
-              description: "Get the current prepaid balance in the MTurk account."
-              call: "mturk-requester.get-account-balance"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-    - type: mcp
-      port: 9090
-      namespace: mturk-crowdsourcing-mcp
-      transport: http
-      description: "MCP server for AI-assisted Amazon Mechanical Turk crowdsourcing task management."
-      tools:
-        - name: create-hit
-          description: "Create a new Human Intelligence Task for crowdsourced annotation, transcription, or research."
-          hints:
-            readOnly: false
-          call: "mturk-requester.create-hit"
-          with:
-            title: "tools.title"
-            description: "tools.description"
-            reward: "tools.reward"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-hits
-          description: "List all active and reviewable HITs in the requester account."
-          hints:
-            readOnly: true
-          call: "mturk-requester.list-hits"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: get-hit
-          description: "Get detailed information about a specific HIT including status and completion metrics."
-          hints:
-            readOnly: true
-          call: "mturk-requester.get-hit"
-          with:
-            hitId: "tools.hitId"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-assignments-for-hit
-          description: "List all worker assignments submitted for a specific HIT for review."
-          hints:
-            readOnly: true
-          call: "mturk-requester.list-assignments-for-hit"
-          with:
-            hitId: "tools.hitId"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: approve-assignment
-          description: "Approve a completed worker assignment and release payment."
-          hints:
-            readOnly: false
-          call: "mturk-requester.approve-assignment"
-          with:
-            assignmentId: "tools.assignmentId"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: reject-assignment
-          description: "Reject a completed worker assignment with feedback."
-          hints:
-            readOnly: false
-          call: "mturk-requester.reject-assignment"
-          with:
-            assignmentId: "tools.assignmentId"
-            feedback: "tools.feedback"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: send-bonus
-          description: "Send a bonus payment to a worker for exceptional task completion."
-          hints:
-            readOnly: false
-          call: "mturk-requester.send-bonus"
-          with:
-            workerId: "tools.workerId"
-            bonusAmount: "tools.bonusAmount"
-            assignmentId: "tools.assignmentId"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: notify-workers
-          description: "Send notification messages to specific workers."
-          hints:
-            readOnly: false
-          call: "mturk-requester.notify-workers"
-          with:
-            subject: "tools.subject"
-            messageText: "tools.messageText"
-            workerIds: "tools.workerIds"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: get-account-balance
-          description: "Get the current prepaid balance available in the MTurk requester account."
-          hints:
-            readOnly: true
-          call: "mturk-requester.get-account-balance"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-qualification-types
-          description: "List qualification types used to filter and target the right worker pool."
-          hints:
-            readOnly: true
-          call: "mturk-requester.list-qualification-types"
-          outputParameters:
-            - type: object
-              mapping: "$."
+  - type: rest
+    port: 8080
+    namespace: mturk-crowdsourcing-api
+    description: Unified REST API for Amazon Mechanical Turk crowdsourcing workflows.
+    resources:
+    - path: /v1/hits
+      name: hits
+      description: Create and manage Human Intelligence Tasks.
+      operations:
+      - method: POST
+        name: create-hit
+        description: Create a new HIT for crowdsourced task execution.
+        call: mturk-requester.create-hit
+        with:
+          title: rest.title
+          description: rest.description
+          reward: rest.reward
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: list-hits
+        description: List all HITs in the requester account.
+        call: mturk-requester.list-hits
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/assignments
+      name: assignments
+      description: Review and manage worker assignment submissions.
+      operations:
+      - method: GET
+        name: list-assignments
+        description: List all assignments submitted for a HIT.
+        call: mturk-requester.list-assignments-for-hit
+        with:
+          hitId: rest.hitId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: approve-assignment
+        description: Approve a completed assignment and release payment.
+        call: mturk-requester.approve-assignment
+        with:
+          assignmentId: rest.assignmentId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workers
+      name: workers
+      description: Manage worker bonuses and notifications.
+      operations:
+      - method: POST
+        name: send-bonus
+        description: Send a bonus payment to a worker.
+        call: mturk-requester.send-bonus
+        with:
+          workerId: rest.workerId
+          bonusAmount: rest.bonusAmount
+          assignmentId: rest.assignmentId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/account
+      name: account
+      description: Account balance and status.
+      operations:
+      - method: GET
+        name: get-account-balance
+        description: Get the current prepaid balance in the MTurk account.
+        call: mturk-requester.get-account-balance
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: mturk-crowdsourcing-mcp
+    transport: http
+    description: MCP server for AI-assisted Amazon Mechanical Turk crowdsourcing task management.
+    tools:
+    - name: create-hit
+      description: Create a new Human Intelligence Task for crowdsourced annotation, transcription, or research.
+      hints:
+        readOnly: false
+      call: mturk-requester.create-hit
+      with:
+        title: tools.title
+        description: tools.description
+        reward: tools.reward
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-hits
+      description: List all active and reviewable HITs in the requester account.
+      hints:
+        readOnly: true
+      call: mturk-requester.list-hits
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-hit
+      description: Get detailed information about a specific HIT including status and completion metrics.
+      hints:
+        readOnly: true
+      call: mturk-requester.get-hit
+      with:
+        hitId: tools.hitId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-assignments-for-hit
+      description: List all worker assignments submitted for a specific HIT for review.
+      hints:
+        readOnly: true
+      call: mturk-requester.list-assignments-for-hit
+      with:
+        hitId: tools.hitId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: approve-assignment
+      description: Approve a completed worker assignment and release payment.
+      hints:
+        readOnly: false
+      call: mturk-requester.approve-assignment
+      with:
+        assignmentId: tools.assignmentId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: reject-assignment
+      description: Reject a completed worker assignment with feedback.
+      hints:
+        readOnly: false
+      call: mturk-requester.reject-assignment
+      with:
+        assignmentId: tools.assignmentId
+        feedback: tools.feedback
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: send-bonus
+      description: Send a bonus payment to a worker for exceptional task completion.
+      hints:
+        readOnly: false
+      call: mturk-requester.send-bonus
+      with:
+        workerId: tools.workerId
+        bonusAmount: tools.bonusAmount
+        assignmentId: tools.assignmentId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: notify-workers
+      description: Send notification messages to specific workers.
+      hints:
+        readOnly: false
+      call: mturk-requester.notify-workers
+      with:
+        subject: tools.subject
+        messageText: tools.messageText
+        workerIds: tools.workerIds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-account-balance
+      description: Get the current prepaid balance available in the MTurk requester account.
+      hints:
+        readOnly: true
+      call: mturk-requester.get-account-balance
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-qualification-types
+      description: List qualification types used to filter and target the right worker pool.
+      hints:
+        readOnly: true
+      call: mturk-requester.list-qualification-types
+      outputParameters:
+      - type: object
+        mapping: $.
