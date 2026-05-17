@@ -52,7 +52,7 @@ apis:
         url: json-schema/amazon-mechanical-turk-hit-schema.json
       - type: JSONStructure
         url: json-structure/amazon-mechanical-turk-hit-structure.json
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/amazon-mechanical-turk-context.jsonld
 common:
   - type: Portal
