@@ -47,7 +47,7 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/amazon-mechanical-turk.yaml
 common:
 - type: Portal
@@ -64,7 +64,7 @@ common:
   url: https://blog.mturk.com/
 - type: GitHubOrganization
   url: https://github.com/aws
-- type: SignUp
+- type: Signup
   url: https://www.mturk.com/get-started
 - type: Login
   url: https://requester.mturk.com/
