@@ -50,6 +50,10 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-mechanical-turk.yaml
 common:
+- type: DomainSecurity
+  url: security/amazon-mechanical-turk-domain-security.yml
+- type: Authentication
+  url: authentication/amazon-mechanical-turk-authentication.yml
 - type: Portal
   url: https://www.mturk.com/
 - type: Documentation
