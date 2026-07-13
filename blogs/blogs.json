@@ -2,11 +2,10 @@
   "repo": "amazon-mechanical-turk",
   "feeds": [
     {
-      "source": "https://blog.mturk.com/",
-      "saved": 0,
-      "error": "fetch failed (no response/timeout)"
+      "source": "https://www.mturk.com/contact",
+      "error": "HTTPError"
     }
   ],
   "post_count": 13,
-  "fetched": "2026-06-27T12:20:57Z"
+  "fetched": "2026-07-11T11:50:51Z"
 }
