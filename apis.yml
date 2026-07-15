@@ -50,6 +50,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-mechanical-turk.yaml
 common:
+- type: AgenticAccess
+  url: agentic-access/amazon-mechanical-turk-agentic-access.yml
 - type: DomainSecurity
   url: security/amazon-mechanical-turk-domain-security.yml
 - type: Authentication
