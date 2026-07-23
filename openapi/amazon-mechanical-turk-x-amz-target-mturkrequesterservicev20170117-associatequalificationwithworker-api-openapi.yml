@@ -1,0 +1,262 @@
+openapi: 3.0.0
+info:
+  version: '2017-01-17'
+  x-release: v4
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AssociateQualificationWithWorker API'
+  description: <fullname>Amazon Mechanical Turk API Reference</fullname>
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: mturk-requester
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mturk-requester-2017-01-17.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://mturk-requester.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon MTurk multi-region endpoint
+- url: https://mturk-requester.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon MTurk multi-region endpoint
+- url: http://mturk-requester.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon MTurk endpoint for China (Beijing) and China (Ningxia)
+- url: https://mturk-requester.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon MTurk endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#X Amz Target=MTurkRequesterServiceV20170117.AssociateQualificationWithWorker'
+paths:
+  /#X-Amz-Target=MTurkRequesterServiceV20170117.AssociateQualificationWithWorker:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: AssociateQualificationWithWorker
+      description: '<p> The <code>AssociateQualificationWithWorker</code> operation gives a Worker a Qualification. <code>AssociateQualificationWithWorker</code> does not require that the Worker submit a Qualification request. It gives the Qualification directly to the Worker. </p> <p> You can only assign a Qualification of a Qualification type that you created (using the <code>CreateQualificationType</code> operation). </p> <note> <p> Note: <code>AssociateQualificationWithWorker</code> does not affect any pending Qualification requests for the Qualification by the Worker. If you assign a Qualification to a Worker, then later grant a Qualification request made by the Worker, the granting of the request may modify the Qualification score. To resolve a pending Qualification request without affecting the Qualification the Worker already has, reject the request with the <code>RejectQualificationRequest</code> operation. </p> </note>'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssociateQualificationWithWorkerResponse'
+        '480':
+          description: ServiceFault
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceFault'
+        '481':
+          description: RequestError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssociateQualificationWithWorkerRequest'
+      parameters:
+      - name: X-Amz-Target
+        in: header
+        required: true
+        schema:
+          type: string
+          enum:
+          - MTurkRequesterServiceV20170117.AssociateQualificationWithWorker
+      summary: Amazon Mechanical Turk Associate Qualification with Worker
+      tags:
+      - '#X Amz Target=MTurkRequesterServiceV20170117.AssociateQualificationWithWorker'
+components:
+  schemas:
+    CustomerId:
+      type: string
+      pattern: ^A[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    ServiceFault: {}
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    RequestError: {}
+    AssociateQualificationWithWorkerRequest:
+      type: object
+      required:
+      - QualificationTypeId
+      - WorkerId
+      title: AssociateQualificationWithWorkerRequest
+      properties:
+        QualificationTypeId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the Qualification type to use for the assigned Qualification.
+        WorkerId:
+          allOf:
+          - $ref: '#/components/schemas/CustomerId'
+          - description: ' The ID of the Worker to whom the Qualification is being assigned. Worker IDs are included with submitted HIT assignments and Qualification requests. '
+        IntegerValue:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The value of the Qualification to assign.
+        SendNotification:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: ' Specifies whether to send a notification email message to the Worker saying that the qualification was assigned to the Worker. Note: this is true by default. '
+    AssociateQualificationWithWorkerResponse:
+      type: object
+      properties: {}
+    Integer:
+      type: integer
+    Boolean:
+      type: boolean
+  parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/mturk-requester/
+x-hasEquivalentPaths: true

@@ -1,0 +1,359 @@
+openapi: 3.0.0
+info:
+  version: '2017-01-17'
+  x-release: v4
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListAssignmentsForHIT API'
+  description: <fullname>Amazon Mechanical Turk API Reference</fullname>
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: mturk-requester
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mturk-requester-2017-01-17.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://mturk-requester.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon MTurk multi-region endpoint
+- url: https://mturk-requester.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon MTurk multi-region endpoint
+- url: http://mturk-requester.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon MTurk endpoint for China (Beijing) and China (Ningxia)
+- url: https://mturk-requester.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon MTurk endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#X Amz Target=MTurkRequesterServiceV20170117.ListAssignmentsForHIT'
+paths:
+  /#X-Amz-Target=MTurkRequesterServiceV20170117.ListAssignmentsForHIT:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: ListAssignmentsForHIT
+      description: <p> The <code>ListAssignmentsForHIT</code> operation retrieves completed assignments for a HIT. You can use this operation to retrieve the results for a HIT. </p> <p> You can get assignments for a HIT at any time, even if the HIT is not yet Reviewable. If a HIT requested multiple assignments, and has received some results but has not yet become Reviewable, you can still retrieve the partial results with this operation. </p> <p> Use the AssignmentStatus parameter to control which set of assignments for a HIT are returned. The ListAssignmentsForHIT operation can return submitted assignments awaiting approval, or it can return assignments that have already been approved or rejected. You can set AssignmentStatus=Approved,Rejected to get assignments that have already been approved and rejected together in one result set. </p> <p> Only the Requester who created the HIT can retrieve the assignments for that HIT. </p> <p> Results are sorted and divided into numbered pages and the operation returns a single page of results. You can use the parameters of the operation to control sorting and pagination. </p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAssignmentsForHITResponse'
+        '480':
+          description: ServiceFault
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceFault'
+        '481':
+          description: RequestError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListAssignmentsForHITRequest'
+      parameters:
+      - name: MaxResults
+        in: query
+        schema:
+          type: string
+        description: Pagination limit
+        required: false
+      - name: NextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+        required: false
+      - name: X-Amz-Target
+        in: header
+        required: true
+        schema:
+          type: string
+          enum:
+          - MTurkRequesterServiceV20170117.ListAssignmentsForHIT
+      summary: Amazon Mechanical Turk List Assignments for H I T
+      tags:
+      - '#X Amz Target=MTurkRequesterServiceV20170117.ListAssignmentsForHIT'
+components:
+  schemas:
+    Assignment:
+      type: object
+      properties:
+        AssignmentId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' A unique identifier for the assignment.'
+        WorkerId:
+          allOf:
+          - $ref: '#/components/schemas/CustomerId'
+          - description: ' The ID of the Worker who accepted the HIT.'
+        HITId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' The ID of the HIT.'
+        AssignmentStatus:
+          allOf:
+          - $ref: '#/components/schemas/AssignmentStatus'
+          - description: ' The status of the assignment.'
+        AutoApprovalTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' If results have been submitted, AutoApprovalTime is the date and time the results of the assignment results are considered Approved automatically if they have not already been explicitly approved or rejected by the Requester. This value is derived from the auto-approval delay specified by the Requester in the HIT. This value is omitted from the assignment if the Worker has not yet submitted results.'
+        AcceptTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' The date and time the Worker accepted the assignment.'
+        SubmitTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' If the Worker has submitted results, SubmitTime is the date and time the assignment was submitted. This value is omitted from the assignment if the Worker has not yet submitted results.'
+        ApprovalTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' If the Worker has submitted results and the Requester has approved the results, ApprovalTime is the date and time the Requester approved the results. This value is omitted from the assignment if the Requester has not yet approved the results.'
+        RejectionTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' If the Worker has submitted results and the Requester has rejected the results, RejectionTime is the date and time the Requester rejected the results.'
+        Deadline:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' The date and time of the deadline for the assignment. This value is derived from the deadline specification for the HIT and the date and time the Worker accepted the HIT.'
+        Answer:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' The Worker''s answers submitted for the HIT contained in a QuestionFormAnswers document, if the Worker provides an answer. If the Worker does not provide any answers, Answer may contain a QuestionFormAnswers document, or Answer may be empty.'
+        RequesterFeedback:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' The feedback string included with the call to the ApproveAssignment operation or the RejectAssignment operation, if the Requester approved or rejected the assignment and specified feedback.'
+      description: ' The Assignment data structure represents a single assignment of a HIT to a Worker. The assignment tracks the Worker''s efforts to complete the HIT, and contains the results for later retrieval. '
+    ListAssignmentsForHITResponse:
+      type: object
+      properties:
+        NextToken:
+          $ref: '#/components/schemas/PaginationToken'
+        NumResults:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: ' The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.'
+        Assignments:
+          allOf:
+          - $ref: '#/components/schemas/AssignmentList'
+          - description: ' The collection of Assignment data structures returned by this call.'
+    CustomerId:
+      type: string
+      pattern: ^A[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    ListAssignmentsForHITRequest:
+      type: object
+      required:
+      - HITId
+      title: ListAssignmentsForHITRequest
+      properties:
+        HITId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the HIT.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: Pagination token
+        MaxResults:
+          $ref: '#/components/schemas/ResultSize'
+        AssignmentStatuses:
+          allOf:
+          - $ref: '#/components/schemas/AssignmentStatusList'
+          - description: 'The status of the assignments to return: Submitted | Approved | Rejected'
+    RequestError: {}
+    AssignmentStatus:
+      type: string
+      enum:
+      - Submitted
+      - Approved
+      - Rejected
+    PaginationToken:
+      type: string
+      description: 'If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. '
+      minLength: 1
+      maxLength: 255
+    ServiceFault: {}
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    String:
+      type: string
+    AssignmentList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Assignment'
+    Timestamp:
+      type: string
+      format: date-time
+    Integer:
+      type: integer
+    AssignmentStatusList:
+      type: array
+      items:
+        $ref: '#/components/schemas/AssignmentStatus'
+    ResultSize:
+      type: integer
+      minimum: 1
+      maximum: 100
+  parameters:
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/mturk-requester/
+x-hasEquivalentPaths: true

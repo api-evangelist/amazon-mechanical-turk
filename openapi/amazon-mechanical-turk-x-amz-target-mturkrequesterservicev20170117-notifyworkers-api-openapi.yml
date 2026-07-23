@@ -1,0 +1,285 @@
+openapi: 3.0.0
+info:
+  version: '2017-01-17'
+  x-release: v4
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.NotifyWorkers API'
+  description: <fullname>Amazon Mechanical Turk API Reference</fullname>
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: mturk-requester
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mturk-requester-2017-01-17.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://mturk-requester.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon MTurk multi-region endpoint
+- url: https://mturk-requester.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon MTurk multi-region endpoint
+- url: http://mturk-requester.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon MTurk endpoint for China (Beijing) and China (Ningxia)
+- url: https://mturk-requester.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon MTurk endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#X Amz Target=MTurkRequesterServiceV20170117.NotifyWorkers'
+paths:
+  /#X-Amz-Target=MTurkRequesterServiceV20170117.NotifyWorkers:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: NotifyWorkers
+      description: ' The <code>NotifyWorkers</code> operation sends an email to one or more Workers that you specify with the Worker ID. You can specify up to 100 Worker IDs to send the same message with a single call to the NotifyWorkers operation. The NotifyWorkers operation will send a notification email to a Worker only if you have previously approved or rejected work from the Worker. '
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotifyWorkersResponse'
+        '480':
+          description: ServiceFault
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceFault'
+        '481':
+          description: RequestError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotifyWorkersRequest'
+      parameters:
+      - name: X-Amz-Target
+        in: header
+        required: true
+        schema:
+          type: string
+          enum:
+          - MTurkRequesterServiceV20170117.NotifyWorkers
+      summary: Amazon Mechanical Turk Notify Workers
+      tags:
+      - '#X Amz Target=MTurkRequesterServiceV20170117.NotifyWorkers'
+components:
+  schemas:
+    CustomerId:
+      type: string
+      pattern: ^A[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    ServiceFault: {}
+    NotifyWorkersFailureStatusList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NotifyWorkersFailureStatus'
+    RequestError: {}
+    NotifyWorkersResponse:
+      type: object
+      properties:
+        NotifyWorkersFailureStatuses:
+          allOf:
+          - $ref: '#/components/schemas/NotifyWorkersFailureStatusList'
+          - description: ' When MTurk sends notifications to the list of Workers, it returns back any failures it encounters in this list of NotifyWorkersFailureStatus objects. '
+    String:
+      type: string
+    CustomerIdList:
+      type: array
+      items:
+        $ref: '#/components/schemas/CustomerId'
+    NotifyWorkersFailureStatus:
+      type: object
+      properties:
+        NotifyWorkersFailureCode:
+          allOf:
+          - $ref: '#/components/schemas/NotifyWorkersFailureCode'
+          - description: ' Encoded value for the failure type. '
+        NotifyWorkersFailureMessage:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' A message detailing the reason the Worker could not be notified. '
+        WorkerId:
+          allOf:
+          - $ref: '#/components/schemas/CustomerId'
+          - description: ' The ID of the Worker.'
+      description: ' When MTurk encounters an issue with notifying the Workers you specified, it returns back this object with failure details. '
+    NotifyWorkersRequest:
+      type: object
+      required:
+      - Subject
+      - MessageText
+      - WorkerIds
+      title: NotifyWorkersRequest
+      properties:
+        Subject:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The subject line of the email message to send. Can include up to 200 characters.
+        MessageText:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The text of the email message to send. Can include up to 4,096 characters
+        WorkerIds:
+          allOf:
+          - $ref: '#/components/schemas/CustomerIdList'
+          - description: A list of Worker IDs you wish to notify. You can notify upto 100 Workers at a time.
+    NotifyWorkersFailureCode:
+      type: string
+      enum:
+      - SoftFailure
+      - HardFailure
+  parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/mturk-requester/
+x-hasEquivalentPaths: true

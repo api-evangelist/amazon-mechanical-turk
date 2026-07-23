@@ -1,0 +1,364 @@
+openapi: 3.0.0
+info:
+  version: '2017-01-17'
+  x-release: v4
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.CreateHITType API'
+  description: <fullname>Amazon Mechanical Turk API Reference</fullname>
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: mturk-requester
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mturk-requester-2017-01-17.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://mturk-requester.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon MTurk multi-region endpoint
+- url: https://mturk-requester.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon MTurk multi-region endpoint
+- url: http://mturk-requester.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon MTurk endpoint for China (Beijing) and China (Ningxia)
+- url: https://mturk-requester.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon MTurk endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#X Amz Target=MTurkRequesterServiceV20170117.CreateHITType'
+paths:
+  /#X-Amz-Target=MTurkRequesterServiceV20170117.CreateHITType:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: CreateHITType
+      description: ' The <code>CreateHITType</code> operation creates a new HIT type. This operation allows you to define a standard set of HIT properties to use when creating HITs. If you register a HIT type with values that match an existing HIT type, the HIT type ID of the existing type will be returned. '
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateHITTypeResponse'
+        '480':
+          description: ServiceFault
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceFault'
+        '481':
+          description: RequestError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateHITTypeRequest'
+      parameters:
+      - name: X-Amz-Target
+        in: header
+        required: true
+        schema:
+          type: string
+          enum:
+          - MTurkRequesterServiceV20170117.CreateHITType
+      summary: Amazon Mechanical Turk Create H I T Type
+      tags:
+      - '#X Amz Target=MTurkRequesterServiceV20170117.CreateHITType'
+components:
+  schemas:
+    Long:
+      type: integer
+    CurrencyAmount:
+      type: string
+      pattern: ^[0-9]+(\.)?[0-9]{0,2}$
+      description: A string representing a currency amount.
+    HITAccessActions:
+      type: string
+      enum:
+      - Accept
+      - PreviewAndAccept
+      - DiscoverPreviewAndAccept
+    Locale:
+      type: object
+      required:
+      - Country
+      properties:
+        Country:
+          allOf:
+          - $ref: '#/components/schemas/CountryParameters'
+          - description: ' The country of the locale. Must be a valid ISO 3166 country code. For example, the code US refers to the United States of America. '
+        Subdivision:
+          allOf:
+          - $ref: '#/components/schemas/CountryParameters'
+          - description: The state or subdivision of the locale. A valid ISO 3166-2 subdivision code. For example, the code WA refers to the state of Washington.
+      description: The Locale data structure represents a geographical region or location.
+    IntegerList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Integer'
+    CreateHITTypeRequest:
+      type: object
+      required:
+      - AssignmentDurationInSeconds
+      - Reward
+      - Title
+      - Description
+      title: CreateHITTypeRequest
+      properties:
+        AutoApprovalDelayInSeconds:
+          allOf:
+          - $ref: '#/components/schemas/Long'
+          - description: ' The number of seconds after an assignment for the HIT has been submitted, after which the assignment is considered Approved automatically unless the Requester explicitly rejects it. '
+        AssignmentDurationInSeconds:
+          allOf:
+          - $ref: '#/components/schemas/Long'
+          - description: ' The amount of time, in seconds, that a Worker has to complete the HIT after accepting it. If a Worker does not complete the assignment within the specified duration, the assignment is considered abandoned. If the HIT is still active (that is, its lifetime has not elapsed), the assignment becomes available for other users to find and accept. '
+        Reward:
+          allOf:
+          - $ref: '#/components/schemas/CurrencyAmount'
+          - description: ' The amount of money the Requester will pay a Worker for successfully completing the HIT. '
+        Title:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' The title of the HIT. A title should be short and descriptive about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT title appears in search results, and everywhere the HIT is mentioned. '
+        Keywords:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' One or more words or phrases that describe the HIT, separated by commas. These words are used in searches to find HITs. '
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' A general description of the HIT. A description includes detailed information about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT description appears in the expanded view of search results, and in the HIT and assignment screens. A good description gives the user enough information to evaluate the HIT before accepting it. '
+        QualificationRequirements:
+          allOf:
+          - $ref: '#/components/schemas/QualificationRequirementList'
+          - description: ' Conditions that a Worker''s Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the <code>ActionsGuarded</code> field on each <code>QualificationRequirement</code> structure. '
+    RequestError: {}
+    Boolean:
+      type: boolean
+    CreateHITTypeResponse:
+      type: object
+      properties:
+        HITTypeId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' The ID of the newly registered HIT type.'
+    QualificationRequirement:
+      type: object
+      required:
+      - QualificationTypeId
+      - Comparator
+      properties:
+        QualificationTypeId:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' The ID of the Qualification type for the requirement.'
+        Comparator:
+          allOf:
+          - $ref: '#/components/schemas/Comparator'
+          - description: 'The kind of comparison to make against a Qualification''s value. You can compare a Qualification''s value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user''s profile, regardless of its value. '
+        IntegerValues:
+          allOf:
+          - $ref: '#/components/schemas/IntegerList'
+          - description: ' The integer value to compare against the Qualification''s value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. '
+        LocaleValues:
+          allOf:
+          - $ref: '#/components/schemas/LocaleList'
+          - description: ' The locale value to compare against the Qualification''s value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. '
+        RequiredToPreview:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - deprecated: true
+            description: ' DEPRECATED: Use the <code>ActionsGuarded</code> field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker''s Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT''s question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the <code>ActionsGuarded</code> field. '
+        ActionsGuarded:
+          allOf:
+          - $ref: '#/components/schemas/HITAccessActions'
+          - description: ' Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include "Accept" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), "PreviewAndAccept" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and "DiscoverPreviewAndAccept" (Worker cannot accept, preview, or see the HIT in their search results). It''s possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the <code>RequiredToPreview</code> field. '
+      description: ' The QualificationRequirement data structure describes a Qualification that a Worker must have before the Worker is allowed to accept a HIT. A requirement may optionally state that a Worker must have the Qualification in order to preview the HIT, or see the HIT in search results. '
+    CountryParameters:
+      type: string
+      minLength: 2
+      maxLength: 2
+    ServiceFault: {}
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    String:
+      type: string
+    Comparator:
+      type: string
+      enum:
+      - LessThan
+      - LessThanOrEqualTo
+      - GreaterThan
+      - GreaterThanOrEqualTo
+      - EqualTo
+      - NotEqualTo
+      - Exists
+      - DoesNotExist
+      - In
+      - NotIn
+    LocaleList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Locale'
+    Integer:
+      type: integer
+    QualificationRequirementList:
+      type: array
+      items:
+        $ref: '#/components/schemas/QualificationRequirement'
+  parameters:
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/mturk-requester/
+x-hasEquivalentPaths: true
