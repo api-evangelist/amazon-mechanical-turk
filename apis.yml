@@ -5,7 +5,20 @@ description: Amazon Mechanical Turk (MTurk) is a crowdsourcing marketplace that 
   access to a global, on-demand, 24x7 workforce for data labeling, content moderation, surveys, transcription, and machine
   learning training data collection.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-mechanical-turk.png
 tags:
 - AWS
 - Crowdsourcing
@@ -18,23 +31,1195 @@ created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-- aid: amazon-mechanical-turk:amazon-mturk-api
-  name: Amazon Mechanical Turk API
-  description: The Amazon Mechanical Turk API provides programmatic access to create and manage HITs, qualifications, workers,
-    assignments, and bonuses for coordinating crowdsourced human intelligence tasks. Covers 39 operations for the complete
-    HIT lifecycle from creation through assignment review, worker management, and payment processing.
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-acceptqualificationrequest-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest API from Amazon Mechanical
+    Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.acceptqualificationrequest.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
   tags:
-  - Crowdsourcing
-  - Human Intelligence
-  - Machine Learning
-  - Tasks
+  - '#X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest'
   properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-acceptqualificationrequest-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-approveassignment-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.ApproveAssignment API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.ApproveAssignment API from Amazon Mechanical Turk
+    — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.approveassignment.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.ApproveAssignment'
+  properties:
   - type: OpenAPI
-    url: openapi/amazon-mechanical-turk-openapi-original.yaml
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-approveassignment-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-associatequalificationwithworker-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AssociateQualificationWithWorker
+    API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.AssociateQualificationWithWorker API from Amazon
+    Mechanical Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.associatequalificationwithworker.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.AssociateQualificationWithWorker'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-associatequalificationwithworker-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createadditionalassignmentsforhit-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT
+    API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT API from Amazon
+    Mechanical Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.createadditionalassignmentsforhit.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createadditionalassignmentsforhit-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhit-api
+  name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.CreateHIT API'
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.CreateHIT API from Amazon Mechanical Turk — 1 operation(s)
+    for #x amz target=mturkrequesterservicev20170117.createhit.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.CreateHIT'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhit-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhittype-api
+  name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.CreateHITType API'
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.CreateHITType API from Amazon Mechanical Turk — 1
+    operation(s) for #x amz target=mturkrequesterservicev20170117.createhittype.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.CreateHITType'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhittype-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhitwithhittype-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.CreateHITWithHITType API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.CreateHITWithHITType API from Amazon Mechanical Turk
+    — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.createhitwithhittype.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.CreateHITWithHITType'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhitwithhittype-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createqualificationtype-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.CreateQualificationType API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.CreateQualificationType API from Amazon Mechanical
+    Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.createqualificationtype.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.CreateQualificationType'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createqualificationtype-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createworkerblock-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.CreateWorkerBlock API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.CreateWorkerBlock API from Amazon Mechanical Turk
+    — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.createworkerblock.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.CreateWorkerBlock'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createworkerblock-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletehit-api
+  name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.DeleteHIT API'
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.DeleteHIT API from Amazon Mechanical Turk — 1 operation(s)
+    for #x amz target=mturkrequesterservicev20170117.deletehit.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.DeleteHIT'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletehit-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletequalificationtype-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.DeleteQualificationType API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.DeleteQualificationType API from Amazon Mechanical
+    Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.deletequalificationtype.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.DeleteQualificationType'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletequalificationtype-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deleteworkerblock-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.DeleteWorkerBlock API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.DeleteWorkerBlock API from Amazon Mechanical Turk
+    — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.deleteworkerblock.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.DeleteWorkerBlock'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deleteworkerblock-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-disassociatequalificationfromworker-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker
+    API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker API from Amazon
+    Mechanical Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.disassociatequalificationfromworker.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-disassociatequalificationfromworker-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getaccountbalance-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.GetAccountBalance API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.GetAccountBalance API from Amazon Mechanical Turk
+    — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.getaccountbalance.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.GetAccountBalance'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getaccountbalance-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getassignment-api
+  name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.GetAssignment API'
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.GetAssignment API from Amazon Mechanical Turk — 1
+    operation(s) for #x amz target=mturkrequesterservicev20170117.getassignment.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.GetAssignment'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getassignment-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getfileuploadurl-api
+  name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.GetFileUploadURL API'
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.GetFileUploadURL API from Amazon Mechanical Turk
+    — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.getfileuploadurl.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.GetFileUploadURL'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getfileuploadurl-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-gethit-api
+  name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.GetHIT API'
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.GetHIT API from Amazon Mechanical Turk — 1 operation(s)
+    for #x amz target=mturkrequesterservicev20170117.gethit.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.GetHIT'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-gethit-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationscore-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationScore API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationScore API from Amazon Mechanical
+    Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.getqualificationscore.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.GetQualificationScore'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationscore-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationtype-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationType API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationType API from Amazon Mechanical Turk
+    — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.getqualificationtype.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.GetQualificationType'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationtype-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listassignmentsforhit-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.ListAssignmentsForHIT API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.ListAssignmentsForHIT API from Amazon Mechanical
+    Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.listassignmentsforhit.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.ListAssignmentsForHIT'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listassignmentsforhit-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listbonuspayments-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.ListBonusPayments API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.ListBonusPayments API from Amazon Mechanical Turk
+    — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.listbonuspayments.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.ListBonusPayments'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listbonuspayments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhits-api
+  name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.ListHITs API'
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.ListHITs API from Amazon Mechanical Turk — 1 operation(s)
+    for #x amz target=mturkrequesterservicev20170117.listhits.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.ListHITs'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhits-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhitsforqualificationtype-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.ListHITsForQualificationType API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.ListHITsForQualificationType API from Amazon Mechanical
+    Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.listhitsforqualificationtype.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.ListHITsForQualificationType'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhitsforqualificationtype-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationrequests-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.ListQualificationRequests API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.ListQualificationRequests API from Amazon Mechanical
+    Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.listqualificationrequests.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.ListQualificationRequests'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationrequests-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationtypes-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.ListQualificationTypes API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.ListQualificationTypes API from Amazon Mechanical
+    Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.listqualificationtypes.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.ListQualificationTypes'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationtypes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listreviewablehits-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.ListReviewableHITs API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.ListReviewableHITs API from Amazon Mechanical Turk
+    — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.listreviewablehits.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.ListReviewableHITs'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listreviewablehits-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listreviewpolicyresultsforhit-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT
+    API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT API from Amazon Mechanical
+    Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.listreviewpolicyresultsforhit.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listreviewpolicyresultsforhit-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerblocks-api
+  name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.ListWorkerBlocks API'
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.ListWorkerBlocks API from Amazon Mechanical Turk
+    — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.listworkerblocks.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.ListWorkerBlocks'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerblocks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerswithqualificationtype-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.ListWorkersWithQualificationType
+    API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.ListWorkersWithQualificationType API from Amazon
+    Mechanical Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.listworkerswithqualificationtype.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.ListWorkersWithQualificationType'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerswithqualificationtype-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-notifyworkers-api
+  name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.NotifyWorkers API'
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.NotifyWorkers API from Amazon Mechanical Turk — 1
+    operation(s) for #x amz target=mturkrequesterservicev20170117.notifyworkers.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.NotifyWorkers'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-notifyworkers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectassignment-api
+  name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.RejectAssignment API'
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.RejectAssignment API from Amazon Mechanical Turk
+    — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.rejectassignment.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.RejectAssignment'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectassignment-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectqualificationrequest-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.RejectQualificationRequest API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.RejectQualificationRequest API from Amazon Mechanical
+    Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.rejectqualificationrequest.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.RejectQualificationRequest'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectqualificationrequest-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendbonus-api
+  name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.SendBonus API'
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.SendBonus API from Amazon Mechanical Turk — 1 operation(s)
+    for #x amz target=mturkrequesterservicev20170117.sendbonus.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.SendBonus'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendbonus-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendtesteventnotification-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.SendTestEventNotification API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.SendTestEventNotification API from Amazon Mechanical
+    Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.sendtesteventnotification.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.SendTestEventNotification'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendtesteventnotification-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updateexpirationforhit-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.UpdateExpirationForHIT API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.UpdateExpirationForHIT API from Amazon Mechanical
+    Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.updateexpirationforhit.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.UpdateExpirationForHIT'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updateexpirationforhit-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatehitreviewstatus-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.UpdateHITReviewStatus API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.UpdateHITReviewStatus API from Amazon Mechanical
+    Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.updatehitreviewstatus.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.UpdateHITReviewStatus'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatehitreviewstatus-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatehittypeofhit-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT API from Amazon Mechanical Turk
+    — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.updatehittypeofhit.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatehittypeofhit-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatenotificationsettings-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.UpdateNotificationSettings API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.UpdateNotificationSettings API from Amazon Mechanical
+    Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.updatenotificationsettings.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.UpdateNotificationSettings'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatenotificationsettings-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
+  - type: GettingStarted
+    url: https://www.mturk.com/get-started
+  - type: Pricing
+    url: https://www.mturk.com/pricing
+  - type: FAQ
+    url: https://www.mturk.com/faqs
+  - type: JSONSchema
+    url: json-schema/amazon-mechanical-turk-hit-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mechanical-turk-hit-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mechanical-turk-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mechanical-turk.yaml
+- aid: >-
+    amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatequalificationtype-api
+  name: >-
+    Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.UpdateQualificationType API
+  description: >-
+    The #X Amz Target=MTurkRequesterServiceV20170117.UpdateQualificationType API from Amazon Mechanical
+    Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.updatequalificationtype.
+  humanURL: https://www.mturk.com/
+  baseURL: https://mturk-requester.amazonaws.com
+  tags:
+  - '#X Amz Target=MTurkRequesterServiceV20170117.UpdateQualificationType'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatequalificationtype-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html
   - type: GettingStarted
     url: https://www.mturk.com/get-started
   - type: Pricing
@@ -50,6 +1235,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-mechanical-turk.yaml
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/amazon-mechanical-turk/overview
 - type: AgenticAccess
   url: agentic-access/amazon-mechanical-turk-agentic-access.yml
 - type: DomainSecurity
