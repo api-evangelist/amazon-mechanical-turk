@@ -1,0 +1,398 @@
+{
+  "info": {
+    "_postman_id": "c5431a19-7459-44ac-9ba1-0e744b47bc1e",
+    "name": "Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.CreateHITWithHITType API",
+    "description": "<fullname>Amazon Mechanical Turk API Reference</fullname>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:39:24.000Z",
+    "updatedAt": "2026-07-28T10:39:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c5431a19-7459-44ac-9ba1-0e744b47bc1e"
+  },
+  "item": [
+    {
+      "name": "#X-Amz-Target=MTurkRequesterServiceV20170117.CreateHITWithHITType",
+      "item": [
+        {
+          "name": "Amazon Mechanical Turk Create H I T with H I T Type",
+          "id": "6c253b55-3d01-474f-916f-9b8751fba6f7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) ",
+                "key": "X-Amz-Target",
+                "value": "MTurkRequesterServiceV20170117.CreateHITWithHITType"
+              },
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"HITTypeId\": \"ICXOX8\",\n  \"LifetimeInSeconds\": \"<integer>\",\n  \"MaxAssignments\": \"<integer>\",\n  \"Question\": \"<string>\",\n  \"RequesterAnnotation\": \"<string>\",\n  \"UniqueRequestToken\": \"<string>\",\n  \"AssignmentReviewPolicy\": {\n    \"PolicyName\": \"<string>\",\n    \"Parameters\": [\n      {\n        \"Key\": \"<string>\",\n        \"Values\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"MapEntries\": [\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      },\n      {\n        \"Key\": \"<string>\",\n        \"Values\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"MapEntries\": [\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      }\n    ]\n  },\n  \"HITReviewPolicy\": {\n    \"PolicyName\": \"<string>\",\n    \"Parameters\": [\n      {\n        \"Key\": \"<string>\",\n        \"Values\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"MapEntries\": [\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      },\n      {\n        \"Key\": \"<string>\",\n        \"Values\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"MapEntries\": [\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      }\n    ]\n  },\n  \"HITLayoutId\": \"K5GRNPUJ6E\",\n  \"HITLayoutParameters\": [\n    {\n      \"Name\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Name\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/#X-Amz-Target=MTurkRequesterServiceV20170117.CreateHITWithHITType",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "hash": "X-Amz-Target=MTurkRequesterServiceV20170117.CreateHITWithHITType"
+            },
+            "description": "<p> The <code>CreateHITWithHITType</code> operation creates a new Human Intelligence Task (HIT) using an existing HITTypeID generated by the <code>CreateHITType</code> operation. </p> <p> This is an alternative way to create HITs from the <code>CreateHIT</code> operation. This is the recommended best practice for Requesters who are creating large numbers of HITs. </p> <p>CreateHITWithHITType also supports several ways to provide question data: by providing a value for the <code>Question</code> parameter that fully specifies the contents of the HIT, or by providing a <code>HitLayoutId</code> and associated <code>HitLayoutParameters</code>. </p> <note> <p> If a HIT is created with 10 or more maximum assignments, there is an additional fee. For more information, see <a href=\"https://requester.mturk.com/pricing\">Amazon Mechanical Turk Pricing</a>. </p> </note>"
+          },
+          "response": [
+            {
+              "id": "b8fc9795-5508-4e5c-90bb-9599326f8e0c",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "X-Amz-Target",
+                    "value": "MTurkRequesterServiceV20170117.CreateHITWithHITType"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"HITTypeId\": \"ICXOX8\",\n  \"LifetimeInSeconds\": \"<integer>\",\n  \"MaxAssignments\": \"<integer>\",\n  \"Question\": \"<string>\",\n  \"RequesterAnnotation\": \"<string>\",\n  \"UniqueRequestToken\": \"<string>\",\n  \"AssignmentReviewPolicy\": {\n    \"PolicyName\": \"<string>\",\n    \"Parameters\": [\n      {\n        \"Key\": \"<string>\",\n        \"Values\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"MapEntries\": [\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      },\n      {\n        \"Key\": \"<string>\",\n        \"Values\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"MapEntries\": [\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      }\n    ]\n  },\n  \"HITReviewPolicy\": {\n    \"PolicyName\": \"<string>\",\n    \"Parameters\": [\n      {\n        \"Key\": \"<string>\",\n        \"Values\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"MapEntries\": [\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      },\n      {\n        \"Key\": \"<string>\",\n        \"Values\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"MapEntries\": [\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      }\n    ]\n  },\n  \"HITLayoutId\": \"K5GRNPUJ6E\",\n  \"HITLayoutParameters\": [\n    {\n      \"Name\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Name\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/#X-Amz-Target=MTurkRequesterServiceV20170117.CreateHITWithHITType",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "hash": "X-Amz-Target=MTurkRequesterServiceV20170117.CreateHITWithHITType"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"HIT\": {\n    \"HITId\": \"UQJ\",\n    \"HITTypeId\": \"T7\",\n    \"HITGroupId\": \"RWZCLAMV\",\n    \"HITLayoutId\": \"T4ULW\",\n    \"CreationTime\": \"<dateTime>\",\n    \"Title\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"Question\": \"<string>\",\n    \"Keywords\": \"<string>\",\n    \"HITStatus\": \"Reviewing\",\n    \"MaxAssignments\": \"<integer>\",\n    \"Reward\": \"17\",\n    \"AutoApprovalDelayInSeconds\": \"<integer>\",\n    \"Expiration\": \"<dateTime>\",\n    \"AssignmentDurationInSeconds\": \"<integer>\",\n    \"RequesterAnnotation\": \"<string>\",\n    \"QualificationRequirements\": [\n      {\n        \"QualificationTypeId\": \"<string>\",\n        \"Comparator\": \"DoesNotExist\",\n        \"IntegerValues\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"LocaleValues\": [\n          {\n            \"Country\": \"<string>\",\n            \"Subdivision\": \"<string>\"\n          },\n          {\n            \"Country\": \"<string>\",\n            \"Subdivision\": \"<string>\"\n          }\n        ],\n        \"RequiredToPreview\": \"<boolean>\",\n        \"ActionsGuarded\": \"PreviewAndAccept\"\n      },\n      {\n        \"QualificationTypeId\": \"<string>\",\n        \"Comparator\": \"NotIn\",\n        \"IntegerValues\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"LocaleValues\": [\n          {\n            \"Country\": \"<string>\",\n            \"Subdivision\": \"<string>\"\n          },\n          {\n            \"Country\": \"<string>\",\n            \"Subdivision\": \"<string>\"\n          }\n        ],\n        \"RequiredToPreview\": \"<boolean>\",\n        \"ActionsGuarded\": \"DiscoverPreviewAndAccept\"\n      }\n    ],\n    \"HITReviewStatus\": \"ReviewedInappropriate\",\n    \"NumberOfAssignmentsPending\": \"<integer>\",\n    \"NumberOfAssignmentsAvailable\": \"<integer>\",\n    \"NumberOfAssignmentsCompleted\": \"<integer>\"\n  }\n}",
+              "createdAt": "2026-07-28T10:39:24.000Z",
+              "updatedAt": "2026-07-28T10:39:24.000Z",
+              "uid": "35240-b8fc9795-5508-4e5c-90bb-9599326f8e0c"
+            },
+            {
+              "id": "918311aa-c4bf-435b-bbcb-892b950aa3cd",
+              "name": "ServiceFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "X-Amz-Target",
+                    "value": "MTurkRequesterServiceV20170117.CreateHITWithHITType"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"HITTypeId\": \"ICXOX8\",\n  \"LifetimeInSeconds\": \"<integer>\",\n  \"MaxAssignments\": \"<integer>\",\n  \"Question\": \"<string>\",\n  \"RequesterAnnotation\": \"<string>\",\n  \"UniqueRequestToken\": \"<string>\",\n  \"AssignmentReviewPolicy\": {\n    \"PolicyName\": \"<string>\",\n    \"Parameters\": [\n      {\n        \"Key\": \"<string>\",\n        \"Values\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"MapEntries\": [\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      },\n      {\n        \"Key\": \"<string>\",\n        \"Values\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"MapEntries\": [\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      }\n    ]\n  },\n  \"HITReviewPolicy\": {\n    \"PolicyName\": \"<string>\",\n    \"Parameters\": [\n      {\n        \"Key\": \"<string>\",\n        \"Values\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"MapEntries\": [\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      },\n      {\n        \"Key\": \"<string>\",\n        \"Values\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"MapEntries\": [\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      }\n    ]\n  },\n  \"HITLayoutId\": \"K5GRNPUJ6E\",\n  \"HITLayoutParameters\": [\n    {\n      \"Name\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Name\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/#X-Amz-Target=MTurkRequesterServiceV20170117.CreateHITWithHITType",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "hash": "X-Amz-Target=MTurkRequesterServiceV20170117.CreateHITWithHITType"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:39:24.000Z",
+              "updatedAt": "2026-07-28T10:39:24.000Z",
+              "uid": "35240-918311aa-c4bf-435b-bbcb-892b950aa3cd"
+            },
+            {
+              "id": "db469d3b-c6b6-496a-b843-a1a4ddd6e4f9",
+              "name": "RequestError",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "X-Amz-Target",
+                    "value": "MTurkRequesterServiceV20170117.CreateHITWithHITType"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"HITTypeId\": \"ICXOX8\",\n  \"LifetimeInSeconds\": \"<integer>\",\n  \"MaxAssignments\": \"<integer>\",\n  \"Question\": \"<string>\",\n  \"RequesterAnnotation\": \"<string>\",\n  \"UniqueRequestToken\": \"<string>\",\n  \"AssignmentReviewPolicy\": {\n    \"PolicyName\": \"<string>\",\n    \"Parameters\": [\n      {\n        \"Key\": \"<string>\",\n        \"Values\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"MapEntries\": [\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      },\n      {\n        \"Key\": \"<string>\",\n        \"Values\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"MapEntries\": [\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      }\n    ]\n  },\n  \"HITReviewPolicy\": {\n    \"PolicyName\": \"<string>\",\n    \"Parameters\": [\n      {\n        \"Key\": \"<string>\",\n        \"Values\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"MapEntries\": [\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      },\n      {\n        \"Key\": \"<string>\",\n        \"Values\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"MapEntries\": [\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"Key\": \"<string>\",\n            \"Values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      }\n    ]\n  },\n  \"HITLayoutId\": \"K5GRNPUJ6E\",\n  \"HITLayoutParameters\": [\n    {\n      \"Name\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Name\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/#X-Amz-Target=MTurkRequesterServiceV20170117.CreateHITWithHITType",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "hash": "X-Amz-Target=MTurkRequesterServiceV20170117.CreateHITWithHITType"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:39:24.000Z",
+              "updatedAt": "2026-07-28T10:39:24.000Z",
+              "uid": "35240-db469d3b-c6b6-496a-b843-a1a4ddd6e4f9"
+            }
+          ],
+          "createdAt": "2026-07-28T10:39:24.000Z",
+          "updatedAt": "2026-07-28T10:39:24.000Z",
+          "uid": "35240-6c253b55-3d01-474f-916f-9b8751fba6f7"
+        }
+      ],
+      "id": "90d03942-0ad7-4a78-b9c3-220bca889f81",
+      "createdAt": "2026-07-28T10:39:24.000Z",
+      "updatedAt": "2026-07-28T10:39:24.000Z",
+      "uid": "35240-90d03942-0ad7-4a78-b9c3-220bca889f81"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://mturk-requester.{{region}}.amazonaws.com"
+    }
+  ]
+}

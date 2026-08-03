@@ -1,0 +1,446 @@
+{
+  "info": {
+    "_postman_id": "c34a6645-10a0-4429-9d1e-92127e860cba",
+    "name": "Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListHITs API",
+    "description": "<fullname>Amazon Mechanical Turk API Reference</fullname>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:40:05.000Z",
+    "updatedAt": "2026-07-28T10:40:06.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c34a6645-10a0-4429-9d1e-92127e860cba"
+  },
+  "item": [
+    {
+      "name": "#X-Amz-Target=MTurkRequesterServiceV20170117.ListHITs",
+      "item": [
+        {
+          "name": "Amazon Mechanical Turk List H I Ts",
+          "id": "5ac41c31-0ae6-4781-8a4e-a2d0d053cdd3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) ",
+                "key": "X-Amz-Target",
+                "value": "MTurkRequesterServiceV20170117.ListHITs"
+              },
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"NextToken\": \"<string>\",\n  \"MaxResults\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?MaxResults=<string>&NextToken=<string>#X-Amz-Target=MTurkRequesterServiceV20170117.ListHITs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "Pagination limit",
+                  "key": "MaxResults",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Pagination token",
+                  "key": "NextToken",
+                  "value": "<string>"
+                }
+              ],
+              "hash": "X-Amz-Target=MTurkRequesterServiceV20170117.ListHITs"
+            },
+            "description": " The <code>ListHITs</code> operation returns all of a Requester's HITs. The operation returns HITs of any status, except for HITs that have been deleted of with the DeleteHIT operation or that have been auto-deleted. "
+          },
+          "response": [
+            {
+              "id": "bcee2634-12ec-4f6e-8594-384c28271f45",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "X-Amz-Target",
+                    "value": "MTurkRequesterServiceV20170117.ListHITs"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"NextToken\": \"<string>\",\n  \"MaxResults\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?MaxResults=<string>&NextToken=<string>#X-Amz-Target=MTurkRequesterServiceV20170117.ListHITs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "hash": "X-Amz-Target=MTurkRequesterServiceV20170117.ListHITs"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"NextToken\": \"<string>\",\n  \"NumResults\": \"<integer>\",\n  \"HITs\": [\n    {\n      \"HITId\": \"IL\",\n      \"HITTypeId\": \"H43X\",\n      \"HITGroupId\": \"OU9TRC\",\n      \"HITLayoutId\": \"3\",\n      \"CreationTime\": \"<dateTime>\",\n      \"Title\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"Question\": \"<string>\",\n      \"Keywords\": \"<string>\",\n      \"HITStatus\": \"Reviewable\",\n      \"MaxAssignments\": \"<integer>\",\n      \"Reward\": \"9458234107\",\n      \"AutoApprovalDelayInSeconds\": \"<integer>\",\n      \"Expiration\": \"<dateTime>\",\n      \"AssignmentDurationInSeconds\": \"<integer>\",\n      \"RequesterAnnotation\": \"<string>\",\n      \"QualificationRequirements\": [\n        {\n          \"QualificationTypeId\": \"<string>\",\n          \"Comparator\": \"Exists\",\n          \"IntegerValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"LocaleValues\": [\n            {\n              \"Country\": \"<string>\",\n              \"Subdivision\": \"<string>\"\n            },\n            {\n              \"Country\": \"<string>\",\n              \"Subdivision\": \"<string>\"\n            }\n          ],\n          \"RequiredToPreview\": \"<boolean>\",\n          \"ActionsGuarded\": \"PreviewAndAccept\"\n        },\n        {\n          \"QualificationTypeId\": \"<string>\",\n          \"Comparator\": \"LessThan\",\n          \"IntegerValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"LocaleValues\": [\n            {\n              \"Country\": \"<string>\",\n              \"Subdivision\": \"<string>\"\n            },\n            {\n              \"Country\": \"<string>\",\n              \"Subdivision\": \"<string>\"\n            }\n          ],\n          \"RequiredToPreview\": \"<boolean>\",\n          \"ActionsGuarded\": \"Accept\"\n        }\n      ],\n      \"HITReviewStatus\": \"MarkedForReview\",\n      \"NumberOfAssignmentsPending\": \"<integer>\",\n      \"NumberOfAssignmentsAvailable\": \"<integer>\",\n      \"NumberOfAssignmentsCompleted\": \"<integer>\"\n    },\n    {\n      \"HITId\": \"P1WOA1ME\",\n      \"HITTypeId\": \"DHUOQXJDJ\",\n      \"HITGroupId\": \"K54ENIQV\",\n      \"HITLayoutId\": \"2\",\n      \"CreationTime\": \"<dateTime>\",\n      \"Title\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"Question\": \"<string>\",\n      \"Keywords\": \"<string>\",\n      \"HITStatus\": \"Unassignable\",\n      \"MaxAssignments\": \"<integer>\",\n      \"Reward\": \"417540343793\",\n      \"AutoApprovalDelayInSeconds\": \"<integer>\",\n      \"Expiration\": \"<dateTime>\",\n      \"AssignmentDurationInSeconds\": \"<integer>\",\n      \"RequesterAnnotation\": \"<string>\",\n      \"QualificationRequirements\": [\n        {\n          \"QualificationTypeId\": \"<string>\",\n          \"Comparator\": \"NotIn\",\n          \"IntegerValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"LocaleValues\": [\n            {\n              \"Country\": \"<string>\",\n              \"Subdivision\": \"<string>\"\n            },\n            {\n              \"Country\": \"<string>\",\n              \"Subdivision\": \"<string>\"\n            }\n          ],\n          \"RequiredToPreview\": \"<boolean>\",\n          \"ActionsGuarded\": \"Accept\"\n        },\n        {\n          \"QualificationTypeId\": \"<string>\",\n          \"Comparator\": \"Exists\",\n          \"IntegerValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"LocaleValues\": [\n            {\n              \"Country\": \"<string>\",\n              \"Subdivision\": \"<string>\"\n            },\n            {\n              \"Country\": \"<string>\",\n              \"Subdivision\": \"<string>\"\n            }\n          ],\n          \"RequiredToPreview\": \"<boolean>\",\n          \"ActionsGuarded\": \"PreviewAndAccept\"\n        }\n      ],\n      \"HITReviewStatus\": \"ReviewedInappropriate\",\n      \"NumberOfAssignmentsPending\": \"<integer>\",\n      \"NumberOfAssignmentsAvailable\": \"<integer>\",\n      \"NumberOfAssignmentsCompleted\": \"<integer>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T10:40:06.000Z",
+              "updatedAt": "2026-07-28T10:40:06.000Z",
+              "uid": "35240-bcee2634-12ec-4f6e-8594-384c28271f45"
+            },
+            {
+              "id": "d41c0b3e-b6ac-4484-b952-2eb922f588bf",
+              "name": "ServiceFault",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "X-Amz-Target",
+                    "value": "MTurkRequesterServiceV20170117.ListHITs"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"NextToken\": \"<string>\",\n  \"MaxResults\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?MaxResults=<string>&NextToken=<string>#X-Amz-Target=MTurkRequesterServiceV20170117.ListHITs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "hash": "X-Amz-Target=MTurkRequesterServiceV20170117.ListHITs"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:40:06.000Z",
+              "updatedAt": "2026-07-28T10:40:06.000Z",
+              "uid": "35240-d41c0b3e-b6ac-4484-b952-2eb922f588bf"
+            },
+            {
+              "id": "e4cedae9-1c6e-4a4d-8933-fdb26ad6637f",
+              "name": "RequestError",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "X-Amz-Target",
+                    "value": "MTurkRequesterServiceV20170117.ListHITs"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"NextToken\": \"<string>\",\n  \"MaxResults\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?MaxResults=<string>&NextToken=<string>#X-Amz-Target=MTurkRequesterServiceV20170117.ListHITs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "hash": "X-Amz-Target=MTurkRequesterServiceV20170117.ListHITs"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:40:06.000Z",
+              "updatedAt": "2026-07-28T10:40:06.000Z",
+              "uid": "35240-e4cedae9-1c6e-4a4d-8933-fdb26ad6637f"
+            }
+          ],
+          "createdAt": "2026-07-28T10:40:06.000Z",
+          "updatedAt": "2026-07-28T10:40:06.000Z",
+          "uid": "35240-5ac41c31-0ae6-4781-8a4e-a2d0d053cdd3"
+        }
+      ],
+      "id": "c7c6dd5f-4b93-44f2-a082-bc5f2cd5b974",
+      "createdAt": "2026-07-28T10:40:06.000Z",
+      "updatedAt": "2026-07-28T10:40:06.000Z",
+      "uid": "35240-c7c6dd5f-4b93-44f2-a082-bc5f2cd5b974"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://mturk-requester.{{region}}.amazonaws.com"
+    }
+  ]
+}
