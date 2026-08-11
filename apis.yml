@@ -60,8 +60,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-approveassignment-api
   name: >-
@@ -91,8 +89,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-associatequalificationwithworker-api
   name: >-
@@ -123,8 +119,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createadditionalassignmentsforhit-api
   name: >-
@@ -155,8 +149,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhit-api
   name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.CreateHIT API'
@@ -185,8 +177,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhittype-api
   name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.CreateHITType API'
@@ -215,8 +205,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhitwithhittype-api
   name: >-
@@ -246,8 +234,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createqualificationtype-api
   name: >-
@@ -277,8 +263,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createworkerblock-api
   name: >-
@@ -308,8 +292,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletehit-api
   name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.DeleteHIT API'
@@ -338,8 +320,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletequalificationtype-api
   name: >-
@@ -369,8 +349,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deleteworkerblock-api
   name: >-
@@ -400,8 +378,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-disassociatequalificationfromworker-api
   name: >-
@@ -432,8 +408,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getaccountbalance-api
   name: >-
@@ -463,8 +437,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getassignment-api
   name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.GetAssignment API'
@@ -493,8 +465,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getfileuploadurl-api
   name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.GetFileUploadURL API'
@@ -523,8 +493,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-gethit-api
   name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.GetHIT API'
@@ -553,8 +521,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationscore-api
   name: >-
@@ -584,8 +550,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationtype-api
   name: >-
@@ -615,8 +579,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listassignmentsforhit-api
   name: >-
@@ -646,8 +608,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listbonuspayments-api
   name: >-
@@ -677,8 +637,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhits-api
   name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.ListHITs API'
@@ -707,8 +665,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhitsforqualificationtype-api
   name: >-
@@ -738,8 +694,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationrequests-api
   name: >-
@@ -769,8 +723,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationtypes-api
   name: >-
@@ -800,8 +752,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listreviewablehits-api
   name: >-
@@ -831,8 +781,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listreviewpolicyresultsforhit-api
   name: >-
@@ -863,8 +811,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerblocks-api
   name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.ListWorkerBlocks API'
@@ -893,8 +839,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerswithqualificationtype-api
   name: >-
@@ -925,8 +869,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-notifyworkers-api
   name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.NotifyWorkers API'
@@ -955,8 +897,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectassignment-api
   name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.RejectAssignment API'
@@ -985,8 +925,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectqualificationrequest-api
   name: >-
@@ -1016,8 +954,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendbonus-api
   name: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.SendBonus API'
@@ -1046,8 +982,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendtesteventnotification-api
   name: >-
@@ -1077,8 +1011,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updateexpirationforhit-api
   name: >-
@@ -1108,8 +1040,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatehitreviewstatus-api
   name: >-
@@ -1139,8 +1069,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatehittypeofhit-api
   name: >-
@@ -1170,8 +1098,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatenotificationsettings-api
   name: >-
@@ -1201,8 +1127,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 - aid: >-
     amazon-mechanical-turk:amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatequalificationtype-api
   name: >-
@@ -1232,8 +1156,6 @@ apis:
     url: json-structure/amazon-mechanical-turk-hit-structure.json
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mechanical-turk.yaml
 common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-mechanical-turk/overview
