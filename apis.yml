@@ -24,6 +24,13 @@ tags:
 - Crowdsourcing
 - Human Intelligence
 - Labor
+- Machine-Learning
+- Task
+tags_raw:
+- AWS
+- Crowdsourcing
+- Human Intelligence
+- Labor
 - Machine Learning
 - Tasks
 url: https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/apis.yml
@@ -40,7 +47,8 @@ apis:
     Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.acceptqualificationrequest.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest'
   properties:
   - type: OpenAPI
@@ -69,7 +77,8 @@ apis:
     — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.approveassignment.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.ApproveAssignment'
   properties:
   - type: OpenAPI
@@ -99,7 +108,8 @@ apis:
     Mechanical Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.associatequalificationwithworker.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.AssociateQualificationWithWorker'
   properties:
   - type: OpenAPI
@@ -129,7 +139,8 @@ apis:
     Mechanical Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.createadditionalassignmentsforhit.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT'
   properties:
   - type: OpenAPI
@@ -214,7 +225,8 @@ apis:
     — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.createhitwithhittype.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.CreateHITWithHITType'
   properties:
   - type: OpenAPI
@@ -243,7 +255,8 @@ apis:
     Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.createqualificationtype.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.CreateQualificationType'
   properties:
   - type: OpenAPI
@@ -272,7 +285,8 @@ apis:
     — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.createworkerblock.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.CreateWorkerBlock'
   properties:
   - type: OpenAPI
@@ -329,7 +343,8 @@ apis:
     Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.deletequalificationtype.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.DeleteQualificationType'
   properties:
   - type: OpenAPI
@@ -358,7 +373,8 @@ apis:
     — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.deleteworkerblock.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.DeleteWorkerBlock'
   properties:
   - type: OpenAPI
@@ -388,7 +404,8 @@ apis:
     Mechanical Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.disassociatequalificationfromworker.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker'
   properties:
   - type: OpenAPI
@@ -417,7 +434,8 @@ apis:
     — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.getaccountbalance.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.GetAccountBalance'
   properties:
   - type: OpenAPI
@@ -473,7 +491,8 @@ apis:
     — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.getfileuploadurl.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.GetFileUploadURL'
   properties:
   - type: OpenAPI
@@ -530,7 +549,8 @@ apis:
     Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.getqualificationscore.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.GetQualificationScore'
   properties:
   - type: OpenAPI
@@ -559,7 +579,8 @@ apis:
     — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.getqualificationtype.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.GetQualificationType'
   properties:
   - type: OpenAPI
@@ -588,7 +609,8 @@ apis:
     Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.listassignmentsforhit.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.ListAssignmentsForHIT'
   properties:
   - type: OpenAPI
@@ -617,7 +639,8 @@ apis:
     — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.listbonuspayments.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.ListBonusPayments'
   properties:
   - type: OpenAPI
@@ -674,7 +697,8 @@ apis:
     Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.listhitsforqualificationtype.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.ListHITsForQualificationType'
   properties:
   - type: OpenAPI
@@ -703,7 +727,8 @@ apis:
     Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.listqualificationrequests.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.ListQualificationRequests'
   properties:
   - type: OpenAPI
@@ -732,7 +757,8 @@ apis:
     Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.listqualificationtypes.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.ListQualificationTypes'
   properties:
   - type: OpenAPI
@@ -761,7 +787,8 @@ apis:
     — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.listreviewablehits.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.ListReviewableHITs'
   properties:
   - type: OpenAPI
@@ -791,7 +818,8 @@ apis:
     Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.listreviewpolicyresultsforhit.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT'
   properties:
   - type: OpenAPI
@@ -819,7 +847,8 @@ apis:
     — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.listworkerblocks.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.ListWorkerBlocks'
   properties:
   - type: OpenAPI
@@ -849,7 +878,8 @@ apis:
     Mechanical Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.listworkerswithqualificationtype.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.ListWorkersWithQualificationType'
   properties:
   - type: OpenAPI
@@ -905,7 +935,8 @@ apis:
     — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.rejectassignment.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.RejectAssignment'
   properties:
   - type: OpenAPI
@@ -934,7 +965,8 @@ apis:
     Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.rejectqualificationrequest.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.RejectQualificationRequest'
   properties:
   - type: OpenAPI
@@ -991,7 +1023,8 @@ apis:
     Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.sendtesteventnotification.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.SendTestEventNotification'
   properties:
   - type: OpenAPI
@@ -1020,7 +1053,8 @@ apis:
     Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.updateexpirationforhit.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.UpdateExpirationForHIT'
   properties:
   - type: OpenAPI
@@ -1049,7 +1083,8 @@ apis:
     Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.updatehitreviewstatus.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.UpdateHITReviewStatus'
   properties:
   - type: OpenAPI
@@ -1078,7 +1113,8 @@ apis:
     — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.updatehittypeofhit.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT'
   properties:
   - type: OpenAPI
@@ -1107,7 +1143,8 @@ apis:
     Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.updatenotificationsettings.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.UpdateNotificationSettings'
   properties:
   - type: OpenAPI
@@ -1136,7 +1173,8 @@ apis:
     Turk — 1 operation(s) for #x amz target=mturkrequesterservicev20170117.updatequalificationtype.
   humanURL: https://www.mturk.com/
   baseURL: https://mturk-requester.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=MTurkRequesterServiceV20170117.UpdateQualificationType'
   properties:
   - type: OpenAPI
