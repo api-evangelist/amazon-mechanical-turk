@@ -5,6 +5,18 @@ description: Amazon Mechanical Turk (MTurk) is a crowdsourcing marketplace that 
   access to a global, on-demand, 24x7 workforce for data labeling, content moderation, surveys, transcription, and machine
   learning training data collection.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
