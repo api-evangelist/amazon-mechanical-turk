@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.DeleteWorkerBlock API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.DeleteWorkerBlock #X Amz Target=MTurkRequesterServiceV20170117.DeleteWorkerBlock #X Amz Target=MTurkRequesterServiceV20170117.DeleteWorkerBlock API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -162,16 +162,57 @@ paths:
       tags:
       - '#X Amz Target=MTurkRequesterServiceV20170117.DeleteWorkerBlock'
 components:
+  parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
+    String:
+      type: string
     CustomerId:
       type: string
       pattern: ^A[A-Z0-9]+$
       minLength: 1
       maxLength: 64
-    ServiceFault: {}
-    RequestError: {}
-    String:
-      type: string
     DeleteWorkerBlockRequest:
       type: object
       required:
@@ -189,49 +230,8 @@ components:
     DeleteWorkerBlockResponse:
       type: object
       properties: {}
-  parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
+    ServiceFault: {}
+    RequestError: {}
   securitySchemes:
     hmac:
       type: apiKey

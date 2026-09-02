@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -162,51 +162,9 @@ paths:
       tags:
       - '#X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest'
 components:
-  schemas:
-    ServiceFault: {}
-    RequestError: {}
-    AcceptQualificationRequestResponse:
-      type: object
-      properties: {}
-    String:
-      type: string
-    AcceptQualificationRequestRequest:
-      type: object
-      required:
-      - QualificationRequestId
-      title: AcceptQualificationRequestRequest
-      properties:
-        QualificationRequestId:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The ID of the Qualification request, as returned by the <code>GetQualificationRequests</code> operation.
-        IntegerValue:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: ' The value of the Qualification. You can omit this value if you are using the presence or absence of the Qualification as the basis for a HIT requirement. '
-    Integer:
-      type: integer
   parameters:
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -223,12 +181,54 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    String:
+      type: string
+    AcceptQualificationRequestRequest:
+      type: object
+      required:
+      - QualificationRequestId
+      title: AcceptQualificationRequestRequest
+      properties:
+        QualificationRequestId:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The ID of the Qualification request, as returned by the <code>GetQualificationRequests</code> operation.
+        IntegerValue:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: ' The value of the Qualification. You can omit this value if you are using the presence or absence of the Qualification as the basis for a HIT requirement. '
+    ServiceFault: {}
+    Integer:
+      type: integer
+    RequestError: {}
+    AcceptQualificationRequestResponse:
+      type: object
+      properties: {}
   securitySchemes:
     hmac:
       type: apiKey

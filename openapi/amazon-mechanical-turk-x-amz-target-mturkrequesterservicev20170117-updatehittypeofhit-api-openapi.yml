@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT #X Amz Target=MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT #X Amz Target=MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -162,35 +162,21 @@ paths:
       tags:
       - '#X Amz Target=MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT'
 components:
-  schemas:
-    ServiceFault: {}
-    EntityId:
-      type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    RequestError: {}
-    UpdateHITTypeOfHITResponse:
-      type: object
-      properties: {}
-    UpdateHITTypeOfHITRequest:
-      type: object
-      required:
-      - HITId
-      - HITTypeId
-      title: UpdateHITTypeOfHITRequest
-      properties:
-        HITId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The HIT to update.
-        HITTypeId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the new HIT type.
   parameters:
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -213,24 +199,38 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
+  schemas:
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    ServiceFault: {}
+    RequestError: {}
+    UpdateHITTypeOfHITRequest:
+      type: object
+      required:
+      - HITId
+      - HITTypeId
+      title: UpdateHITTypeOfHITRequest
+      properties:
+        HITId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The HIT to update.
+        HITTypeId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the new HIT type.
+    UpdateHITTypeOfHITResponse:
+      type: object
+      properties: {}
   securitySchemes:
     hmac:
       type: apiKey

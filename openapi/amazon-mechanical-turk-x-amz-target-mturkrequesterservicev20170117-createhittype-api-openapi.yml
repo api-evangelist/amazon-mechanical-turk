@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.CreateHITType API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.CreateHITType #X Amz Target=MTurkRequesterServiceV20170117.CreateHITType #X Amz Target=MTurkRequesterServiceV20170117.CreateHITType API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -163,18 +163,30 @@ paths:
       - '#X Amz Target=MTurkRequesterServiceV20170117.CreateHITType'
 components:
   schemas:
-    Long:
+    CountryParameters:
+      type: string
+      minLength: 2
+      maxLength: 2
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    Boolean:
+      type: boolean
+    LocaleList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Locale'
+    Integer:
       type: integer
-    CurrencyAmount:
-      type: string
-      pattern: ^[0-9]+(\.)?[0-9]{0,2}$
-      description: A string representing a currency amount.
-    HITAccessActions:
-      type: string
-      enum:
-      - Accept
-      - PreviewAndAccept
-      - DiscoverPreviewAndAccept
+    CreateHITTypeResponse:
+      type: object
+      properties:
+        HITTypeId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' The ID of the newly registered HIT type.'
     Locale:
       type: object
       required:
@@ -189,10 +201,34 @@ components:
           - $ref: '#/components/schemas/CountryParameters'
           - description: The state or subdivision of the locale. A valid ISO 3166-2 subdivision code. For example, the code WA refers to the state of Washington.
       description: The Locale data structure represents a geographical region or location.
+    CurrencyAmount:
+      type: string
+      pattern: ^[0-9]+(\.)?[0-9]{0,2}$
+      description: A string representing a currency amount.
+    QualificationRequirementList:
+      type: array
+      items:
+        $ref: '#/components/schemas/QualificationRequirement'
     IntegerList:
       type: array
       items:
         $ref: '#/components/schemas/Integer'
+    Comparator:
+      type: string
+      enum:
+      - LessThan
+      - LessThanOrEqualTo
+      - GreaterThan
+      - GreaterThanOrEqualTo
+      - EqualTo
+      - NotEqualTo
+      - Exists
+      - DoesNotExist
+      - In
+      - NotIn
+    String:
+      type: string
+    ServiceFault: {}
     CreateHITTypeRequest:
       type: object
       required:
@@ -230,16 +266,8 @@ components:
           allOf:
           - $ref: '#/components/schemas/QualificationRequirementList'
           - description: ' Conditions that a Worker''s Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the <code>ActionsGuarded</code> field on each <code>QualificationRequirement</code> structure. '
-    RequestError: {}
-    Boolean:
-      type: boolean
-    CreateHITTypeResponse:
-      type: object
-      properties:
-        HITTypeId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' The ID of the newly registered HIT type.'
+    Long:
+      type: integer
     QualificationRequirement:
       type: object
       required:
@@ -272,62 +300,16 @@ components:
           - $ref: '#/components/schemas/HITAccessActions'
           - description: ' Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include "Accept" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), "PreviewAndAccept" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and "DiscoverPreviewAndAccept" (Worker cannot accept, preview, or see the HIT in their search results). It''s possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the <code>RequiredToPreview</code> field. '
       description: ' The QualificationRequirement data structure describes a Qualification that a Worker must have before the Worker is allowed to accept a HIT. A requirement may optionally state that a Worker must have the Qualification in order to preview the HIT, or see the HIT in search results. '
-    CountryParameters:
-      type: string
-      minLength: 2
-      maxLength: 2
-    ServiceFault: {}
-    EntityId:
-      type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    String:
-      type: string
-    Comparator:
+    HITAccessActions:
       type: string
       enum:
-      - LessThan
-      - LessThanOrEqualTo
-      - GreaterThan
-      - GreaterThanOrEqualTo
-      - EqualTo
-      - NotEqualTo
-      - Exists
-      - DoesNotExist
-      - In
-      - NotIn
-    LocaleList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Locale'
-    Integer:
-      type: integer
-    QualificationRequirementList:
-      type: array
-      items:
-        $ref: '#/components/schemas/QualificationRequirement'
+      - Accept
+      - PreviewAndAccept
+      - DiscoverPreviewAndAccept
+    RequestError: {}
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -346,6 +328,24 @@ components:
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListAssignmentsForHIT API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListAssignmentsForHIT #X Amz Target=MTurkRequesterServiceV20170117.ListAssignmentsForHIT #X Amz Target=MTurkRequesterServiceV20170117.ListAssignmentsForHIT API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -175,6 +175,71 @@ paths:
       - '#X Amz Target=MTurkRequesterServiceV20170117.ListAssignmentsForHIT'
 components:
   schemas:
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    Integer:
+      type: integer
+    AssignmentStatus:
+      type: string
+      enum:
+      - Submitted
+      - Approved
+      - Rejected
+    PaginationToken:
+      type: string
+      description: 'If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. '
+      minLength: 1
+      maxLength: 255
+    AssignmentList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Assignment'
+    String:
+      type: string
+    ServiceFault: {}
+    ResultSize:
+      type: integer
+      minimum: 1
+      maximum: 100
+    Timestamp:
+      type: string
+      format: date-time
+    ListAssignmentsForHITResponse:
+      type: object
+      properties:
+        NextToken:
+          $ref: '#/components/schemas/PaginationToken'
+        NumResults:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: ' The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.'
+        Assignments:
+          allOf:
+          - $ref: '#/components/schemas/AssignmentList'
+          - description: ' The collection of Assignment data structures returned by this call.'
+    ListAssignmentsForHITRequest:
+      type: object
+      required:
+      - HITId
+      title: ListAssignmentsForHITRequest
+      properties:
+        HITId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the HIT.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: Pagination token
+        MaxResults:
+          $ref: '#/components/schemas/ResultSize'
+        AssignmentStatuses:
+          allOf:
+          - $ref: '#/components/schemas/AssignmentStatusList'
+          - description: 'The status of the assignments to return: Submitted | Approved | Rejected'
     Assignment:
       type: object
       properties:
@@ -227,102 +292,19 @@ components:
           - $ref: '#/components/schemas/String'
           - description: ' The feedback string included with the call to the ApproveAssignment operation or the RejectAssignment operation, if the Requester approved or rejected the assignment and specified feedback.'
       description: ' The Assignment data structure represents a single assignment of a HIT to a Worker. The assignment tracks the Worker''s efforts to complete the HIT, and contains the results for later retrieval. '
-    ListAssignmentsForHITResponse:
-      type: object
-      properties:
-        NextToken:
-          $ref: '#/components/schemas/PaginationToken'
-        NumResults:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: ' The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.'
-        Assignments:
-          allOf:
-          - $ref: '#/components/schemas/AssignmentList'
-          - description: ' The collection of Assignment data structures returned by this call.'
+    AssignmentStatusList:
+      type: array
+      items:
+        $ref: '#/components/schemas/AssignmentStatus'
     CustomerId:
       type: string
       pattern: ^A[A-Z0-9]+$
       minLength: 1
       maxLength: 64
-    ListAssignmentsForHITRequest:
-      type: object
-      required:
-      - HITId
-      title: ListAssignmentsForHITRequest
-      properties:
-        HITId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the HIT.
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: Pagination token
-        MaxResults:
-          $ref: '#/components/schemas/ResultSize'
-        AssignmentStatuses:
-          allOf:
-          - $ref: '#/components/schemas/AssignmentStatusList'
-          - description: 'The status of the assignments to return: Submitted | Approved | Rejected'
     RequestError: {}
-    AssignmentStatus:
-      type: string
-      enum:
-      - Submitted
-      - Approved
-      - Rejected
-    PaginationToken:
-      type: string
-      description: 'If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. '
-      minLength: 1
-      maxLength: 255
-    ServiceFault: {}
-    EntityId:
-      type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    String:
-      type: string
-    AssignmentList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Assignment'
-    Timestamp:
-      type: string
-      format: date-time
-    Integer:
-      type: integer
-    AssignmentStatusList:
-      type: array
-      items:
-        $ref: '#/components/schemas/AssignmentStatus'
-    ResultSize:
-      type: integer
-      minimum: 1
-      maximum: 100
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -341,6 +323,24 @@ components:
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

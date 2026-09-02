@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListQualificationRequests API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListQualificationRequests #X Amz Target=MTurkRequesterServiceV20170117.ListQualificationRequests #X Amz Target=MTurkRequesterServiceV20170117.ListQualificationRequests API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -174,60 +174,12 @@ paths:
       tags:
       - '#X Amz Target=MTurkRequesterServiceV20170117.ListQualificationRequests'
 components:
-  parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    QualificationRequestList:
-      type: array
-      items:
-        $ref: '#/components/schemas/QualificationRequest'
-    CustomerId:
+    EntityId:
       type: string
-      pattern: ^A[A-Z0-9]+$
+      pattern: ^[A-Z0-9]+$
       minLength: 1
       maxLength: 64
-    RequestError: {}
     QualificationRequest:
       type: object
       properties:
@@ -256,32 +208,20 @@ components:
           - $ref: '#/components/schemas/Timestamp'
           - description: 'The date and time the Qualification request had a status of Submitted. This is either the time the Worker submitted answers for a Qualification test, or the time the Worker requested the Qualification if the Qualification type does not have a test. '
       description: ' The QualificationRequest data structure represents a request a Worker has made for a Qualification. '
+    Integer:
+      type: integer
+    QualificationRequestList:
+      type: array
+      items:
+        $ref: '#/components/schemas/QualificationRequest'
     PaginationToken:
       type: string
       description: 'If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. '
       minLength: 1
       maxLength: 255
-    ServiceFault: {}
-    ListQualificationRequestsResponse:
-      type: object
-      properties:
-        NumResults:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: The number of Qualification requests on this page in the filtered results list, equivalent to the number of Qualification requests being returned by this call.
-        NextToken:
-          $ref: '#/components/schemas/PaginationToken'
-        QualificationRequests:
-          allOf:
-          - $ref: '#/components/schemas/QualificationRequestList'
-          - description: The Qualification request. The response includes one QualificationRequest element for each Qualification request returned by the query.
-    EntityId:
-      type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
     String:
       type: string
+    ServiceFault: {}
     ListQualificationRequestsRequest:
       type: object
       title: ListQualificationRequestsRequest
@@ -296,15 +236,75 @@ components:
           allOf:
           - $ref: '#/components/schemas/ResultSize'
           - description: ' The maximum number of results to return in a single call. '
-    Timestamp:
-      type: string
-      format: date-time
-    Integer:
-      type: integer
+    ListQualificationRequestsResponse:
+      type: object
+      properties:
+        NumResults:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The number of Qualification requests on this page in the filtered results list, equivalent to the number of Qualification requests being returned by this call.
+        NextToken:
+          $ref: '#/components/schemas/PaginationToken'
+        QualificationRequests:
+          allOf:
+          - $ref: '#/components/schemas/QualificationRequestList'
+          - description: The Qualification request. The response includes one QualificationRequest element for each Qualification request returned by the query.
     ResultSize:
       type: integer
       minimum: 1
       maximum: 100
+    Timestamp:
+      type: string
+      format: date-time
+    CustomerId:
+      type: string
+      pattern: ^A[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    RequestError: {}
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

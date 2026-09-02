@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker #X Amz Target=MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker #X Amz Target=MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -162,24 +162,66 @@ paths:
       tags:
       - '#X Amz Target=MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker'
 components:
+  parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
+    String:
+      type: string
     CustomerId:
       type: string
       pattern: ^A[A-Z0-9]+$
       minLength: 1
       maxLength: 64
-    ServiceFault: {}
     EntityId:
       type: string
       pattern: ^[A-Z0-9]+$
       minLength: 1
       maxLength: 64
-    RequestError: {}
     DisassociateQualificationFromWorkerResponse:
       type: object
       properties: {}
-    String:
-      type: string
+    ServiceFault: {}
     DisassociateQualificationFromWorkerRequest:
       type: object
       required:
@@ -199,49 +241,7 @@ components:
           allOf:
           - $ref: '#/components/schemas/String'
           - description: A text message that explains why the Qualification was revoked. The user who had the Qualification sees this message.
-  parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
+    RequestError: {}
   securitySchemes:
     hmac:
       type: apiKey

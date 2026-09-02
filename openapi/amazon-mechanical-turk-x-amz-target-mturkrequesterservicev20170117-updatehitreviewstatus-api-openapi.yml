@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.UpdateHITReviewStatus API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.UpdateHITReviewStatus #X Amz Target=MTurkRequesterServiceV20170117.UpdateHITReviewStatus #X Amz Target=MTurkRequesterServiceV20170117.UpdateHITReviewStatus API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -162,54 +162,9 @@ paths:
       tags:
       - '#X Amz Target=MTurkRequesterServiceV20170117.UpdateHITReviewStatus'
 components:
-  schemas:
-    ServiceFault: {}
-    UpdateHITReviewStatusResponse:
-      type: object
-      properties: {}
-    EntityId:
-      type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    RequestError: {}
-    UpdateHITReviewStatusRequest:
-      type: object
-      required:
-      - HITId
-      title: UpdateHITReviewStatusRequest
-      properties:
-        HITId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' The ID of the HIT to update. '
-        Revert:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: <p> Specifies how to update the HIT status. Default is <code>False</code>. </p> <ul> <li> <p> Setting this to false will only transition a HIT from <code>Reviewable</code> to <code>Reviewing</code> </p> </li> <li> <p> Setting this to true will only transition a HIT from <code>Reviewing</code> to <code>Reviewable</code> </p> </li> </ul>
-    Boolean:
-      type: boolean
   parameters:
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -226,12 +181,57 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    Boolean:
+      type: boolean
+    ServiceFault: {}
+    UpdateHITReviewStatusResponse:
+      type: object
+      properties: {}
+    UpdateHITReviewStatusRequest:
+      type: object
+      required:
+      - HITId
+      title: UpdateHITReviewStatusRequest
+      properties:
+        HITId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' The ID of the HIT to update. '
+        Revert:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: <p> Specifies how to update the HIT status. Default is <code>False</code>. </p> <ul> <li> <p> Setting this to false will only transition a HIT from <code>Reviewable</code> to <code>Reviewing</code> </p> </li> <li> <p> Setting this to true will only transition a HIT from <code>Reviewing</code> to <code>Reviewable</code> </p> </li> </ul>
+    RequestError: {}
   securitySchemes:
     hmac:
       type: apiKey

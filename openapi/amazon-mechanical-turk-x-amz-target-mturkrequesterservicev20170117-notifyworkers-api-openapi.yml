@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.NotifyWorkers API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.NotifyWorkers #X Amz Target=MTurkRequesterServiceV20170117.NotifyWorkers #X Amz Target=MTurkRequesterServiceV20170117.NotifyWorkers API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -162,18 +162,52 @@ paths:
       tags:
       - '#X Amz Target=MTurkRequesterServiceV20170117.NotifyWorkers'
 components:
+  parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
-    CustomerId:
+    String:
       type: string
-      pattern: ^A[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    ServiceFault: {}
-    NotifyWorkersFailureStatusList:
-      type: array
-      items:
-        $ref: '#/components/schemas/NotifyWorkersFailureStatus'
-    RequestError: {}
     NotifyWorkersResponse:
       type: object
       properties:
@@ -181,28 +215,18 @@ components:
           allOf:
           - $ref: '#/components/schemas/NotifyWorkersFailureStatusList'
           - description: ' When MTurk sends notifications to the list of Workers, it returns back any failures it encounters in this list of NotifyWorkersFailureStatus objects. '
-    String:
+    CustomerId:
       type: string
-    CustomerIdList:
-      type: array
-      items:
-        $ref: '#/components/schemas/CustomerId'
-    NotifyWorkersFailureStatus:
-      type: object
-      properties:
-        NotifyWorkersFailureCode:
-          allOf:
-          - $ref: '#/components/schemas/NotifyWorkersFailureCode'
-          - description: ' Encoded value for the failure type. '
-        NotifyWorkersFailureMessage:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' A message detailing the reason the Worker could not be notified. '
-        WorkerId:
-          allOf:
-          - $ref: '#/components/schemas/CustomerId'
-          - description: ' The ID of the Worker.'
-      description: ' When MTurk encounters an issue with notifying the Workers you specified, it returns back this object with failure details. '
+      pattern: ^A[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    ServiceFault: {}
+    NotifyWorkersFailureCode:
+      type: string
+      enum:
+      - SoftFailure
+      - HardFailure
+    RequestError: {}
     NotifyWorkersRequest:
       type: object
       required:
@@ -223,54 +247,30 @@ components:
           allOf:
           - $ref: '#/components/schemas/CustomerIdList'
           - description: A list of Worker IDs you wish to notify. You can notify upto 100 Workers at a time.
-    NotifyWorkersFailureCode:
-      type: string
-      enum:
-      - SoftFailure
-      - HardFailure
-  parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
+    NotifyWorkersFailureStatus:
+      type: object
+      properties:
+        NotifyWorkersFailureCode:
+          allOf:
+          - $ref: '#/components/schemas/NotifyWorkersFailureCode'
+          - description: ' Encoded value for the failure type. '
+        NotifyWorkersFailureMessage:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' A message detailing the reason the Worker could not be notified. '
+        WorkerId:
+          allOf:
+          - $ref: '#/components/schemas/CustomerId'
+          - description: ' The ID of the Worker.'
+      description: ' When MTurk encounters an issue with notifying the Workers you specified, it returns back this object with failure details. '
+    CustomerIdList:
+      type: array
+      items:
+        $ref: '#/components/schemas/CustomerId'
+    NotifyWorkersFailureStatusList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NotifyWorkersFailureStatus'
   securitySchemes:
     hmac:
       type: apiKey

@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListBonusPayments API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListBonusPayments #X Amz Target=MTurkRequesterServiceV20170117.ListBonusPayments #X Amz Target=MTurkRequesterServiceV20170117.ListBonusPayments API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -175,6 +175,13 @@ paths:
       - '#X Amz Target=MTurkRequesterServiceV20170117.ListBonusPayments'
 components:
   schemas:
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    Integer:
+      type: integer
     ListBonusPaymentsResponse:
       type: object
       properties:
@@ -188,28 +195,25 @@ components:
           allOf:
           - $ref: '#/components/schemas/BonusPaymentList'
           - description: 'A successful request to the ListBonusPayments operation returns a list of BonusPayment objects. '
+    PaginationToken:
+      type: string
+      description: 'If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. '
+      minLength: 1
+      maxLength: 255
     CurrencyAmount:
       type: string
       pattern: ^[0-9]+(\.)?[0-9]{0,2}$
       description: A string representing a currency amount.
-    ListBonusPaymentsRequest:
-      type: object
-      title: ListBonusPaymentsRequest
-      properties:
-        HITId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the HIT associated with the bonus payments to retrieve. If not specified, all bonus payments for all assignments for the given HIT are returned. Either the HITId parameter or the AssignmentId parameter must be specified
-        AssignmentId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the assignment associated with the bonus payments to retrieve. If specified, only bonus payments for the given assignment are returned. Either the HITId parameter or the AssignmentId parameter must be specified
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: Pagination token
-        MaxResults:
-          $ref: '#/components/schemas/ResultSize'
+    String:
+      type: string
+    ServiceFault: {}
+    ResultSize:
+      type: integer
+      minimum: 1
+      maximum: 100
+    Timestamp:
+      type: string
+      format: date-time
     BonusPayment:
       type: object
       properties:
@@ -237,54 +241,32 @@ components:
       pattern: ^A[A-Z0-9]+$
       minLength: 1
       maxLength: 64
+    ListBonusPaymentsRequest:
+      type: object
+      title: ListBonusPaymentsRequest
+      properties:
+        HITId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the HIT associated with the bonus payments to retrieve. If not specified, all bonus payments for all assignments for the given HIT are returned. Either the HITId parameter or the AssignmentId parameter must be specified
+        AssignmentId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the assignment associated with the bonus payments to retrieve. If specified, only bonus payments for the given assignment are returned. Either the HITId parameter or the AssignmentId parameter must be specified
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: Pagination token
+        MaxResults:
+          $ref: '#/components/schemas/ResultSize'
     RequestError: {}
-    PaginationToken:
-      type: string
-      description: 'If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. '
-      minLength: 1
-      maxLength: 255
-    ServiceFault: {}
-    EntityId:
-      type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    String:
-      type: string
-    Timestamp:
-      type: string
-      format: date-time
-    Integer:
-      type: integer
-    ResultSize:
-      type: integer
-      minimum: 1
-      maximum: 100
     BonusPaymentList:
       type: array
       items:
         $ref: '#/components/schemas/BonusPayment'
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -303,6 +285,24 @@ components:
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

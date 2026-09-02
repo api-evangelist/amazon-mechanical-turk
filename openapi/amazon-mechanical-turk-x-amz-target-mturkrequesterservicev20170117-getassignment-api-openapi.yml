@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.GetAssignment API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.GetAssignment #X Amz Target=MTurkRequesterServiceV20170117.GetAssignment #X Amz Target=MTurkRequesterServiceV20170117.GetAssignment API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -163,70 +163,47 @@ paths:
       - '#X Amz Target=MTurkRequesterServiceV20170117.GetAssignment'
 components:
   schemas:
-    Long:
-      type: integer
-    CurrencyAmount:
+    CountryParameters:
       type: string
-      pattern: ^[0-9]+(\.)?[0-9]{0,2}$
-      description: A string representing a currency amount.
-    HITAccessActions:
+      minLength: 2
+      maxLength: 2
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    Boolean:
+      type: boolean
+    LocaleList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Locale'
+    Integer:
+      type: integer
+    AssignmentStatus:
       type: string
       enum:
-      - Accept
-      - PreviewAndAccept
-      - DiscoverPreviewAndAccept
-    Assignment:
+      - Submitted
+      - Approved
+      - Rejected
+    HITReviewStatus:
+      type: string
+      enum:
+      - NotReviewed
+      - MarkedForReview
+      - ReviewedAppropriate
+      - ReviewedInappropriate
+    GetAssignmentResponse:
       type: object
       properties:
-        AssignmentId:
+        Assignment:
           allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' A unique identifier for the assignment.'
-        WorkerId:
+          - $ref: '#/components/schemas/Assignment'
+          - description: ' The assignment. The response includes one Assignment element. '
+        HIT:
           allOf:
-          - $ref: '#/components/schemas/CustomerId'
-          - description: ' The ID of the Worker who accepted the HIT.'
-        HITId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' The ID of the HIT.'
-        AssignmentStatus:
-          allOf:
-          - $ref: '#/components/schemas/AssignmentStatus'
-          - description: ' The status of the assignment.'
-        AutoApprovalTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' If results have been submitted, AutoApprovalTime is the date and time the results of the assignment results are considered Approved automatically if they have not already been explicitly approved or rejected by the Requester. This value is derived from the auto-approval delay specified by the Requester in the HIT. This value is omitted from the assignment if the Worker has not yet submitted results.'
-        AcceptTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' The date and time the Worker accepted the assignment.'
-        SubmitTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' If the Worker has submitted results, SubmitTime is the date and time the assignment was submitted. This value is omitted from the assignment if the Worker has not yet submitted results.'
-        ApprovalTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' If the Worker has submitted results and the Requester has approved the results, ApprovalTime is the date and time the Requester approved the results. This value is omitted from the assignment if the Requester has not yet approved the results.'
-        RejectionTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' If the Worker has submitted results and the Requester has rejected the results, RejectionTime is the date and time the Requester rejected the results.'
-        Deadline:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' The date and time of the deadline for the assignment. This value is derived from the deadline specification for the HIT and the date and time the Worker accepted the HIT.'
-        Answer:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' The Worker''s answers submitted for the HIT contained in a QuestionFormAnswers document, if the Worker provides an answer. If the Worker does not provide any answers, Answer may contain a QuestionFormAnswers document, or Answer may be empty.'
-        RequesterFeedback:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' The feedback string included with the call to the ApproveAssignment operation or the RejectAssignment operation, if the Requester approved or rejected the assignment and specified feedback.'
-      description: ' The Assignment data structure represents a single assignment of a HIT to a Worker. The assignment tracks the Worker''s efforts to complete the HIT, and contains the results for later retrieval. '
+          - $ref: '#/components/schemas/HIT'
+          - description: ' The HIT associated with this assignment. The response includes one HIT element.'
     Locale:
       type: object
       required:
@@ -241,6 +218,33 @@ components:
           - $ref: '#/components/schemas/CountryParameters'
           - description: The state or subdivision of the locale. A valid ISO 3166-2 subdivision code. For example, the code WA refers to the state of Washington.
       description: The Locale data structure represents a geographical region or location.
+    CurrencyAmount:
+      type: string
+      pattern: ^[0-9]+(\.)?[0-9]{0,2}$
+      description: A string representing a currency amount.
+    QualificationRequirementList:
+      type: array
+      items:
+        $ref: '#/components/schemas/QualificationRequirement'
+    IntegerList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Integer'
+    Comparator:
+      type: string
+      enum:
+      - LessThan
+      - LessThanOrEqualTo
+      - GreaterThan
+      - GreaterThanOrEqualTo
+      - EqualTo
+      - NotEqualTo
+      - Exists
+      - DoesNotExist
+      - In
+      - NotIn
+    String:
+      type: string
     GetAssignmentRequest:
       type: object
       required:
@@ -251,16 +255,7 @@ components:
           allOf:
           - $ref: '#/components/schemas/EntityId'
           - description: The ID of the Assignment to be retrieved.
-    CustomerId:
-      type: string
-      pattern: ^A[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    IntegerList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Integer'
-    RequestError: {}
+    ServiceFault: {}
     HIT:
       type: object
       properties:
@@ -347,21 +342,71 @@ components:
           - $ref: '#/components/schemas/Integer'
           - description: ' The number of assignments for this HIT that have been approved or rejected.'
       description: ' The HIT data structure represents a single HIT, including all the information necessary for a Worker to accept and complete the HIT.'
-    HITReviewStatus:
+    HITStatus:
       type: string
       enum:
-      - NotReviewed
-      - MarkedForReview
-      - ReviewedAppropriate
-      - ReviewedInappropriate
-    AssignmentStatus:
+      - Assignable
+      - Unassignable
+      - Reviewable
+      - Reviewing
+      - Disposed
+    Long:
+      type: integer
+    Timestamp:
       type: string
-      enum:
-      - Submitted
-      - Approved
-      - Rejected
-    Boolean:
-      type: boolean
+      format: date-time
+    Assignment:
+      type: object
+      properties:
+        AssignmentId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' A unique identifier for the assignment.'
+        WorkerId:
+          allOf:
+          - $ref: '#/components/schemas/CustomerId'
+          - description: ' The ID of the Worker who accepted the HIT.'
+        HITId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' The ID of the HIT.'
+        AssignmentStatus:
+          allOf:
+          - $ref: '#/components/schemas/AssignmentStatus'
+          - description: ' The status of the assignment.'
+        AutoApprovalTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' If results have been submitted, AutoApprovalTime is the date and time the results of the assignment results are considered Approved automatically if they have not already been explicitly approved or rejected by the Requester. This value is derived from the auto-approval delay specified by the Requester in the HIT. This value is omitted from the assignment if the Worker has not yet submitted results.'
+        AcceptTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' The date and time the Worker accepted the assignment.'
+        SubmitTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' If the Worker has submitted results, SubmitTime is the date and time the assignment was submitted. This value is omitted from the assignment if the Worker has not yet submitted results.'
+        ApprovalTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' If the Worker has submitted results and the Requester has approved the results, ApprovalTime is the date and time the Requester approved the results. This value is omitted from the assignment if the Requester has not yet approved the results.'
+        RejectionTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' If the Worker has submitted results and the Requester has rejected the results, RejectionTime is the date and time the Requester rejected the results.'
+        Deadline:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' The date and time of the deadline for the assignment. This value is derived from the deadline specification for the HIT and the date and time the Worker accepted the HIT.'
+        Answer:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' The Worker''s answers submitted for the HIT contained in a QuestionFormAnswers document, if the Worker provides an answer. If the Worker does not provide any answers, Answer may contain a QuestionFormAnswers document, or Answer may be empty.'
+        RequesterFeedback:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' The feedback string included with the call to the ApproveAssignment operation or the RejectAssignment operation, if the Requester approved or rejected the assignment and specified feedback.'
+      description: ' The Assignment data structure represents a single assignment of a HIT to a Worker. The assignment tracks the Worker''s efforts to complete the HIT, and contains the results for later retrieval. '
     QualificationRequirement:
       type: object
       required:
@@ -394,84 +439,21 @@ components:
           - $ref: '#/components/schemas/HITAccessActions'
           - description: ' Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include "Accept" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), "PreviewAndAccept" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and "DiscoverPreviewAndAccept" (Worker cannot accept, preview, or see the HIT in their search results). It''s possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the <code>RequiredToPreview</code> field. '
       description: ' The QualificationRequirement data structure describes a Qualification that a Worker must have before the Worker is allowed to accept a HIT. A requirement may optionally state that a Worker must have the Qualification in order to preview the HIT, or see the HIT in search results. '
-    CountryParameters:
+    CustomerId:
       type: string
-      minLength: 2
-      maxLength: 2
-    ServiceFault: {}
-    EntityId:
-      type: string
-      pattern: ^[A-Z0-9]+$
+      pattern: ^A[A-Z0-9]+$
       minLength: 1
       maxLength: 64
-    String:
-      type: string
-    Comparator:
+    HITAccessActions:
       type: string
       enum:
-      - LessThan
-      - LessThanOrEqualTo
-      - GreaterThan
-      - GreaterThanOrEqualTo
-      - EqualTo
-      - NotEqualTo
-      - Exists
-      - DoesNotExist
-      - In
-      - NotIn
-    HITStatus:
-      type: string
-      enum:
-      - Assignable
-      - Unassignable
-      - Reviewable
-      - Reviewing
-      - Disposed
-    LocaleList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Locale'
-    Integer:
-      type: integer
-    Timestamp:
-      type: string
-      format: date-time
-    GetAssignmentResponse:
-      type: object
-      properties:
-        Assignment:
-          allOf:
-          - $ref: '#/components/schemas/Assignment'
-          - description: ' The assignment. The response includes one Assignment element. '
-        HIT:
-          allOf:
-          - $ref: '#/components/schemas/HIT'
-          - description: ' The HIT associated with this assignment. The response includes one HIT element.'
-    QualificationRequirementList:
-      type: array
-      items:
-        $ref: '#/components/schemas/QualificationRequirement'
+      - Accept
+      - PreviewAndAccept
+      - DiscoverPreviewAndAccept
+    RequestError: {}
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -490,6 +472,24 @@ components:
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

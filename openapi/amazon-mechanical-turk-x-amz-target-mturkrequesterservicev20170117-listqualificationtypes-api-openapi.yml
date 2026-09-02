@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListQualificationTypes API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListQualificationTypes #X Amz Target=MTurkRequesterServiceV20170117.ListQualificationTypes #X Amz Target=MTurkRequesterServiceV20170117.ListQualificationTypes API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -175,79 +175,6 @@ paths:
       - '#X Amz Target=MTurkRequesterServiceV20170117.ListQualificationTypes'
 components:
   schemas:
-    Long:
-      type: integer
-    QualificationTypeList:
-      type: array
-      items:
-        $ref: '#/components/schemas/QualificationType'
-    RequestError: {}
-    ListQualificationTypesRequest:
-      type: object
-      required:
-      - MustBeRequestable
-      title: ListQualificationTypesRequest
-      properties:
-        Query:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' A text query against all of the searchable attributes of Qualification types. '
-        MustBeRequestable:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: 'Specifies that only Qualification types that a user can request through the Amazon Mechanical Turk web site, such as by taking a Qualification test, are returned as results of the search. Some Qualification types, such as those assigned automatically by the system, cannot be requested directly by users. If false, all Qualification types, including those managed by the system, are considered. Valid values are True | False. '
-        MustBeOwnedByCaller:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: ' Specifies that only Qualification types that the Requester created are returned. If false, the operation returns all Qualification types. '
-        NextToken:
-          $ref: '#/components/schemas/PaginationToken'
-        MaxResults:
-          allOf:
-          - $ref: '#/components/schemas/ResultSize'
-          - description: ' The maximum number of results to return in a single call. '
-    Boolean:
-      type: boolean
-    PaginationToken:
-      type: string
-      description: 'If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. '
-      minLength: 1
-      maxLength: 255
-    ServiceFault: {}
-    EntityId:
-      type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    String:
-      type: string
-    QualificationTypeStatus:
-      type: string
-      enum:
-      - Active
-      - Inactive
-    Timestamp:
-      type: string
-      format: date-time
-    Integer:
-      type: integer
-    ListQualificationTypesResponse:
-      type: object
-      properties:
-        NumResults:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: ' The number of Qualification types on this page in the filtered results list, equivalent to the number of types this operation returns. '
-        NextToken:
-          $ref: '#/components/schemas/PaginationToken'
-        QualificationTypes:
-          allOf:
-          - $ref: '#/components/schemas/QualificationTypeList'
-          - description: ' The list of QualificationType elements returned by the query. '
-    ResultSize:
-      type: integer
-      minimum: 1
-      maximum: 100
     QualificationType:
       type: object
       properties:
@@ -304,27 +231,82 @@ components:
           - $ref: '#/components/schemas/Integer'
           - description: ' The Qualification integer value to use for automatically granted Qualifications, if AutoGranted is true. This is 1 by default. '
       description: ' The QualificationType data structure represents a Qualification type, a description of a property of a Worker that must match the requirements of a HIT for the Worker to be able to accept the HIT. The type also describes how a Worker can obtain a Qualification of that type, such as through a Qualification test. '
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    Boolean:
+      type: boolean
+    Integer:
+      type: integer
+    QualificationTypeStatus:
+      type: string
+      enum:
+      - Active
+      - Inactive
+    PaginationToken:
+      type: string
+      description: 'If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. '
+      minLength: 1
+      maxLength: 255
+    ListQualificationTypesRequest:
+      type: object
+      required:
+      - MustBeRequestable
+      title: ListQualificationTypesRequest
+      properties:
+        Query:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' A text query against all of the searchable attributes of Qualification types. '
+        MustBeRequestable:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: 'Specifies that only Qualification types that a user can request through the Amazon Mechanical Turk web site, such as by taking a Qualification test, are returned as results of the search. Some Qualification types, such as those assigned automatically by the system, cannot be requested directly by users. If false, all Qualification types, including those managed by the system, are considered. Valid values are True | False. '
+        MustBeOwnedByCaller:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: ' Specifies that only Qualification types that the Requester created are returned. If false, the operation returns all Qualification types. '
+        NextToken:
+          $ref: '#/components/schemas/PaginationToken'
+        MaxResults:
+          allOf:
+          - $ref: '#/components/schemas/ResultSize'
+          - description: ' The maximum number of results to return in a single call. '
+    QualificationTypeList:
+      type: array
+      items:
+        $ref: '#/components/schemas/QualificationType'
+    String:
+      type: string
+    ServiceFault: {}
+    ResultSize:
+      type: integer
+      minimum: 1
+      maximum: 100
+    Long:
+      type: integer
+    Timestamp:
+      type: string
+      format: date-time
+    ListQualificationTypesResponse:
+      type: object
+      properties:
+        NumResults:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: ' The number of Qualification types on this page in the filtered results list, equivalent to the number of types this operation returns. '
+        NextToken:
+          $ref: '#/components/schemas/PaginationToken'
+        QualificationTypes:
+          allOf:
+          - $ref: '#/components/schemas/QualificationTypeList'
+          - description: ' The list of QualificationType elements returned by the query. '
+    RequestError: {}
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -343,6 +325,24 @@ components:
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.SendBonus API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.SendBonus #X Amz Target=MTurkRequesterServiceV20170117.SendBonus #X Amz Target=MTurkRequesterServiceV20170117.SendBonus API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -163,9 +163,20 @@ paths:
       - '#X Amz Target=MTurkRequesterServiceV20170117.SendBonus'
 components:
   schemas:
+    IdempotencyToken:
+      type: string
+      minLength: 1
+      maxLength: 64
+    String:
+      type: string
     CustomerId:
       type: string
       pattern: ^A[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
       minLength: 1
       maxLength: 64
     ServiceFault: {}
@@ -173,18 +184,6 @@ components:
       type: string
       pattern: ^[0-9]+(\.)?[0-9]{0,2}$
       description: A string representing a currency amount.
-    EntityId:
-      type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    RequestError: {}
-    String:
-      type: string
-    IdempotencyToken:
-      type: string
-      minLength: 1
-      maxLength: 64
     SendBonusRequest:
       type: object
       required:
@@ -214,12 +213,25 @@ components:
           allOf:
           - $ref: '#/components/schemas/IdempotencyToken'
           - description: A unique identifier for this request, which allows you to retry the call on error without granting multiple bonuses. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the bonus already exists in the system from a previous call using the same UniqueRequestToken, subsequent calls will return an error with a message containing the request ID.
+    RequestError: {}
     SendBonusResponse:
       type: object
       properties: {}
   parameters:
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -238,18 +250,6 @@ components:
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string

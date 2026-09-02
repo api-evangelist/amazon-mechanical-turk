@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT #X Amz Target=MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT #X Amz Target=MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -163,12 +163,22 @@ paths:
       - '#X Amz Target=MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT'
 components:
   schemas:
-    ServiceFault: {}
+    IdempotencyToken:
+      type: string
+      minLength: 1
+      maxLength: 64
     EntityId:
       type: string
       pattern: ^[A-Z0-9]+$
       minLength: 1
       maxLength: 64
+    ServiceFault: {}
+    Integer:
+      type: integer
+    RequestError: {}
+    CreateAdditionalAssignmentsForHITResponse:
+      type: object
+      properties: {}
     CreateAdditionalAssignmentsForHITRequest:
       type: object
       required:
@@ -188,37 +198,9 @@ components:
           allOf:
           - $ref: '#/components/schemas/IdempotencyToken'
           - description: ' A unique identifier for this request, which allows you to retry the call on error without extending the HIT multiple times. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the extend HIT already exists in the system from a previous call using the same <code>UniqueRequestToken</code>, subsequent calls will return an error with a message containing the request ID. '
-    RequestError: {}
-    IdempotencyToken:
-      type: string
-      minLength: 1
-      maxLength: 64
-    CreateAdditionalAssignmentsForHITResponse:
-      type: object
-      properties: {}
-    Integer:
-      type: integer
   parameters:
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -231,6 +213,24 @@ components:
       required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

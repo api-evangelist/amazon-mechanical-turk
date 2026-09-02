@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationScore API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationScore #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationScore #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationScore API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -163,48 +163,17 @@ paths:
       - '#X Amz Target=MTurkRequesterServiceV20170117.GetQualificationScore'
 components:
   schemas:
-    GetQualificationScoreResponse:
-      type: object
-      properties:
-        Qualification:
-          allOf:
-          - $ref: '#/components/schemas/Qualification'
-          - description: ' The Qualification data structure of the Qualification assigned to a user, including the Qualification type and the value (score). '
-    Locale:
-      type: object
-      required:
-      - Country
-      properties:
-        Country:
-          allOf:
-          - $ref: '#/components/schemas/CountryParameters'
-          - description: ' The country of the locale. Must be a valid ISO 3166 country code. For example, the code US refers to the United States of America. '
-        Subdivision:
-          allOf:
-          - $ref: '#/components/schemas/CountryParameters'
-          - description: The state or subdivision of the locale. A valid ISO 3166-2 subdivision code. For example, the code WA refers to the state of Washington.
-      description: The Locale data structure represents a geographical region or location.
-    CustomerId:
-      type: string
-      pattern: ^A[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    RequestError: {}
-    QualificationStatus:
-      type: string
-      enum:
-      - Granted
-      - Revoked
     CountryParameters:
       type: string
       minLength: 2
       maxLength: 2
-    ServiceFault: {}
     EntityId:
       type: string
       pattern: ^[A-Z0-9]+$
       minLength: 1
       maxLength: 64
+    Integer:
+      type: integer
     GetQualificationScoreRequest:
       type: object
       required:
@@ -220,6 +189,26 @@ components:
           allOf:
           - $ref: '#/components/schemas/CustomerId'
           - description: The ID of the Worker whose Qualification is being updated.
+    QualificationStatus:
+      type: string
+      enum:
+      - Granted
+      - Revoked
+    Locale:
+      type: object
+      required:
+      - Country
+      properties:
+        Country:
+          allOf:
+          - $ref: '#/components/schemas/CountryParameters'
+          - description: ' The country of the locale. Must be a valid ISO 3166 country code. For example, the code US refers to the United States of America. '
+        Subdivision:
+          allOf:
+          - $ref: '#/components/schemas/CountryParameters'
+          - description: The state or subdivision of the locale. A valid ISO 3166-2 subdivision code. For example, the code WA refers to the state of Washington.
+      description: The Locale data structure represents a geographical region or location.
+    ServiceFault: {}
     Qualification:
       type: object
       properties:
@@ -249,29 +238,22 @@ components:
     Timestamp:
       type: string
       format: date-time
-    Integer:
-      type: integer
+    CustomerId:
+      type: string
+      pattern: ^A[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    RequestError: {}
+    GetQualificationScoreResponse:
+      type: object
+      properties:
+        Qualification:
+          allOf:
+          - $ref: '#/components/schemas/Qualification'
+          - description: ' The Qualification data structure of the Qualification assigned to a user, including the Qualification type and the value (score). '
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -290,6 +272,24 @@ components:
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

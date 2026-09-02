@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationType API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationType #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationType #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationType API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -163,36 +163,6 @@ paths:
       - '#X Amz Target=MTurkRequesterServiceV20170117.GetQualificationType'
 components:
   schemas:
-    Long:
-      type: integer
-    GetQualificationTypeResponse:
-      type: object
-      properties:
-        QualificationType:
-          allOf:
-          - $ref: '#/components/schemas/QualificationType'
-          - description: ' The returned Qualification Type'
-    RequestError: {}
-    Boolean:
-      type: boolean
-    ServiceFault: {}
-    EntityId:
-      type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    String:
-      type: string
-    QualificationTypeStatus:
-      type: string
-      enum:
-      - Active
-      - Inactive
-    Timestamp:
-      type: string
-      format: date-time
-    Integer:
-      type: integer
     QualificationType:
       type: object
       properties:
@@ -249,6 +219,15 @@ components:
           - $ref: '#/components/schemas/Integer'
           - description: ' The Qualification integer value to use for automatically granted Qualifications, if AutoGranted is true. This is 1 by default. '
       description: ' The QualificationType data structure represents a Qualification type, a description of a property of a Worker that must match the requirements of a HIT for the Worker to be able to accept the HIT. The type also describes how a Worker can obtain a Qualification of that type, such as through a Qualification test. '
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    Boolean:
+      type: boolean
+    Integer:
+      type: integer
     GetQualificationTypeRequest:
       type: object
       required:
@@ -259,27 +238,30 @@ components:
           allOf:
           - $ref: '#/components/schemas/EntityId'
           - description: The ID of the QualificationType.
+    QualificationTypeStatus:
+      type: string
+      enum:
+      - Active
+      - Inactive
+    String:
+      type: string
+    ServiceFault: {}
+    GetQualificationTypeResponse:
+      type: object
+      properties:
+        QualificationType:
+          allOf:
+          - $ref: '#/components/schemas/QualificationType'
+          - description: ' The returned Qualification Type'
+    Long:
+      type: integer
+    Timestamp:
+      type: string
+      format: date-time
+    RequestError: {}
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -298,6 +280,24 @@ components:
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

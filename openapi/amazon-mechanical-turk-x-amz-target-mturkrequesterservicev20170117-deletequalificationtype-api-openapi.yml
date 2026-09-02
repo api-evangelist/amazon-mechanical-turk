@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.DeleteQualificationType API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.DeleteQualificationType #X Amz Target=MTurkRequesterServiceV20170117.DeleteQualificationType #X Amz Target=MTurkRequesterServiceV20170117.DeleteQualificationType API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -162,48 +162,9 @@ paths:
       tags:
       - '#X Amz Target=MTurkRequesterServiceV20170117.DeleteQualificationType'
 components:
-  schemas:
-    ServiceFault: {}
-    EntityId:
-      type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    RequestError: {}
-    DeleteQualificationTypeResponse:
-      type: object
-      properties: {}
-    DeleteQualificationTypeRequest:
-      type: object
-      required:
-      - QualificationTypeId
-      title: DeleteQualificationTypeRequest
-      properties:
-        QualificationTypeId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the QualificationType to dispose.
   parameters:
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -220,12 +181,51 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    ServiceFault: {}
+    DeleteQualificationTypeRequest:
+      type: object
+      required:
+      - QualificationTypeId
+      title: DeleteQualificationTypeRequest
+      properties:
+        QualificationTypeId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the QualificationType to dispose.
+    DeleteQualificationTypeResponse:
+      type: object
+      properties: {}
+    RequestError: {}
   securitySchemes:
     hmac:
       type: apiKey

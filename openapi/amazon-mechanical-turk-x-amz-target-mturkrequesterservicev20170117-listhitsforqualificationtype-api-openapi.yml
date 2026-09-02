@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListHITsForQualificationType API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListHITsForQualificationType #X Amz Target=MTurkRequesterServiceV20170117.ListHITsForQualificationType #X Amz Target=MTurkRequesterServiceV20170117.ListHITsForQualificationType API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -175,18 +175,48 @@ paths:
       - '#X Amz Target=MTurkRequesterServiceV20170117.ListHITsForQualificationType'
 components:
   schemas:
-    Long:
-      type: integer
-    CurrencyAmount:
+    CountryParameters:
       type: string
-      pattern: ^[0-9]+(\.)?[0-9]{0,2}$
-      description: A string representing a currency amount.
-    HITAccessActions:
+      minLength: 2
+      maxLength: 2
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    Boolean:
+      type: boolean
+    LocaleList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Locale'
+    HITList:
+      type: array
+      items:
+        $ref: '#/components/schemas/HIT'
+    Integer:
+      type: integer
+    HITReviewStatus:
       type: string
       enum:
-      - Accept
-      - PreviewAndAccept
-      - DiscoverPreviewAndAccept
+      - NotReviewed
+      - MarkedForReview
+      - ReviewedAppropriate
+      - ReviewedInappropriate
+    Locale:
+      type: object
+      required:
+      - Country
+      properties:
+        Country:
+          allOf:
+          - $ref: '#/components/schemas/CountryParameters'
+          - description: ' The country of the locale. Must be a valid ISO 3166 country code. For example, the code US refers to the United States of America. '
+        Subdivision:
+          allOf:
+          - $ref: '#/components/schemas/CountryParameters'
+          - description: The state or subdivision of the locale. A valid ISO 3166-2 subdivision code. For example, the code WA refers to the state of Washington.
+      description: The Locale data structure represents a geographical region or location.
     ListHITsForQualificationTypeRequest:
       type: object
       required:
@@ -205,29 +235,52 @@ components:
           allOf:
           - $ref: '#/components/schemas/ResultSize'
           - description: ' Limit the number of results returned. '
-    Locale:
-      type: object
-      required:
-      - Country
-      properties:
-        Country:
-          allOf:
-          - $ref: '#/components/schemas/CountryParameters'
-          - description: ' The country of the locale. Must be a valid ISO 3166 country code. For example, the code US refers to the United States of America. '
-        Subdivision:
-          allOf:
-          - $ref: '#/components/schemas/CountryParameters'
-          - description: The state or subdivision of the locale. A valid ISO 3166-2 subdivision code. For example, the code WA refers to the state of Washington.
-      description: The Locale data structure represents a geographical region or location.
-    HITList:
+    PaginationToken:
+      type: string
+      description: 'If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. '
+      minLength: 1
+      maxLength: 255
+    CurrencyAmount:
+      type: string
+      pattern: ^[0-9]+(\.)?[0-9]{0,2}$
+      description: A string representing a currency amount.
+    QualificationRequirementList:
       type: array
       items:
-        $ref: '#/components/schemas/HIT'
+        $ref: '#/components/schemas/QualificationRequirement'
     IntegerList:
       type: array
       items:
         $ref: '#/components/schemas/Integer'
-    RequestError: {}
+    Comparator:
+      type: string
+      enum:
+      - LessThan
+      - LessThanOrEqualTo
+      - GreaterThan
+      - GreaterThanOrEqualTo
+      - EqualTo
+      - NotEqualTo
+      - Exists
+      - DoesNotExist
+      - In
+      - NotIn
+    String:
+      type: string
+    ListHITsForQualificationTypeResponse:
+      type: object
+      properties:
+        NextToken:
+          $ref: '#/components/schemas/PaginationToken'
+        NumResults:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: ' The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call. '
+        HITs:
+          allOf:
+          - $ref: '#/components/schemas/HITList'
+          - description: ' The list of HIT elements returned by the query.'
+    ServiceFault: {}
     HIT:
       type: object
       properties:
@@ -314,15 +367,23 @@ components:
           - $ref: '#/components/schemas/Integer'
           - description: ' The number of assignments for this HIT that have been approved or rejected.'
       description: ' The HIT data structure represents a single HIT, including all the information necessary for a Worker to accept and complete the HIT.'
-    HITReviewStatus:
+    HITStatus:
       type: string
       enum:
-      - NotReviewed
-      - MarkedForReview
-      - ReviewedAppropriate
-      - ReviewedInappropriate
-    Boolean:
-      type: boolean
+      - Assignable
+      - Unassignable
+      - Reviewable
+      - Reviewing
+      - Disposed
+    ResultSize:
+      type: integer
+      minimum: 1
+      maximum: 100
+    Long:
+      type: integer
+    Timestamp:
+      type: string
+      format: date-time
     QualificationRequirement:
       type: object
       required:
@@ -355,95 +416,16 @@ components:
           - $ref: '#/components/schemas/HITAccessActions'
           - description: ' Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include "Accept" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), "PreviewAndAccept" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and "DiscoverPreviewAndAccept" (Worker cannot accept, preview, or see the HIT in their search results). It''s possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the <code>RequiredToPreview</code> field. '
       description: ' The QualificationRequirement data structure describes a Qualification that a Worker must have before the Worker is allowed to accept a HIT. A requirement may optionally state that a Worker must have the Qualification in order to preview the HIT, or see the HIT in search results. '
-    CountryParameters:
-      type: string
-      minLength: 2
-      maxLength: 2
-    PaginationToken:
-      type: string
-      description: 'If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. '
-      minLength: 1
-      maxLength: 255
-    ServiceFault: {}
-    ListHITsForQualificationTypeResponse:
-      type: object
-      properties:
-        NextToken:
-          $ref: '#/components/schemas/PaginationToken'
-        NumResults:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: ' The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call. '
-        HITs:
-          allOf:
-          - $ref: '#/components/schemas/HITList'
-          - description: ' The list of HIT elements returned by the query.'
-    EntityId:
-      type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    String:
-      type: string
-    Comparator:
+    HITAccessActions:
       type: string
       enum:
-      - LessThan
-      - LessThanOrEqualTo
-      - GreaterThan
-      - GreaterThanOrEqualTo
-      - EqualTo
-      - NotEqualTo
-      - Exists
-      - DoesNotExist
-      - In
-      - NotIn
-    HITStatus:
-      type: string
-      enum:
-      - Assignable
-      - Unassignable
-      - Reviewable
-      - Reviewing
-      - Disposed
-    LocaleList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Locale'
-    Integer:
-      type: integer
-    Timestamp:
-      type: string
-      format: date-time
-    ResultSize:
-      type: integer
-      minimum: 1
-      maximum: 100
-    QualificationRequirementList:
-      type: array
-      items:
-        $ref: '#/components/schemas/QualificationRequirement'
+      - Accept
+      - PreviewAndAccept
+      - DiscoverPreviewAndAccept
+    RequestError: {}
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -462,6 +444,24 @@ components:
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

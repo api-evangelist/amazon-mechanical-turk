@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.UpdateNotificationSettings API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.UpdateNotificationSettings #X Amz Target=MTurkRequesterServiceV20170117.UpdateNotificationSettings #X Amz Target=MTurkRequesterServiceV20170117.UpdateNotificationSettings API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -163,13 +163,11 @@ paths:
       - '#X Amz Target=MTurkRequesterServiceV20170117.UpdateNotificationSettings'
 components:
   schemas:
-    ServiceFault: {}
-    EntityId:
+    UpdateNotificationSettingsResponse:
+      type: object
+      properties: {}
+    String:
       type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    RequestError: {}
     EventType:
       type: string
       enum:
@@ -185,6 +183,8 @@ components:
       - HITExtended
       - HITDisposed
       - Ping
+    Boolean:
+      type: boolean
     NotificationSpecification:
       type: object
       required:
@@ -210,8 +210,23 @@ components:
           - $ref: '#/components/schemas/EventTypeList'
           - description: ' The list of events that should cause notifications to be sent. Valid Values: AssignmentAccepted | AssignmentAbandoned | AssignmentReturned | AssignmentSubmitted | AssignmentRejected | AssignmentApproved | HITCreated | HITExtended | HITDisposed | HITReviewable | HITExpired | Ping. The Ping event is only valid for the SendTestEventNotification operation. '
       description: The NotificationSpecification data structure describes a HIT event notification for a HIT type.
-    String:
+    EntityId:
       type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    ServiceFault: {}
+    RequestError: {}
+    EventTypeList:
+      type: array
+      items:
+        $ref: '#/components/schemas/EventType'
+    NotificationTransport:
+      type: string
+      enum:
+      - Email
+      - SQS
+      - SNS
     UpdateNotificationSettingsRequest:
       type: object
       required:
@@ -230,42 +245,9 @@ components:
           allOf:
           - $ref: '#/components/schemas/Boolean'
           - description: ' Specifies whether notifications are sent for HITs of this HIT type, according to the notification specification. You must specify either the Notification parameter or the Active parameter for the call to UpdateNotificationSettings to succeed. '
-    NotificationTransport:
-      type: string
-      enum:
-      - Email
-      - SQS
-      - SNS
-    EventTypeList:
-      type: array
-      items:
-        $ref: '#/components/schemas/EventType'
-    Boolean:
-      type: boolean
-    UpdateNotificationSettingsResponse:
-      type: object
-      properties: {}
   parameters:
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -278,6 +260,24 @@ components:
       required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

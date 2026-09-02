@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ApproveAssignment API'
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ApproveAssignment #X Amz Target=MTurkRequesterServiceV20170117.ApproveAssignment #X Amz Target=MTurkRequesterServiceV20170117.ApproveAssignment API'
   description: <fullname>Amazon Mechanical Turk API Reference</fullname>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -162,42 +162,21 @@ paths:
       tags:
       - '#X Amz Target=MTurkRequesterServiceV20170117.ApproveAssignment'
 components:
-  schemas:
-    ServiceFault: {}
-    EntityId:
-      type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    RequestError: {}
-    String:
-      type: string
-    ApproveAssignmentResponse:
-      type: object
-      properties: {}
-    ApproveAssignmentRequest:
-      type: object
-      required:
-      - AssignmentId
-      title: ApproveAssignmentRequest
-      properties:
-        AssignmentId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' The ID of the assignment. The assignment must correspond to a HIT created by the Requester. '
-        RequesterFeedback:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' A message for the Worker, which the Worker can see in the Status section of the web site. '
-        OverrideRejection:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: ' A flag indicating that an assignment should be approved even if it was previously rejected. Defaults to <code>False</code>. '
-    Boolean:
-      type: boolean
   parameters:
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -220,24 +199,45 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
+  schemas:
+    String:
+      type: string
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    Boolean:
+      type: boolean
+    ServiceFault: {}
+    RequestError: {}
+    ApproveAssignmentRequest:
+      type: object
+      required:
+      - AssignmentId
+      title: ApproveAssignmentRequest
+      properties:
+        AssignmentId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' The ID of the assignment. The assignment must correspond to a HIT created by the Requester. '
+        RequesterFeedback:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' A message for the Worker, which the Worker can see in the Status section of the web site. '
+        OverrideRejection:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: ' A flag indicating that an assignment should be approved even if it was previously rejected. Defaults to <code>False</code>. '
+    ApproveAssignmentResponse:
+      type: object
+      properties: {}
   securitySchemes:
     hmac:
       type: apiKey
