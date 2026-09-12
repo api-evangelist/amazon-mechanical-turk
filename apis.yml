@@ -1208,6 +1208,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
 common:
+- type: Website
+  url: https://www.mturk.com/
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-mechanical-turk/overview
 - type: AgenticAccess
