@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2017-01-17'
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.SendTestEventNotification #X Amz Target=MTurkRequesterServiceV20170117.SendTestEventNotification #X Amz Target=MTurkRequesterServiceV20170117.SendTestEventNotification API'
-  description: <fullname>Amazon Mechanical Turk API Reference</fullname>
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV2…'
+  description: Amazon Mechanical Turk API Reference
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -23,6 +23,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mturk-requester-2017-01-17.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -124,7 +125,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: SendTestEventNotification
-      description: ' The <code>SendTestEventNotification</code> operation causes Amazon Mechanical Turk to send a notification message as if a HIT event occurred, according to the provided notification specification. This allows you to test notifications without setting up notifications for a real HIT type and trying to trigger them using the website. When you call this operation, the service attempts to send the test notification immediately. '
+      description: The SendTestEventNotification operation causes Amazon Mechanical Turk to send a notification message as if a HIT event occurred, according to the provided notification specification. This allows you to test notifications without setting up notifications for a real HIT type and trying to trigger them using the website. When you call this operation, the service attempts to send the test notification immediately.
       responses:
         '200':
           description: Success
@@ -162,52 +163,11 @@ paths:
       tags:
       - '#X Amz Target=MTurkRequesterServiceV20170117.SendTestEventNotification'
 components:
-  parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    String:
-      type: string
+    EventTypeList:
+      type: array
+      items:
+        $ref: '#/components/schemas/EventType'
     SendTestEventNotificationRequest:
       type: object
       required:
@@ -223,6 +183,12 @@ components:
           allOf:
           - $ref: '#/components/schemas/EventType'
           - description: ' The event to simulate to test the notification specification. This event is included in the test message even if the notification specification does not include the event type. The notification specification does not filter out the test event. '
+    ServiceFault: {}
+    SendTestEventNotificationResponse:
+      type: object
+      properties: {}
+    String:
+      type: string
     EventType:
       type: string
       enum:
@@ -238,7 +204,6 @@ components:
       - HITExtended
       - HITDisposed
       - Ping
-    ServiceFault: {}
     NotificationSpecification:
       type: object
       required:
@@ -265,19 +230,55 @@ components:
           - description: ' The list of events that should cause notifications to be sent. Valid Values: AssignmentAccepted | AssignmentAbandoned | AssignmentReturned | AssignmentSubmitted | AssignmentRejected | AssignmentApproved | HITCreated | HITExtended | HITDisposed | HITReviewable | HITExpired | Ping. The Ping event is only valid for the SendTestEventNotification operation. '
       description: The NotificationSpecification data structure describes a HIT event notification for a HIT type.
     RequestError: {}
-    SendTestEventNotificationResponse:
-      type: object
-      properties: {}
-    EventTypeList:
-      type: array
-      items:
-        $ref: '#/components/schemas/EventType'
     NotificationTransport:
       type: string
       enum:
       - Email
       - SQS
       - SNS
+  parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2017-01-17'
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT #X Amz Target=MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT #X Amz Target=MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT API'
-  description: <fullname>Amazon Mechanical Turk API Reference</fullname>
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV2…'
+  description: Amazon Mechanical Turk API Reference
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -23,6 +23,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mturk-requester-2017-01-17.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -124,7 +125,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: ListReviewPolicyResultsForHIT
-      description: ' The <code>ListReviewPolicyResultsForHIT</code> operation retrieves the computed results and the actions taken in the course of executing your Review Policies for a given HIT. For information about how to specify Review Policies when you call CreateHIT, see Review Policies. The ListReviewPolicyResultsForHIT operation can return results for both Assignment-level and HIT-level review results. '
+      description: The ListReviewPolicyResultsForHIT operation retrieves the computed results and the actions taken in the course of executing your Review Policies for a given HIT. For information about how to specify Review Policies when you call CreateHIT, see Review Policies. The ListReviewPolicyResultsForHIT operation can return results for both Assignment-level and HIT-level review results.
       responses:
         '200':
           description: Success
@@ -175,6 +176,69 @@ paths:
       - '#X Amz Target=MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT'
 components:
   schemas:
+    ParameterMapEntryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ParameterMapEntry'
+    ServiceFault: {}
+    ReviewActionDetailList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ReviewActionDetail'
+    Timestamp:
+      type: string
+      format: date-time
+    ResultSize:
+      type: integer
+      minimum: 1
+      maximum: 100
+    ReviewActionDetail:
+      type: object
+      properties:
+        ActionId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The unique identifier for the action.
+        ActionName:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' The nature of the action itself. The Review Policy is responsible for examining the HIT and Assignments, emitting results, and deciding which other actions will be necessary. '
+        TargetId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' The specific HITId or AssignmentID targeted by the action.'
+        TargetType:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' The type of object in TargetId.'
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/ReviewActionStatus'
+          - description: ' The current disposition of the action: INTENDED, SUCCEEDED, FAILED, or CANCELLED. '
+        CompleteTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' The date when the action was completed.'
+        Result:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' A description of the outcome of the review.'
+        ErrorCode:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' Present only when the Results have a FAILED Status.'
+      description: ' Both the AssignmentReviewReport and the HITReviewReport elements contains the ReviewActionDetail data structure. This structure is returned multiple times for each action specified in the Review Policy. '
+    ReviewResultDetailList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ReviewResultDetail'
+    ReviewActionStatus:
+      type: string
+      enum:
+      - Intended
+      - Succeeded
+      - Failed
+      - Cancelled
     ListReviewPolicyResultsForHITRequest:
       type: object
       required:
@@ -217,79 +281,13 @@ components:
           - $ref: '#/components/schemas/StringList'
           - description: ' The list of answers to the question specified in the MapEntry Key element. The Worker must match all values in order for the answer to be scored correctly. '
       description: ' This data structure is the data type for the AnswerKey parameter of the ScoreMyKnownAnswers/2011-09-01 Review Policy. '
-    EntityId:
-      type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
     Boolean:
       type: boolean
-    ReviewActionDetail:
-      type: object
-      properties:
-        ActionId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The unique identifier for the action.
-        ActionName:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' The nature of the action itself. The Review Policy is responsible for examining the HIT and Assignments, emitting results, and deciding which other actions will be necessary. '
-        TargetId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' The specific HITId or AssignmentID targeted by the action.'
-        TargetType:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' The type of object in TargetId.'
-        Status:
-          allOf:
-          - $ref: '#/components/schemas/ReviewActionStatus'
-          - description: ' The current disposition of the action: INTENDED, SUCCEEDED, FAILED, or CANCELLED. '
-        CompleteTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' The date when the action was completed.'
-        Result:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' A description of the outcome of the review.'
-        ErrorCode:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' Present only when the Results have a FAILED Status.'
-      description: ' Both the AssignmentReviewReport and the HITReviewReport elements contains the ReviewActionDetail data structure. This structure is returned multiple times for each action specified in the Review Policy. '
-    ReviewPolicyLevel:
-      type: string
-      enum:
-      - Assignment
-      - HIT
-    ReviewPolicyLevelList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ReviewPolicyLevel'
-    ReviewActionDetailList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ReviewActionDetail'
     PaginationToken:
       type: string
       description: 'If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. '
       minLength: 1
       maxLength: 255
-    ParameterMapEntryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ParameterMapEntry'
-    StringList:
-      type: array
-      items:
-        $ref: '#/components/schemas/String'
-    PolicyParameterList:
-      type: array
-      items:
-        $ref: '#/components/schemas/PolicyParameter'
     ReviewReport:
       type: object
       properties:
@@ -302,31 +300,11 @@ components:
           - $ref: '#/components/schemas/ReviewActionDetailList'
           - description: ' A list of ReviewAction objects for each action specified in the Review Policy. '
       description: ' Contains both ReviewResult and ReviewAction elements for a particular HIT. '
-    ListReviewPolicyResultsForHITResponse:
-      type: object
-      properties:
-        HITId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The HITId of the HIT for which results have been returned.
-        AssignmentReviewPolicy:
-          allOf:
-          - $ref: '#/components/schemas/ReviewPolicy'
-          - description: ' The name of the Assignment-level Review Policy. This contains only the PolicyName element. '
-        HITReviewPolicy:
-          allOf:
-          - $ref: '#/components/schemas/ReviewPolicy'
-          - description: The name of the HIT-level Review Policy. This contains only the PolicyName element.
-        AssignmentReviewReport:
-          allOf:
-          - $ref: '#/components/schemas/ReviewReport'
-          - description: ' Contains both ReviewResult and ReviewAction elements for an Assignment. '
-        HITReviewReport:
-          allOf:
-          - $ref: '#/components/schemas/ReviewReport'
-          - description: 'Contains both ReviewResult and ReviewAction elements for a particular HIT. '
-        NextToken:
-          $ref: '#/components/schemas/PaginationToken'
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
     ReviewResultDetail:
       type: object
       properties:
@@ -355,13 +333,16 @@ components:
           - $ref: '#/components/schemas/String'
           - description: ' The values of Key provided by the review policies you have selected. '
       description: ' This data structure is returned multiple times for each result specified in the Review Policy. '
+    StringList:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+    ReviewPolicyLevelList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ReviewPolicyLevel'
     String:
       type: string
-    ServiceFault: {}
-    ResultSize:
-      type: integer
-      minimum: 1
-      maximum: 100
     ReviewPolicy:
       type: object
       required:
@@ -376,21 +357,40 @@ components:
           - $ref: '#/components/schemas/PolicyParameterList'
           - description: Name of the parameter from the Review policy.
       description: ' HIT Review Policy data structures represent HIT review policies, which you specify when you create a HIT. '
-    Timestamp:
-      type: string
-      format: date-time
-    ReviewActionStatus:
-      type: string
-      enum:
-      - Intended
-      - Succeeded
-      - Failed
-      - Cancelled
-    ReviewResultDetailList:
+    PolicyParameterList:
       type: array
       items:
-        $ref: '#/components/schemas/ReviewResultDetail'
-    RequestError: {}
+        $ref: '#/components/schemas/PolicyParameter'
+    ReviewPolicyLevel:
+      type: string
+      enum:
+      - Assignment
+      - HIT
+    ListReviewPolicyResultsForHITResponse:
+      type: object
+      properties:
+        HITId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The HITId of the HIT for which results have been returned.
+        AssignmentReviewPolicy:
+          allOf:
+          - $ref: '#/components/schemas/ReviewPolicy'
+          - description: ' The name of the Assignment-level Review Policy. This contains only the PolicyName element. '
+        HITReviewPolicy:
+          allOf:
+          - $ref: '#/components/schemas/ReviewPolicy'
+          - description: The name of the HIT-level Review Policy. This contains only the PolicyName element.
+        AssignmentReviewReport:
+          allOf:
+          - $ref: '#/components/schemas/ReviewReport'
+          - description: ' Contains both ReviewResult and ReviewAction elements for an Assignment. '
+        HITReviewReport:
+          allOf:
+          - $ref: '#/components/schemas/ReviewReport'
+          - description: 'Contains both ReviewResult and ReviewAction elements for a particular HIT. '
+        NextToken:
+          $ref: '#/components/schemas/PaginationToken'
     PolicyParameter:
       type: object
       properties:
@@ -407,27 +407,16 @@ components:
           - $ref: '#/components/schemas/ParameterMapEntryList'
           - description: ' List of ParameterMapEntry objects. '
       description: ' Name of the parameter from the Review policy. '
+    RequestError: {}
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -444,8 +433,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

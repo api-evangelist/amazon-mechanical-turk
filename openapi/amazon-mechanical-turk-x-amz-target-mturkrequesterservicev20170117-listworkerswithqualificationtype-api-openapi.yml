@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2017-01-17'
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListWorkersWithQualificationType #X Amz Target=MTurkRequesterServiceV20170117.ListWorkersWithQualificationType #X Amz Target=MTurkRequesterServiceV20170117.ListWorkersWithQualificationType API'
-  description: <fullname>Amazon Mechanical Turk API Reference</fullname>
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV2…'
+  description: Amazon Mechanical Turk API Reference
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -23,6 +23,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mturk-requester-2017-01-17.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -124,7 +125,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: ListWorkersWithQualificationType
-      description: ' The <code>ListWorkersWithQualificationType</code> operation returns all of the Workers that have been associated with a given Qualification type. '
+      description: The ListWorkersWithQualificationType operation returns all of the Workers that have been associated with a given Qualification type.
       responses:
         '200':
           description: Success
@@ -175,26 +176,51 @@ paths:
       - '#X Amz Target=MTurkRequesterServiceV20170117.ListWorkersWithQualificationType'
 components:
   schemas:
-    CountryParameters:
+    ServiceFault: {}
+    ListWorkersWithQualificationTypeResponse:
+      type: object
+      properties:
+        NextToken:
+          $ref: '#/components/schemas/PaginationToken'
+        NumResults:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: ' The number of Qualifications on this page in the filtered results list, equivalent to the number of Qualifications being returned by this call.'
+        Qualifications:
+          allOf:
+          - $ref: '#/components/schemas/QualificationList'
+          - description: ' The list of Qualification elements returned by this call. '
+    ListWorkersWithQualificationTypeRequest:
+      type: object
+      required:
+      - QualificationTypeId
+      title: ListWorkersWithQualificationTypeRequest
+      properties:
+        QualificationTypeId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the Qualification type of the Qualifications to return.
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/QualificationStatus'
+          - description: ' The status of the Qualifications to return. Can be <code>Granted | Revoked</code>. '
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: Pagination Token
+        MaxResults:
+          allOf:
+          - $ref: '#/components/schemas/ResultSize'
+          - description: ' Limit the number of results returned. '
+    Timestamp:
       type: string
-      minLength: 2
-      maxLength: 2
-    QualificationList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Qualification'
-    EntityId:
-      type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
+      format: date-time
+    ResultSize:
+      type: integer
+      minimum: 1
+      maximum: 100
     Integer:
       type: integer
-    QualificationStatus:
-      type: string
-      enum:
-      - Granted
-      - Revoked
     Locale:
       type: object
       required:
@@ -209,12 +235,6 @@ components:
           - $ref: '#/components/schemas/CountryParameters'
           - description: The state or subdivision of the locale. A valid ISO 3166-2 subdivision code. For example, the code WA refers to the state of Washington.
       description: The Locale data structure represents a geographical region or location.
-    PaginationToken:
-      type: string
-      description: 'If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. '
-      minLength: 1
-      maxLength: 255
-    ServiceFault: {}
     Qualification:
       type: object
       properties:
@@ -241,75 +261,44 @@ components:
           - $ref: '#/components/schemas/QualificationStatus'
           - description: ' The status of the Qualification. Valid values are Granted | Revoked.'
       description: The Qualification data structure represents a Qualification assigned to a user, including the Qualification type and the value (score).
-    ResultSize:
-      type: integer
-      minimum: 1
-      maximum: 100
-    ListWorkersWithQualificationTypeResponse:
-      type: object
-      properties:
-        NextToken:
-          $ref: '#/components/schemas/PaginationToken'
-        NumResults:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: ' The number of Qualifications on this page in the filtered results list, equivalent to the number of Qualifications being returned by this call.'
-        Qualifications:
-          allOf:
-          - $ref: '#/components/schemas/QualificationList'
-          - description: ' The list of Qualification elements returned by this call. '
-    Timestamp:
+    PaginationToken:
       type: string
-      format: date-time
-    ListWorkersWithQualificationTypeRequest:
-      type: object
-      required:
-      - QualificationTypeId
-      title: ListWorkersWithQualificationTypeRequest
-      properties:
-        QualificationTypeId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the Qualification type of the Qualifications to return.
-        Status:
-          allOf:
-          - $ref: '#/components/schemas/QualificationStatus'
-          - description: ' The status of the Qualifications to return. Can be <code>Granted | Revoked</code>. '
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: Pagination Token
-        MaxResults:
-          allOf:
-          - $ref: '#/components/schemas/ResultSize'
-          - description: ' Limit the number of results returned. '
+      description: 'If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. '
+      minLength: 1
+      maxLength: 255
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    CountryParameters:
+      type: string
+      minLength: 2
+      maxLength: 2
+    QualificationList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Qualification'
     CustomerId:
       type: string
       pattern: ^A[A-Z0-9]+$
       minLength: 1
       maxLength: 64
+    QualificationStatus:
+      type: string
+      enum:
+      - Granted
+      - Revoked
     RequestError: {}
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -326,8 +315,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

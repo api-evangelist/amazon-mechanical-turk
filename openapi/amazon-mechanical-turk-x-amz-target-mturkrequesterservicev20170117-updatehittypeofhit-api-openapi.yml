@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2017-01-17'
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT #X Amz Target=MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT #X Amz Target=MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT API'
-  description: <fullname>Amazon Mechanical Turk API Reference</fullname>
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV2…'
+  description: Amazon Mechanical Turk API Reference
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -23,6 +23,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mturk-requester-2017-01-17.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -124,7 +125,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: UpdateHITTypeOfHIT
-      description: ' The <code>UpdateHITTypeOfHIT</code> operation allows you to change the HITType properties of a HIT. This operation disassociates the HIT from its old HITType properties and associates it with the new HITType properties. The HIT takes on the properties of the new HITType in place of the old ones. '
+      description: The UpdateHITTypeOfHIT operation allows you to change the HITType properties of a HIT. This operation disassociates the HIT from its old HITType properties and associates it with the new HITType properties. The HIT takes on the properties of the new HITType in place of the old ones.
       responses:
         '200':
           description: Success
@@ -175,8 +176,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -193,8 +194,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -206,13 +207,10 @@ components:
         type: string
       required: false
   schemas:
-    EntityId:
-      type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
     ServiceFault: {}
-    RequestError: {}
+    UpdateHITTypeOfHITResponse:
+      type: object
+      properties: {}
     UpdateHITTypeOfHITRequest:
       type: object
       required:
@@ -228,9 +226,12 @@ components:
           allOf:
           - $ref: '#/components/schemas/EntityId'
           - description: The ID of the new HIT type.
-    UpdateHITTypeOfHITResponse:
-      type: object
-      properties: {}
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    RequestError: {}
   securitySchemes:
     hmac:
       type: apiKey

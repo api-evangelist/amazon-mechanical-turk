@@ -1,0 +1,29 @@
+# Front Door AI Index — amazon-mechanical-turk — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: amazon-mechanical-turk
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.mturk.com
+  final_host: www.mturk.com
+  ownership: own
+  owner: amazon-mechanical-turk
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 11
+  host_score: 11
+  density: 12.07
+  words: 911
+  tiers:
+    agentic: 0
+    core: 11
+    model: 0
+  ambiguous: 2
+  top_terms:
+    machine learning: 6
+    ML: 3
+    intelligence: 2
+    AI: 1
+    artificial intelligence: 1

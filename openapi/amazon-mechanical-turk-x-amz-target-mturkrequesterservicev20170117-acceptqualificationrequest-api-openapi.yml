@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2017-01-17'
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest API'
-  description: <fullname>Amazon Mechanical Turk API Reference</fullname>
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV2…'
+  description: Amazon Mechanical Turk API Reference
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -23,6 +23,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mturk-requester-2017-01-17.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -124,7 +125,13 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: AcceptQualificationRequest
-      description: <p> The <code>AcceptQualificationRequest</code> operation approves a Worker's request for a Qualification. </p> <p> Only the owner of the Qualification type can grant a Qualification request for that type. </p> <p> A successful request for the <code>AcceptQualificationRequest</code> operation returns with no errors and an empty body. </p>
+      description: 'The AcceptQualificationRequest operation approves a Worker''s request for a Qualification.
+
+
+        Only the owner of the Qualification type can grant a Qualification request for that type.
+
+
+        A successful request for the AcceptQualificationRequest operation returns with no errors and an empty body.'
       responses:
         '200':
           description: Success
@@ -162,6 +169,30 @@ paths:
       tags:
       - '#X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest'
 components:
+  schemas:
+    Integer:
+      type: integer
+    String:
+      type: string
+    ServiceFault: {}
+    AcceptQualificationRequestRequest:
+      type: object
+      required:
+      - QualificationRequestId
+      title: AcceptQualificationRequestRequest
+      properties:
+        QualificationRequestId:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The ID of the Qualification request, as returned by the <code>GetQualificationRequests</code> operation.
+        IntegerValue:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: ' The value of the Qualification. You can omit this value if you are using the presence or absence of the Qualification as the basis for a HIT requirement. '
+    AcceptQualificationRequestResponse:
+      type: object
+      properties: {}
+    RequestError: {}
   parameters:
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
@@ -175,8 +206,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -193,42 +224,18 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-  schemas:
-    String:
-      type: string
-    AcceptQualificationRequestRequest:
-      type: object
-      required:
-      - QualificationRequestId
-      title: AcceptQualificationRequestRequest
-      properties:
-        QualificationRequestId:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The ID of the Qualification request, as returned by the <code>GetQualificationRequests</code> operation.
-        IntegerValue:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: ' The value of the Qualification. You can omit this value if you are using the presence or absence of the Qualification as the basis for a HIT requirement. '
-    ServiceFault: {}
-    Integer:
-      type: integer
-    RequestError: {}
-    AcceptQualificationRequestResponse:
-      type: object
-      properties: {}
   securitySchemes:
     hmac:
       type: apiKey

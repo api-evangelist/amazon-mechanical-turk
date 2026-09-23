@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2017-01-17'
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.DeleteWorkerBlock #X Amz Target=MTurkRequesterServiceV20170117.DeleteWorkerBlock #X Amz Target=MTurkRequesterServiceV20170117.DeleteWorkerBlock API'
-  description: <fullname>Amazon Mechanical Turk API Reference</fullname>
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV2…'
+  description: Amazon Mechanical Turk API Reference
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -23,6 +23,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mturk-requester-2017-01-17.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -124,7 +125,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: DeleteWorkerBlock
-      description: The <code>DeleteWorkerBlock</code> operation allows you to reinstate a blocked Worker to work on your HITs. This operation reverses the effects of the CreateWorkerBlock operation. You need the Worker ID to use this operation. If the Worker ID is missing or invalid, this operation fails and returns the message “WorkerId is invalid.” If the specified Worker is not blocked, this operation returns successfully.
+      description: The DeleteWorkerBlock operation allows you to reinstate a blocked Worker to work on your HITs. This operation reverses the effects of the CreateWorkerBlock operation. You need the Worker ID to use this operation. If the Worker ID is missing or invalid, this operation fails and returns the message “WorkerId is invalid.” If the specified Worker is not blocked, this operation returns successfully.
       responses:
         '200':
           description: Success
@@ -162,6 +163,33 @@ paths:
       tags:
       - '#X Amz Target=MTurkRequesterServiceV20170117.DeleteWorkerBlock'
 components:
+  schemas:
+    DeleteWorkerBlockRequest:
+      type: object
+      required:
+      - WorkerId
+      title: DeleteWorkerBlockRequest
+      properties:
+        WorkerId:
+          allOf:
+          - $ref: '#/components/schemas/CustomerId'
+          - description: The ID of the Worker to unblock.
+        Reason:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: A message that explains the reason for unblocking the Worker. The Worker does not see this message.
+    String:
+      type: string
+    ServiceFault: {}
+    CustomerId:
+      type: string
+      pattern: ^A[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    DeleteWorkerBlockResponse:
+      type: object
+      properties: {}
+    RequestError: {}
   parameters:
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
@@ -175,8 +203,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -193,45 +221,18 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-  schemas:
-    String:
-      type: string
-    CustomerId:
-      type: string
-      pattern: ^A[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    DeleteWorkerBlockRequest:
-      type: object
-      required:
-      - WorkerId
-      title: DeleteWorkerBlockRequest
-      properties:
-        WorkerId:
-          allOf:
-          - $ref: '#/components/schemas/CustomerId'
-          - description: The ID of the Worker to unblock.
-        Reason:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: A message that explains the reason for unblocking the Worker. The Worker does not see this message.
-    DeleteWorkerBlockResponse:
-      type: object
-      properties: {}
-    ServiceFault: {}
-    RequestError: {}
   securitySchemes:
     hmac:
       type: apiKey

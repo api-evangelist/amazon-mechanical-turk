@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2017-01-17'
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationScore #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationScore #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationScore API'
-  description: <fullname>Amazon Mechanical Turk API Reference</fullname>
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV2…'
+  description: Amazon Mechanical Turk API Reference
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -23,6 +23,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mturk-requester-2017-01-17.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -124,7 +125,13 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: GetQualificationScore
-      description: <p> The <code>GetQualificationScore</code> operation returns the value of a Worker's Qualification for a given Qualification type. </p> <p> To get a Worker's Qualification, you must know the Worker's ID. The Worker's ID is included in the assignment data returned by the <code>ListAssignmentsForHIT</code> operation. </p> <p>Only the owner of a Qualification type can query the value of a Worker's Qualification of that type.</p>
+      description: 'The GetQualificationScore operation returns the value of a Worker''s Qualification for a given Qualification type.
+
+
+        To get a Worker''s Qualification, you must know the Worker''s ID. The Worker''s ID is included in the assignment data returned by the ListAssignmentsForHIT operation.
+
+
+        Only the owner of a Qualification type can query the value of a Worker''s Qualification of that type.'
       responses:
         '200':
           description: Success
@@ -163,17 +170,14 @@ paths:
       - '#X Amz Target=MTurkRequesterServiceV20170117.GetQualificationScore'
 components:
   schemas:
-    CountryParameters:
-      type: string
-      minLength: 2
-      maxLength: 2
-    EntityId:
-      type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    Integer:
-      type: integer
+    ServiceFault: {}
+    GetQualificationScoreResponse:
+      type: object
+      properties:
+        Qualification:
+          allOf:
+          - $ref: '#/components/schemas/Qualification'
+          - description: ' The Qualification data structure of the Qualification assigned to a user, including the Qualification type and the value (score). '
     GetQualificationScoreRequest:
       type: object
       required:
@@ -189,11 +193,11 @@ components:
           allOf:
           - $ref: '#/components/schemas/CustomerId'
           - description: The ID of the Worker whose Qualification is being updated.
-    QualificationStatus:
+    Timestamp:
       type: string
-      enum:
-      - Granted
-      - Revoked
+      format: date-time
+    Integer:
+      type: integer
     Locale:
       type: object
       required:
@@ -208,7 +212,6 @@ components:
           - $ref: '#/components/schemas/CountryParameters'
           - description: The state or subdivision of the locale. A valid ISO 3166-2 subdivision code. For example, the code WA refers to the state of Washington.
       description: The Locale data structure represents a geographical region or location.
-    ServiceFault: {}
     Qualification:
       type: object
       properties:
@@ -235,43 +238,35 @@ components:
           - $ref: '#/components/schemas/QualificationStatus'
           - description: ' The status of the Qualification. Valid values are Granted | Revoked.'
       description: The Qualification data structure represents a Qualification assigned to a user, including the Qualification type and the value (score).
-    Timestamp:
+    EntityId:
       type: string
-      format: date-time
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    CountryParameters:
+      type: string
+      minLength: 2
+      maxLength: 2
     CustomerId:
       type: string
       pattern: ^A[A-Z0-9]+$
       minLength: 1
       maxLength: 64
+    QualificationStatus:
+      type: string
+      enum:
+      - Granted
+      - Revoked
     RequestError: {}
-    GetQualificationScoreResponse:
-      type: object
-      properties:
-        Qualification:
-          allOf:
-          - $ref: '#/components/schemas/Qualification'
-          - description: ' The Qualification data structure of the Qualification assigned to a user, including the Qualification type and the value (score). '
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -288,8 +283,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

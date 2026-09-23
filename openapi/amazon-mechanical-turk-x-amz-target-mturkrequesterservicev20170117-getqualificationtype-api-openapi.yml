@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2017-01-17'
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationType #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationType #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationType API'
-  description: <fullname>Amazon Mechanical Turk API Reference</fullname>
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV2…'
+  description: Amazon Mechanical Turk API Reference
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -23,6 +23,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mturk-requester-2017-01-17.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -124,7 +125,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: GetQualificationType
-      description: ' The <code>GetQualificationType</code>operation retrieves information about a Qualification type using its ID. '
+      description: The GetQualificationTypeoperation retrieves information about a Qualification type using its ID.
       responses:
         '200':
           description: Success
@@ -163,6 +164,14 @@ paths:
       - '#X Amz Target=MTurkRequesterServiceV20170117.GetQualificationType'
 components:
   schemas:
+    Long:
+      type: integer
+    ServiceFault: {}
+    Timestamp:
+      type: string
+      format: date-time
+    Integer:
+      type: integer
     QualificationType:
       type: object
       properties:
@@ -219,15 +228,22 @@ components:
           - $ref: '#/components/schemas/Integer'
           - description: ' The Qualification integer value to use for automatically granted Qualifications, if AutoGranted is true. This is 1 by default. '
       description: ' The QualificationType data structure represents a Qualification type, a description of a property of a Worker that must match the requirements of a HIT for the Worker to be able to accept the HIT. The type also describes how a Worker can obtain a Qualification of that type, such as through a Qualification test. '
+    Boolean:
+      type: boolean
     EntityId:
       type: string
       pattern: ^[A-Z0-9]+$
       minLength: 1
       maxLength: 64
-    Boolean:
-      type: boolean
-    Integer:
-      type: integer
+    GetQualificationTypeResponse:
+      type: object
+      properties:
+        QualificationType:
+          allOf:
+          - $ref: '#/components/schemas/QualificationType'
+          - description: ' The returned Qualification Type'
+    String:
+      type: string
     GetQualificationTypeRequest:
       type: object
       required:
@@ -243,43 +259,16 @@ components:
       enum:
       - Active
       - Inactive
-    String:
-      type: string
-    ServiceFault: {}
-    GetQualificationTypeResponse:
-      type: object
-      properties:
-        QualificationType:
-          allOf:
-          - $ref: '#/components/schemas/QualificationType'
-          - description: ' The returned Qualification Type'
-    Long:
-      type: integer
-    Timestamp:
-      type: string
-      format: date-time
     RequestError: {}
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -296,8 +285,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

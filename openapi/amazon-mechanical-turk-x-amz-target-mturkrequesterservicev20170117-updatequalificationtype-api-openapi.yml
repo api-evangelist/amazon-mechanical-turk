@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2017-01-17'
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.UpdateQualificationType #X Amz Target=MTurkRequesterServiceV20170117.UpdateQualificationType #X Amz Target=MTurkRequesterServiceV20170117.UpdateQualificationType API'
-  description: <fullname>Amazon Mechanical Turk API Reference</fullname>
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV2…'
+  description: Amazon Mechanical Turk API Reference
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -23,6 +23,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mturk-requester-2017-01-17.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -124,7 +125,25 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: UpdateQualificationType
-      description: <p> The <code>UpdateQualificationType</code> operation modifies the attributes of an existing Qualification type, which is represented by a QualificationType data structure. Only the owner of a Qualification type can modify its attributes. </p> <p> Most attributes of a Qualification type can be changed after the type has been created. However, the Name and Keywords fields cannot be modified. The RetryDelayInSeconds parameter can be modified or added to change the delay or to enable retries, but RetryDelayInSeconds cannot be used to disable retries. </p> <p> You can use this operation to update the test for a Qualification type. The test is updated based on the values specified for the Test, TestDurationInSeconds and AnswerKey parameters. All three parameters specify the updated test. If you are updating the test for a type, you must specify the Test and TestDurationInSeconds parameters. The AnswerKey parameter is optional; omitting it specifies that the updated test does not have an answer key. </p> <p> If you omit the Test parameter, the test for the Qualification type is unchanged. There is no way to remove a test from a Qualification type that has one. If the type already has a test, you cannot update it to be AutoGranted. If the Qualification type does not have a test and one is provided by an update, the type will henceforth have a test. </p> <p> If you want to update the test duration or answer key for an existing test without changing the questions, you must specify a Test parameter with the original questions, along with the updated values. </p> <p> If you provide an updated Test but no AnswerKey, the new test will not have an answer key. Requests for such Qualifications must be granted manually. </p> <p> You can also update the AutoGranted and AutoGrantedValue attributes of the Qualification type.</p>
+      description: 'The UpdateQualificationType operation modifies the attributes of an existing Qualification type, which is represented by a QualificationType data structure. Only the owner of a Qualification type can modify its attributes.
+
+
+        Most attributes of a Qualification type can be changed after the type has been created. However, the Name and Keywords fields cannot be modified. The RetryDelayInSeconds parameter can be modified or added to change the delay or to enable retries, but RetryDelayInSeconds cannot be used to disable retries.
+
+
+        You can use this operation to update the test for a Qualification type. The test is updated based on the values specified for the Test, TestDurationInSeconds and AnswerKey parameters. All three parameters specify the updated test. If you are updating the test for a type, you must specify the Test and TestDurationInSeconds parameters. The AnswerKey parameter is optional; omitting it specifies that the updated test does not have an answer key.
+
+
+        If you omit the Test parameter, the test for the Qualification type is unchanged. There is no way to remove a test from a Qualification type that has one. If the type already has a test, you cannot update it to be AutoGranted. If the Qualification type does not have a test and one is provided by an update, the type will henceforth have a test.
+
+
+        If you want to update the test duration or answer key for an existing test without changing the questions, you must specify a Test parameter with the original questions, along with the updated values.
+
+
+        If you provide an updated Test but no AnswerKey, the new test will not have an answer key. Requests for such Qualifications must be granted manually.
+
+
+        You can also update the AutoGranted and AutoGrantedValue attributes of the Qualification type.'
       responses:
         '200':
           description: Success
@@ -163,6 +182,63 @@ paths:
       - '#X Amz Target=MTurkRequesterServiceV20170117.UpdateQualificationType'
 components:
   schemas:
+    UpdateQualificationTypeRequest:
+      type: object
+      required:
+      - QualificationTypeId
+      title: UpdateQualificationTypeRequest
+      properties:
+        QualificationTypeId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the Qualification type to update.
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The new description of the Qualification type.
+        QualificationTypeStatus:
+          allOf:
+          - $ref: '#/components/schemas/QualificationTypeStatus'
+          - description: The new status of the Qualification type - Active | Inactive
+        Test:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: '<p>The questions for the Qualification test a Worker must answer correctly to obtain a Qualification of this type. If this parameter is specified, <code>TestDurationInSeconds</code> must also be specified.</p> <p>Constraints: Must not be longer than 65535 bytes. Must be a QuestionForm data structure. This parameter cannot be specified if AutoGranted is true.</p> <p>Constraints: None. If not specified, the Worker may request the Qualification without answering any questions.</p>'
+        AnswerKey:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The answers to the Qualification test specified in the Test parameter, in the form of an AnswerKey data structure.
+        TestDurationInSeconds:
+          allOf:
+          - $ref: '#/components/schemas/Long'
+          - description: The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.
+        RetryDelayInSeconds:
+          allOf:
+          - $ref: '#/components/schemas/Long'
+          - description: The amount of time, in seconds, that Workers must wait after requesting a Qualification of the specified Qualification type before they can retry the Qualification request. It is not possible to disable retries for a Qualification type after it has been created with retries enabled. If you want to disable retries, you must dispose of the existing retry-enabled Qualification type using DisposeQualificationType and then create a new Qualification type with retries disabled using CreateQualificationType.
+        AutoGranted:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: '<p>Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.</p> <p>Constraints: If the Test parameter is specified, this parameter cannot be true.</p>'
+        AutoGrantedValue:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.
+    Long:
+      type: integer
+    ServiceFault: {}
+    UpdateQualificationTypeResponse:
+      type: object
+      properties:
+        QualificationType:
+          allOf:
+          - $ref: '#/components/schemas/QualificationType'
+          - description: ' Contains a QualificationType data structure.'
+    Timestamp:
+      type: string
+      format: date-time
+    Integer:
+      type: integer
     QualificationType:
       type: object
       properties:
@@ -219,99 +295,30 @@ components:
           - $ref: '#/components/schemas/Integer'
           - description: ' The Qualification integer value to use for automatically granted Qualifications, if AutoGranted is true. This is 1 by default. '
       description: ' The QualificationType data structure represents a Qualification type, a description of a property of a Worker that must match the requirements of a HIT for the Worker to be able to accept the HIT. The type also describes how a Worker can obtain a Qualification of that type, such as through a Qualification test. '
+    Boolean:
+      type: boolean
     EntityId:
       type: string
       pattern: ^[A-Z0-9]+$
       minLength: 1
       maxLength: 64
-    Boolean:
-      type: boolean
-    Integer:
-      type: integer
+    String:
+      type: string
     QualificationTypeStatus:
       type: string
       enum:
       - Active
       - Inactive
-    UpdateQualificationTypeResponse:
-      type: object
-      properties:
-        QualificationType:
-          allOf:
-          - $ref: '#/components/schemas/QualificationType'
-          - description: ' Contains a QualificationType data structure.'
-    String:
-      type: string
-    ServiceFault: {}
-    Long:
-      type: integer
-    UpdateQualificationTypeRequest:
-      type: object
-      required:
-      - QualificationTypeId
-      title: UpdateQualificationTypeRequest
-      properties:
-        QualificationTypeId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the Qualification type to update.
-        Description:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The new description of the Qualification type.
-        QualificationTypeStatus:
-          allOf:
-          - $ref: '#/components/schemas/QualificationTypeStatus'
-          - description: The new status of the Qualification type - Active | Inactive
-        Test:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: '<p>The questions for the Qualification test a Worker must answer correctly to obtain a Qualification of this type. If this parameter is specified, <code>TestDurationInSeconds</code> must also be specified.</p> <p>Constraints: Must not be longer than 65535 bytes. Must be a QuestionForm data structure. This parameter cannot be specified if AutoGranted is true.</p> <p>Constraints: None. If not specified, the Worker may request the Qualification without answering any questions.</p>'
-        AnswerKey:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The answers to the Qualification test specified in the Test parameter, in the form of an AnswerKey data structure.
-        TestDurationInSeconds:
-          allOf:
-          - $ref: '#/components/schemas/Long'
-          - description: The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.
-        RetryDelayInSeconds:
-          allOf:
-          - $ref: '#/components/schemas/Long'
-          - description: The amount of time, in seconds, that Workers must wait after requesting a Qualification of the specified Qualification type before they can retry the Qualification request. It is not possible to disable retries for a Qualification type after it has been created with retries enabled. If you want to disable retries, you must dispose of the existing retry-enabled Qualification type using DisposeQualificationType and then create a new Qualification type with retries disabled using CreateQualificationType.
-        AutoGranted:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: '<p>Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.</p> <p>Constraints: If the Test parameter is specified, this parameter cannot be true.</p>'
-        AutoGrantedValue:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.
-    Timestamp:
-      type: string
-      format: date-time
     RequestError: {}
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -328,8 +335,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

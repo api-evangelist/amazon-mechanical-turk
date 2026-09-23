@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2017-01-17'
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.UpdateNotificationSettings #X Amz Target=MTurkRequesterServiceV20170117.UpdateNotificationSettings #X Amz Target=MTurkRequesterServiceV20170117.UpdateNotificationSettings API'
-  description: <fullname>Amazon Mechanical Turk API Reference</fullname>
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV2…'
+  description: Amazon Mechanical Turk API Reference
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -23,6 +23,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mturk-requester-2017-01-17.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -124,7 +125,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: UpdateNotificationSettings
-      description: ' The <code>UpdateNotificationSettings</code> operation creates, updates, disables or re-enables notifications for a HIT type. If you call the UpdateNotificationSettings operation for a HIT type that already has a notification specification, the operation replaces the old specification with a new one. You can call the UpdateNotificationSettings operation to enable or disable notifications for the HIT type, without having to modify the notification specification itself by providing updates to the Active status without specifying a new notification specification. To change the Active status of a HIT type''s notifications, the HIT type must already have a notification specification, or one must be provided in the same call to <code>UpdateNotificationSettings</code>. '
+      description: The UpdateNotificationSettings operation creates, updates, disables or re-enables notifications for a HIT type. If you call the UpdateNotificationSettings operation for a HIT type that already has a notification specification, the operation replaces the old specification with a new one. You can call the UpdateNotificationSettings operation to enable or disable notifications for the HIT type, without having to modify the notification specification itself by providing updates to the Active status without specifying a new notification specification. To change the Active status of a HIT type's notifications, the HIT type must already have a notification specification, or one must be provided in the same call to UpdateNotificationSettings.
       responses:
         '200':
           description: Success
@@ -163,9 +164,10 @@ paths:
       - '#X Amz Target=MTurkRequesterServiceV20170117.UpdateNotificationSettings'
 components:
   schemas:
-    UpdateNotificationSettingsResponse:
-      type: object
-      properties: {}
+    EventTypeList:
+      type: array
+      items:
+        $ref: '#/components/schemas/EventType'
     String:
       type: string
     EventType:
@@ -183,8 +185,27 @@ components:
       - HITExtended
       - HITDisposed
       - Ping
+    ServiceFault: {}
     Boolean:
       type: boolean
+    UpdateNotificationSettingsRequest:
+      type: object
+      required:
+      - HITTypeId
+      title: UpdateNotificationSettingsRequest
+      properties:
+        HITTypeId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' The ID of the HIT type whose notification specification is being updated. '
+        Notification:
+          allOf:
+          - $ref: '#/components/schemas/NotificationSpecification'
+          - description: ' The notification specification for the HIT type. '
+        Active:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: ' Specifies whether notifications are sent for HITs of this HIT type, according to the notification specification. You must specify either the Notification parameter or the Active parameter for the call to UpdateNotificationSettings to succeed. '
     NotificationSpecification:
       type: object
       required:
@@ -215,36 +236,16 @@ components:
       pattern: ^[A-Z0-9]+$
       minLength: 1
       maxLength: 64
-    ServiceFault: {}
     RequestError: {}
-    EventTypeList:
-      type: array
-      items:
-        $ref: '#/components/schemas/EventType'
+    UpdateNotificationSettingsResponse:
+      type: object
+      properties: {}
     NotificationTransport:
       type: string
       enum:
       - Email
       - SQS
       - SNS
-    UpdateNotificationSettingsRequest:
-      type: object
-      required:
-      - HITTypeId
-      title: UpdateNotificationSettingsRequest
-      properties:
-        HITTypeId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' The ID of the HIT type whose notification specification is being updated. '
-        Notification:
-          allOf:
-          - $ref: '#/components/schemas/NotificationSpecification'
-          - description: ' The notification specification for the HIT type. '
-        Active:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: ' Specifies whether notifications are sent for HITs of this HIT type, according to the notification specification. You must specify either the Notification parameter or the Active parameter for the call to UpdateNotificationSettings to succeed. '
   parameters:
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
@@ -258,8 +259,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -276,8 +277,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string

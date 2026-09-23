@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2017-01-17'
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListQualificationRequests #X Amz Target=MTurkRequesterServiceV20170117.ListQualificationRequests #X Amz Target=MTurkRequesterServiceV20170117.ListQualificationRequests API'
-  description: <fullname>Amazon Mechanical Turk API Reference</fullname>
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV2…'
+  description: Amazon Mechanical Turk API Reference
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -23,6 +23,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mturk-requester-2017-01-17.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -124,7 +125,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: ListQualificationRequests
-      description: ' The <code>ListQualificationRequests</code> operation retrieves requests for Qualifications of a particular Qualification type. The owner of the Qualification type calls this operation to poll for pending requests, and accepts them using the AcceptQualification operation. '
+      description: The ListQualificationRequests operation retrieves requests for Qualifications of a particular Qualification type. The owner of the Qualification type calls this operation to poll for pending requests, and accepts them using the AcceptQualification operation.
       responses:
         '200':
           description: Success
@@ -175,11 +176,30 @@ paths:
       - '#X Amz Target=MTurkRequesterServiceV20170117.ListQualificationRequests'
 components:
   schemas:
-    EntityId:
+    ServiceFault: {}
+    ListQualificationRequestsRequest:
+      type: object
+      title: ListQualificationRequestsRequest
+      properties:
+        QualificationTypeId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the QualificationType.
+        NextToken:
+          $ref: '#/components/schemas/PaginationToken'
+        MaxResults:
+          allOf:
+          - $ref: '#/components/schemas/ResultSize'
+          - description: ' The maximum number of results to return in a single call. '
+    Timestamp:
       type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
+      format: date-time
+    ResultSize:
+      type: integer
+      minimum: 1
+      maximum: 100
+    Integer:
+      type: integer
     QualificationRequest:
       type: object
       properties:
@@ -208,34 +228,18 @@ components:
           - $ref: '#/components/schemas/Timestamp'
           - description: 'The date and time the Qualification request had a status of Submitted. This is either the time the Worker submitted answers for a Qualification test, or the time the Worker requested the Qualification if the Qualification type does not have a test. '
       description: ' The QualificationRequest data structure represents a request a Worker has made for a Qualification. '
-    Integer:
-      type: integer
-    QualificationRequestList:
-      type: array
-      items:
-        $ref: '#/components/schemas/QualificationRequest'
     PaginationToken:
       type: string
       description: 'If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. '
       minLength: 1
       maxLength: 255
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
     String:
       type: string
-    ServiceFault: {}
-    ListQualificationRequestsRequest:
-      type: object
-      title: ListQualificationRequestsRequest
-      properties:
-        QualificationTypeId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the QualificationType.
-        NextToken:
-          $ref: '#/components/schemas/PaginationToken'
-        MaxResults:
-          allOf:
-          - $ref: '#/components/schemas/ResultSize'
-          - description: ' The maximum number of results to return in a single call. '
     ListQualificationRequestsResponse:
       type: object
       properties:
@@ -249,40 +253,25 @@ components:
           allOf:
           - $ref: '#/components/schemas/QualificationRequestList'
           - description: The Qualification request. The response includes one QualificationRequest element for each Qualification request returned by the query.
-    ResultSize:
-      type: integer
-      minimum: 1
-      maximum: 100
-    Timestamp:
-      type: string
-      format: date-time
     CustomerId:
       type: string
       pattern: ^A[A-Z0-9]+$
       minLength: 1
       maxLength: 64
+    QualificationRequestList:
+      type: array
+      items:
+        $ref: '#/components/schemas/QualificationRequest'
     RequestError: {}
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -299,8 +288,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

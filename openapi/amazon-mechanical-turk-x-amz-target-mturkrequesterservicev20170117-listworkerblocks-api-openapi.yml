@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2017-01-17'
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListWorkerBlocks #X Amz Target=MTurkRequesterServiceV20170117.ListWorkerBlocks #X Amz Target=MTurkRequesterServiceV20170117.ListWorkerBlocks API'
-  description: <fullname>Amazon Mechanical Turk API Reference</fullname>
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV2…'
+  description: Amazon Mechanical Turk API Reference
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -23,6 +23,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mturk-requester-2017-01-17.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -124,7 +125,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: ListWorkerBlocks
-      description: The <code>ListWorkersBlocks</code> operation retrieves a list of Workers who are blocked from working on your HITs.
+      description: The ListWorkersBlocks operation retrieves a list of Workers who are blocked from working on your HITs.
       responses:
         '200':
           description: Success
@@ -175,21 +176,23 @@ paths:
       - '#X Amz Target=MTurkRequesterServiceV20170117.ListWorkerBlocks'
 components:
   schemas:
-    ListWorkerBlocksResponse:
+    WorkerBlock:
       type: object
       properties:
-        NextToken:
-          $ref: '#/components/schemas/PaginationToken'
-        NumResults:
+        WorkerId:
           allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: ' The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.'
-        WorkerBlocks:
+          - $ref: '#/components/schemas/CustomerId'
+          - description: ' The ID of the Worker who accepted the HIT.'
+        Reason:
           allOf:
-          - $ref: '#/components/schemas/WorkerBlockList'
-          - description: ' The list of WorkerBlocks, containing the collection of Worker IDs and reasons for blocking.'
+          - $ref: '#/components/schemas/String'
+          - description: ' A message explaining the reason the Worker was blocked. '
+      description: ' The WorkerBlock data structure represents a Worker who has been blocked. It has two elements: the WorkerId and the Reason for the block. '
+    Integer:
+      type: integer
     String:
       type: string
+    ServiceFault: {}
     CustomerId:
       type: string
       pattern: ^A[A-Z0-9]+$
@@ -205,35 +208,33 @@ components:
           - description: Pagination token
         MaxResults:
           $ref: '#/components/schemas/ResultSize'
-    ServiceFault: {}
+    ListWorkerBlocksResponse:
+      type: object
+      properties:
+        NextToken:
+          $ref: '#/components/schemas/PaginationToken'
+        NumResults:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: ' The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.'
+        WorkerBlocks:
+          allOf:
+          - $ref: '#/components/schemas/WorkerBlockList'
+          - description: ' The list of WorkerBlocks, containing the collection of Worker IDs and reasons for blocking.'
     PaginationToken:
       type: string
       description: 'If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. '
       minLength: 1
       maxLength: 255
-    Integer:
-      type: integer
+    RequestError: {}
     ResultSize:
       type: integer
       minimum: 1
       maximum: 100
-    RequestError: {}
     WorkerBlockList:
       type: array
       items:
         $ref: '#/components/schemas/WorkerBlock'
-    WorkerBlock:
-      type: object
-      properties:
-        WorkerId:
-          allOf:
-          - $ref: '#/components/schemas/CustomerId'
-          - description: ' The ID of the Worker who accepted the HIT.'
-        Reason:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' A message explaining the reason the Worker was blocked. '
-      description: ' The WorkerBlock data structure represents a Worker who has been blocked. It has two elements: the WorkerId and the Reason for the block. '
   parameters:
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
@@ -247,8 +248,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -265,14 +266,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

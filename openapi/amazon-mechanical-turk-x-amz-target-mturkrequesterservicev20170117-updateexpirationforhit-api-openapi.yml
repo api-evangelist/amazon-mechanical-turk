@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2017-01-17'
   x-release: v4
-  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.UpdateExpirationForHIT #X Amz Target=MTurkRequesterServiceV20170117.UpdateExpirationForHIT #X Amz Target=MTurkRequesterServiceV20170117.UpdateExpirationForHIT API'
-  description: <fullname>Amazon Mechanical Turk API Reference</fullname>
+  title: 'Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV2…'
+  description: Amazon Mechanical Turk API Reference
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -23,6 +23,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mturk-requester-2017-01-17.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -124,7 +125,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: UpdateExpirationForHIT
-      description: ' The <code>UpdateExpirationForHIT</code> operation allows you update the expiration time of a HIT. If you update it to a time in the past, the HIT will be immediately expired. '
+      description: The UpdateExpirationForHIT operation allows you update the expiration time of a HIT. If you update it to a time in the past, the HIT will be immediately expired.
       responses:
         '200':
           description: Success
@@ -162,35 +163,6 @@ paths:
       tags:
       - '#X Amz Target=MTurkRequesterServiceV20170117.UpdateExpirationForHIT'
 components:
-  schemas:
-    UpdateExpirationForHITResponse:
-      type: object
-      properties: {}
-    EntityId:
-      type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    ServiceFault: {}
-    RequestError: {}
-    UpdateExpirationForHITRequest:
-      type: object
-      required:
-      - HITId
-      - ExpireAt
-      title: UpdateExpirationForHITRequest
-      properties:
-        HITId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' The HIT to update. '
-        ExpireAt:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' The date and time at which you want the HIT to expire '
-    Timestamp:
-      type: string
-      format: date-time
   parameters:
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
@@ -204,8 +176,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -222,8 +194,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -234,6 +206,35 @@ components:
       schema:
         type: string
       required: false
+  schemas:
+    UpdateExpirationForHITRequest:
+      type: object
+      required:
+      - HITId
+      - ExpireAt
+      title: UpdateExpirationForHITRequest
+      properties:
+        HITId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' The HIT to update. '
+        ExpireAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' The date and time at which you want the HIT to expire '
+    ServiceFault: {}
+    UpdateExpirationForHITResponse:
+      type: object
+      properties: {}
+    EntityId:
+      type: string
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    Timestamp:
+      type: string
+      format: date-time
+    RequestError: {}
   securitySchemes:
     hmac:
       type: apiKey
