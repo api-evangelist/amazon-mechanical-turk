@@ -79,6 +79,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
 common:
+- type: Plans
+  url: plans/amazon-mechanical-turk-plans-pricing.yml
 - type: Website
   url: https://www.mturk.com/
 - type: PostmanWorkspace
