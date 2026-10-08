@@ -79,6 +79,12 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-mechanical-turk-context.jsonld
 common:
+- type: Pricing
+  url: https://www.mturk.com/pricing
+- type: RateLimits
+  url: rate-limits/amazon-mechanical-turk-rate-limits.yml
+- type: FinOps
+  url: finops/amazon-mechanical-turk-finops.yml
 - type: Plans
   url: plans/amazon-mechanical-turk-plans-pricing.yml
 - type: Website
