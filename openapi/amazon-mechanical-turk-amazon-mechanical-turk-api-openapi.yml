@@ -2234,171 +2234,69 @@ paths:
       - Amazon Mechanical Turk
 components:
   schemas:
-    GetAccountBalanceRequest:
-      type: object
-      title: GetAccountBalanceRequest
-      properties: {}
-    HITList:
-      type: array
-      items:
-        $ref: '#/components/schemas/HIT'
-    HITAccessActions:
-      type: string
-      enum:
-      - Accept
-      - PreviewAndAccept
-      - DiscoverPreviewAndAccept
-    ListReviewableHITsRequest:
-      type: object
-      title: ListReviewableHITsRequest
-      properties:
-        HITTypeId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' The ID of the HIT type of the HITs to consider for the query. If not specified, all HITs for the Reviewer are considered '
-        Status:
-          allOf:
-          - $ref: '#/components/schemas/ReviewableHITStatus'
-          - description: ' Can be either <code>Reviewable</code> or <code>Reviewing</code>. Reviewable is the default value. '
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: Pagination Token
-        MaxResults:
-          allOf:
-          - $ref: '#/components/schemas/ResultSize'
-          - description: ' Limit the number of results returned. '
-    Locale:
+    AcceptQualificationRequestRequest:
       type: object
       required:
-      - Country
+      - QualificationRequestId
+      title: AcceptQualificationRequestRequest
       properties:
-        Country:
-          allOf:
-          - $ref: '#/components/schemas/CountryParameters'
-          - description: ' The country of the locale. Must be a valid ISO 3166 country code. For example, the code US refers to the United States of America. '
-        Subdivision:
-          allOf:
-          - $ref: '#/components/schemas/CountryParameters'
-          - description: The state or subdivision of the locale. A valid ISO 3166-2 subdivision code. For example, the code WA refers to the state of Washington.
-      description: The Locale data structure represents a geographical region or location.
-    CreateAdditionalAssignmentsForHITResponse:
-      type: object
-      properties: {}
-    GetFileUploadURLResponse:
-      type: object
-      properties:
-        FileUploadURL:
+        QualificationRequestId:
           allOf:
           - $ref: '#/components/schemas/String'
-          - description: ' A temporary URL for the file that the Worker uploaded for the answer. '
-    IdempotencyToken:
-      type: string
-      minLength: 1
-      maxLength: 64
-    ReviewActionDetailList:
+          - description: The ID of the Qualification request, as returned by the <code>GetQualificationRequests</code> operation.
+        IntegerValue:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: ' The value of the Qualification. You can omit this value if you are using the presence or absence of the Qualification as the basis for a HIT requirement. '
+    CreateQualificationTypeResponse:
+      type: object
+      properties:
+        QualificationType:
+          allOf:
+          - $ref: '#/components/schemas/QualificationType'
+          - description: The created Qualification type, returned as a QualificationType data structure.
+    HITLayoutParameterList:
       type: array
       items:
-        $ref: '#/components/schemas/ReviewActionDetail'
-    QualificationRequirementList:
-      type: array
-      items:
-        $ref: '#/components/schemas/QualificationRequirement'
-    RejectAssignmentRequest:
+        $ref: '#/components/schemas/HITLayoutParameter'
+    CreateHITTypeRequest:
       type: object
       required:
-      - AssignmentId
-      - RequesterFeedback
-      title: RejectAssignmentRequest
+      - AssignmentDurationInSeconds
+      - Reward
+      - Title
+      - Description
+      title: CreateHITTypeRequest
       properties:
-        AssignmentId:
+        AutoApprovalDelayInSeconds:
           allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' The ID of the assignment. The assignment must correspond to a HIT created by the Requester. '
-        RequesterFeedback:
+          - $ref: '#/components/schemas/Long'
+          - description: ' The number of seconds after an assignment for the HIT has been submitted, after which the assignment is considered Approved automatically unless the Requester explicitly rejects it. '
+        AssignmentDurationInSeconds:
+          allOf:
+          - $ref: '#/components/schemas/Long'
+          - description: ' The amount of time, in seconds, that a Worker has to complete the HIT after accepting it. If a Worker does not complete the assignment within the specified duration, the assignment is considered abandoned. If the HIT is still active (that is, its lifetime has not elapsed), the assignment becomes available for other users to find and accept. '
+        Reward:
+          allOf:
+          - $ref: '#/components/schemas/CurrencyAmount'
+          - description: ' The amount of money the Requester will pay a Worker for successfully completing the HIT. '
+        Title:
           allOf:
           - $ref: '#/components/schemas/String'
-          - description: ' A message for the Worker, which the Worker can see in the Status section of the web site. '
-    ListWorkersWithQualificationTypeRequest:
-      type: object
-      required:
-      - QualificationTypeId
-      title: ListWorkersWithQualificationTypeRequest
-      properties:
-        QualificationTypeId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the Qualification type of the Qualifications to return.
-        Status:
-          allOf:
-          - $ref: '#/components/schemas/QualificationStatus'
-          - description: ' The status of the Qualifications to return. Can be <code>Granted | Revoked</code>. '
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: Pagination Token
-        MaxResults:
-          allOf:
-          - $ref: '#/components/schemas/ResultSize'
-          - description: ' Limit the number of results returned. '
-    GetHITResponse:
-      type: object
-      properties:
-        HIT:
-          allOf:
-          - $ref: '#/components/schemas/HIT'
-          - description: ' Contains the requested HIT data.'
-    UpdateExpirationForHITRequest:
-      type: object
-      required:
-      - HITId
-      - ExpireAt
-      title: UpdateExpirationForHITRequest
-      properties:
-        HITId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' The HIT to update. '
-        ExpireAt:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' The date and time at which you want the HIT to expire '
-    QualificationRequirement:
-      type: object
-      required:
-      - QualificationTypeId
-      - Comparator
-      properties:
-        QualificationTypeId:
+          - description: ' The title of the HIT. A title should be short and descriptive about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT title appears in search results, and everywhere the HIT is mentioned. '
+        Keywords:
           allOf:
           - $ref: '#/components/schemas/String'
-          - description: ' The ID of the Qualification type for the requirement.'
-        Comparator:
+          - description: ' One or more words or phrases that describe the HIT, separated by commas. These words are used in searches to find HITs. '
+        Description:
           allOf:
-          - $ref: '#/components/schemas/Comparator'
-          - description: 'The kind of comparison to make against a Qualification''s value. You can compare a Qualification''s value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user''s profile, regardless of its value. '
-        IntegerValues:
+          - $ref: '#/components/schemas/String'
+          - description: ' A general description of the HIT. A description includes detailed information about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT description appears in the expanded view of search results, and in the HIT and assignment screens. A good description gives the user enough information to evaluate the HIT before accepting it. '
+        QualificationRequirements:
           allOf:
-          - $ref: '#/components/schemas/IntegerList'
-          - description: ' The integer value to compare against the Qualification''s value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. '
-        LocaleValues:
-          allOf:
-          - $ref: '#/components/schemas/LocaleList'
-          - description: ' The locale value to compare against the Qualification''s value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. '
-        RequiredToPreview:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - deprecated: true
-            description: ' DEPRECATED: Use the <code>ActionsGuarded</code> field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker''s Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT''s question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the <code>ActionsGuarded</code> field. '
-        ActionsGuarded:
-          allOf:
-          - $ref: '#/components/schemas/HITAccessActions'
-          - description: ' Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include "Accept" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), "PreviewAndAccept" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and "DiscoverPreviewAndAccept" (Worker cannot accept, preview, or see the HIT in their search results). It''s possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the <code>RequiredToPreview</code> field. '
-      description: ' The QualificationRequirement data structure describes a Qualification that a Worker must have before the Worker is allowed to accept a HIT. A requirement may optionally state that a Worker must have the Qualification in order to preview the HIT, or see the HIT in search results. '
-    UpdateHITReviewStatusResponse:
-      type: object
-      properties: {}
-    ListWorkersWithQualificationTypeResponse:
+          - $ref: '#/components/schemas/QualificationRequirementList'
+          - description: ' Conditions that a Worker''s Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the <code>ActionsGuarded</code> field on each <code>QualificationRequirement</code> structure. '
+    ListHITsForQualificationTypeResponse:
       type: object
       properties:
         NextToken:
@@ -2406,31 +2304,21 @@ components:
         NumResults:
           allOf:
           - $ref: '#/components/schemas/Integer'
-          - description: ' The number of Qualifications on this page in the filtered results list, equivalent to the number of Qualifications being returned by this call.'
-        Qualifications:
+          - description: ' The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call. '
+        HITs:
           allOf:
-          - $ref: '#/components/schemas/QualificationList'
-          - description: ' The list of Qualification elements returned by this call. '
-    NotifyWorkersRequest:
+          - $ref: '#/components/schemas/HITList'
+          - description: ' The list of HIT elements returned by the query.'
+    GetQualificationTypeResponse:
       type: object
-      required:
-      - Subject
-      - MessageText
-      - WorkerIds
-      title: NotifyWorkersRequest
       properties:
-        Subject:
+        QualificationType:
           allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The subject line of the email message to send. Can include up to 200 characters.
-        MessageText:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The text of the email message to send. Can include up to 4,096 characters
-        WorkerIds:
-          allOf:
-          - $ref: '#/components/schemas/CustomerIdList'
-          - description: A list of Worker IDs you wish to notify. You can notify upto 100 Workers at a time.
+          - $ref: '#/components/schemas/QualificationType'
+          - description: ' The returned Qualification Type'
+    DeleteWorkerBlockResponse:
+      type: object
+      properties: {}
     CreateHITRequest:
       type: object
       required:
@@ -2505,44 +2393,201 @@ components:
           allOf:
           - $ref: '#/components/schemas/HITLayoutParameterList'
           - description: ' If the HITLayoutId is provided, any placeholder values must be filled in with values using the HITLayoutParameter structure. For more information, see HITLayout. '
-    Integer:
-      type: integer
-    NotificationTransport:
+    CreateWorkerBlockRequest:
+      type: object
+      required:
+      - WorkerId
+      - Reason
+      title: CreateWorkerBlockRequest
+      properties:
+        WorkerId:
+          allOf:
+          - $ref: '#/components/schemas/CustomerId'
+          - description: The ID of the Worker to block.
+        Reason:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: A message explaining the reason for blocking the Worker. This parameter enables you to keep track of your Workers. The Worker does not see this message.
+    CreateWorkerBlockResponse:
+      type: object
+      properties: {}
+    HITReviewStatus:
       type: string
       enum:
-      - Email
-      - SQS
-      - SNS
-    CreateHITTypeResponse:
+      - NotReviewed
+      - MarkedForReview
+      - ReviewedAppropriate
+      - ReviewedInappropriate
+    UpdateHITReviewStatusResponse:
       type: object
+      properties: {}
+    ReviewableHITStatus:
+      type: string
+      enum:
+      - Reviewable
+      - Reviewing
+    CreateQualificationTypeRequest:
+      type: object
+      required:
+      - Name
+      - Description
+      - QualificationTypeStatus
+      title: CreateQualificationTypeRequest
+      properties:
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' The name you give to the Qualification type. The type name is used to represent the Qualification to Workers, and to find the type using a Qualification type search. It must be unique across all of your Qualification types.'
+        Keywords:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: One or more words or phrases that describe the Qualification type, separated by commas. The keywords of a type make the type easier to find during a search.
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: A long description for the Qualification type. On the Amazon Mechanical Turk website, the long description is displayed when a Worker examines a Qualification type.
+        QualificationTypeStatus:
+          allOf:
+          - $ref: '#/components/schemas/QualificationTypeStatus'
+          - description: '<p>The initial status of the Qualification type.</p> <p>Constraints: Valid values are: Active | Inactive</p>'
+        RetryDelayInSeconds:
+          allOf:
+          - $ref: '#/components/schemas/Long'
+          - description: '<p>The number of seconds that a Worker must wait after requesting a Qualification of the Qualification type before the worker can retry the Qualification request.</p> <p>Constraints: None. If not specified, retries are disabled and Workers can request a Qualification of this type only once, even if the Worker has not been granted the Qualification. It is not possible to disable retries for a Qualification type after it has been created with retries enabled. If you want to disable retries, you must delete existing retry-enabled Qualification type and then create a new Qualification type with retries disabled.</p>'
+        Test:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: '<p> The questions for the Qualification test a Worker must answer correctly to obtain a Qualification of this type. If this parameter is specified, <code>TestDurationInSeconds</code> must also be specified. </p> <p>Constraints: Must not be longer than 65535 bytes. Must be a QuestionForm data structure. This parameter cannot be specified if AutoGranted is true.</p> <p>Constraints: None. If not specified, the Worker may request the Qualification without answering any questions.</p>'
+        AnswerKey:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: '<p>The answers to the Qualification test specified in the Test parameter, in the form of an AnswerKey data structure.</p> <p>Constraints: Must not be longer than 65535 bytes.</p> <p>Constraints: None. If not specified, you must process Qualification requests manually.</p>'
+        TestDurationInSeconds:
+          allOf:
+          - $ref: '#/components/schemas/Long'
+          - description: The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.
+        AutoGranted:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: '<p>Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.</p> <p>Constraints: If the Test parameter is specified, this parameter cannot be true.</p>'
+        AutoGrantedValue:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.
+    QualificationRequirementList:
+      type: array
+      items:
+        $ref: '#/components/schemas/QualificationRequirement'
+    ListReviewableHITsRequest:
+      type: object
+      title: ListReviewableHITsRequest
       properties:
         HITTypeId:
           allOf:
           - $ref: '#/components/schemas/EntityId'
-          - description: ' The ID of the newly registered HIT type.'
-    PolicyParameter:
-      type: object
-      properties:
-        Key:
+          - description: ' The ID of the HIT type of the HITs to consider for the query. If not specified, all HITs for the Reviewer are considered '
+        Status:
           allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' Name of the parameter from the list of Review Polices. '
-        Values:
+          - $ref: '#/components/schemas/ReviewableHITStatus'
+          - description: ' Can be either <code>Reviewable</code> or <code>Reviewing</code>. Reviewable is the default value. '
+        NextToken:
           allOf:
-          - $ref: '#/components/schemas/StringList'
-          - description: ' The list of values of the Parameter'
-        MapEntries:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: Pagination Token
+        MaxResults:
           allOf:
-          - $ref: '#/components/schemas/ParameterMapEntryList'
-          - description: ' List of ParameterMapEntry objects. '
-      description: ' Name of the parameter from the Review policy. '
-    ParameterMapEntryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ParameterMapEntry'
+          - $ref: '#/components/schemas/ResultSize'
+          - description: ' Limit the number of results returned. '
     Timestamp:
       type: string
       format: date-time
+    UpdateNotificationSettingsRequest:
+      type: object
+      required:
+      - HITTypeId
+      title: UpdateNotificationSettingsRequest
+      properties:
+        HITTypeId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' The ID of the HIT type whose notification specification is being updated. '
+        Notification:
+          allOf:
+          - $ref: '#/components/schemas/NotificationSpecification'
+          - description: ' The notification specification for the HIT type. '
+        Active:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: ' Specifies whether notifications are sent for HITs of this HIT type, according to the notification specification. You must specify either the Notification parameter or the Active parameter for the call to UpdateNotificationSettings to succeed. '
+    HITLayoutParameter:
+      type: object
+      required:
+      - Name
+      - Value
+      properties:
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' The name of the parameter in the HITLayout. '
+        Value:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: 'The value substituted for the parameter referenced in the HITLayout. '
+      description: ' The HITLayoutParameter data structure defines parameter values used with a HITLayout. A HITLayout is a reusable Amazon Mechanical Turk project template used to provide Human Intelligence Task (HIT) question data for CreateHIT. '
+    GetHITResponse:
+      type: object
+      properties:
+        HIT:
+          allOf:
+          - $ref: '#/components/schemas/HIT'
+          - description: ' Contains the requested HIT data.'
+    String:
+      type: string
+    ListWorkersWithQualificationTypeRequest:
+      type: object
+      required:
+      - QualificationTypeId
+      title: ListWorkersWithQualificationTypeRequest
+      properties:
+        QualificationTypeId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the Qualification type of the Qualifications to return.
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/QualificationStatus'
+          - description: ' The status of the Qualifications to return. Can be <code>Granted | Revoked</code>. '
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: Pagination Token
+        MaxResults:
+          allOf:
+          - $ref: '#/components/schemas/ResultSize'
+          - description: ' Limit the number of results returned. '
+    DeleteHITRequest:
+      type: object
+      required:
+      - HITId
+      title: DeleteHITRequest
+      properties:
+        HITId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the HIT to be deleted.
+    AssociateQualificationWithWorkerResponse:
+      type: object
+      properties: {}
+    SendTestEventNotificationResponse:
+      type: object
+      properties: {}
+    CreateHITWithHITTypeResponse:
+      type: object
+      properties:
+        HIT:
+          allOf:
+          - $ref: '#/components/schemas/HIT'
+          - description: ' Contains the newly created HIT data. For a description of the HIT data structure as it appears in responses, see the HIT Data Structure documentation. '
     GetQualificationScoreRequest:
       type: object
       required:
@@ -2558,6 +2603,99 @@ components:
           allOf:
           - $ref: '#/components/schemas/CustomerId'
           - description: The ID of the Worker whose Qualification is being updated.
+    GetAccountBalanceRequest:
+      type: object
+      title: GetAccountBalanceRequest
+      properties: {}
+    AssignmentStatus:
+      type: string
+      enum:
+      - Submitted
+      - Approved
+      - Rejected
+    UpdateExpirationForHITResponse:
+      type: object
+      properties: {}
+    RejectAssignmentResponse:
+      type: object
+      properties: {}
+    ListWorkerBlocksRequest:
+      type: object
+      title: ListWorkerBlocksRequest
+      properties:
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: Pagination token
+        MaxResults:
+          $ref: '#/components/schemas/ResultSize'
+    CustomerIdList:
+      type: array
+      items:
+        $ref: '#/components/schemas/CustomerId'
+    PaginationToken:
+      type: string
+      description: 'If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. '
+      minLength: 1
+      maxLength: 255
+    RejectQualificationRequestRequest:
+      type: object
+      required:
+      - QualificationRequestId
+      title: RejectQualificationRequestRequest
+      properties:
+        QualificationRequestId:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' The ID of the Qualification request, as returned by the <code>ListQualificationRequests</code> operation. '
+        Reason:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: A text message explaining why the request was rejected, to be shown to the Worker who made the request.
+    GetAssignmentResponse:
+      type: object
+      properties:
+        Assignment:
+          allOf:
+          - $ref: '#/components/schemas/Assignment'
+          - description: ' The assignment. The response includes one Assignment element. '
+        HIT:
+          allOf:
+          - $ref: '#/components/schemas/HIT'
+          - description: ' The HIT associated with this assignment. The response includes one HIT element.'
+    CurrencyAmount:
+      type: string
+      pattern: ^[0-9]+(\.)?[0-9]{0,2}$
+      description: A string representing a currency amount.
+    WorkerBlockList:
+      type: array
+      items:
+        $ref: '#/components/schemas/WorkerBlock'
+    QualificationRequestList:
+      type: array
+      items:
+        $ref: '#/components/schemas/QualificationRequest'
+    UpdateHITReviewStatusRequest:
+      type: object
+      required:
+      - HITId
+      title: UpdateHITReviewStatusRequest
+      properties:
+        HITId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' The ID of the HIT to update. '
+        Revert:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: <p> Specifies how to update the HIT status. Default is <code>False</code>. </p> <ul> <li> <p> Setting this to false will only transition a HIT from <code>Reviewable</code> to <code>Reviewing</code> </p> </li> <li> <p> Setting this to true will only transition a HIT from <code>Reviewing</code> to <code>Reviewable</code> </p> </li> </ul>
+    CreateHITResponse:
+      type: object
+      properties:
+        HIT:
+          allOf:
+          - $ref: '#/components/schemas/HIT'
+          - description: ' Contains the newly created HIT data. For a description of the HIT data structure as it appears in responses, see the HIT Data Structure documentation. '
     UpdateHITTypeOfHITRequest:
       type: object
       required:
@@ -2573,144 +2711,23 @@ components:
           allOf:
           - $ref: '#/components/schemas/EntityId'
           - description: The ID of the new HIT type.
-    Comparator:
-      type: string
-      enum:
-      - LessThan
-      - LessThanOrEqualTo
-      - GreaterThan
-      - GreaterThanOrEqualTo
-      - EqualTo
-      - NotEqualTo
-      - Exists
-      - DoesNotExist
-      - In
-      - NotIn
-    ListQualificationRequestsResponse:
-      type: object
-      properties:
-        NumResults:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: The number of Qualification requests on this page in the filtered results list, equivalent to the number of Qualification requests being returned by this call.
-        NextToken:
-          $ref: '#/components/schemas/PaginationToken'
-        QualificationRequests:
-          allOf:
-          - $ref: '#/components/schemas/QualificationRequestList'
-          - description: The Qualification request. The response includes one QualificationRequest element for each Qualification request returned by the query.
-    LocaleList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Locale'
-    ListWorkerBlocksRequest:
-      type: object
-      title: ListWorkerBlocksRequest
-      properties:
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: Pagination token
-        MaxResults:
-          $ref: '#/components/schemas/ResultSize'
-    HITLayoutParameterList:
-      type: array
-      items:
-        $ref: '#/components/schemas/HITLayoutParameter'
-    NotifyWorkersFailureCode:
-      type: string
-      enum:
-      - SoftFailure
-      - HardFailure
-    ListHITsResponse:
-      type: object
-      properties:
-        NextToken:
-          $ref: '#/components/schemas/PaginationToken'
-        NumResults:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call.
-        HITs:
-          allOf:
-          - $ref: '#/components/schemas/HITList'
-          - description: ' The list of HIT elements returned by the query.'
-    CreateHITWithHITTypeResponse:
-      type: object
-      properties:
-        HIT:
-          allOf:
-          - $ref: '#/components/schemas/HIT'
-          - description: ' Contains the newly created HIT data. For a description of the HIT data structure as it appears in responses, see the HIT Data Structure documentation. '
-    SendTestEventNotificationResponse:
-      type: object
-      properties: {}
-    BonusPaymentList:
-      type: array
-      items:
-        $ref: '#/components/schemas/BonusPayment'
-    RejectAssignmentResponse:
-      type: object
-      properties: {}
-    IntegerList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Integer'
-    SendBonusResponse:
-      type: object
-      properties: {}
-    QualificationRequest:
-      type: object
-      properties:
-        QualificationRequestId:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: 'The ID of the Qualification request, a unique identifier generated when the request was submitted. '
-        QualificationTypeId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' The ID of the Qualification type the Worker is requesting, as returned by the CreateQualificationType operation. '
-        WorkerId:
-          allOf:
-          - $ref: '#/components/schemas/CustomerId'
-          - description: ' The ID of the Worker requesting the Qualification.'
-        Test:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' The contents of the Qualification test that was presented to the Worker, if the type has a test and the Worker has submitted answers. This value is identical to the QuestionForm associated with the Qualification type at the time the Worker requests the Qualification.'
-        Answer:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' The Worker''s answers for the Qualification type''s test contained in a QuestionFormAnswers document, if the type has a test and the Worker has submitted answers. If the Worker does not provide any answers, Answer may be empty. '
-        SubmitTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: 'The date and time the Qualification request had a status of Submitted. This is either the time the Worker submitted answers for a Qualification test, or the time the Worker requested the Qualification if the Qualification type does not have a test. '
-      description: ' The QualificationRequest data structure represents a request a Worker has made for a Qualification. '
-    PaginationToken:
-      type: string
-      description: 'If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. '
-      minLength: 1
-      maxLength: 255
-    RejectQualificationRequestResponse:
-      type: object
-      properties: {}
-    ApproveAssignmentResponse:
-      type: object
-      properties: {}
-    GetHITRequest:
+    Long:
+      type: integer
+    GetFileUploadURLRequest:
       type: object
       required:
-      - HITId
-      title: GetHITRequest
+      - AssignmentId
+      - QuestionIdentifier
+      title: GetFileUploadURLRequest
       properties:
-        HITId:
+        AssignmentId:
           allOf:
           - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the HIT to be retrieved.
-    DisassociateQualificationFromWorkerResponse:
-      type: object
-      properties: {}
+          - description: The ID of the assignment that contains the question with a FileUploadAnswer.
+        QuestionIdentifier:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The identifier of the question with a FileUploadAnswer, as specified in the QuestionForm of the HIT.
     NotificationSpecification:
       type: object
       required:
@@ -2736,127 +2753,219 @@ components:
           - $ref: '#/components/schemas/EventTypeList'
           - description: ' The list of events that should cause notifications to be sent. Valid Values: AssignmentAccepted | AssignmentAbandoned | AssignmentReturned | AssignmentSubmitted | AssignmentRejected | AssignmentApproved | HITCreated | HITExtended | HITDisposed | HITReviewable | HITExpired | Ping. The Ping event is only valid for the SendTestEventNotification operation. '
       description: The NotificationSpecification data structure describes a HIT event notification for a HIT type.
-    HITStatus:
-      type: string
-      enum:
-      - Assignable
-      - Unassignable
-      - Reviewable
-      - Reviewing
-      - Disposed
-    ReviewableHITStatus:
-      type: string
-      enum:
-      - Reviewable
-      - Reviewing
-    UpdateExpirationForHITResponse:
-      type: object
-      properties: {}
-    BonusPayment:
+    PolicyParameter:
       type: object
       properties:
-        WorkerId:
+        Key:
           allOf:
-          - $ref: '#/components/schemas/CustomerId'
-          - description: The ID of the Worker to whom the bonus was paid.
-        BonusAmount:
-          $ref: '#/components/schemas/CurrencyAmount'
+          - $ref: '#/components/schemas/String'
+          - description: ' Name of the parameter from the list of Review Polices. '
+        Values:
+          allOf:
+          - $ref: '#/components/schemas/StringList'
+          - description: ' The list of values of the Parameter'
+        MapEntries:
+          allOf:
+          - $ref: '#/components/schemas/ParameterMapEntryList'
+          - description: ' List of ParameterMapEntry objects. '
+      description: ' Name of the parameter from the Review policy. '
+    ListHITsForQualificationTypeRequest:
+      type: object
+      required:
+      - QualificationTypeId
+      title: ListHITsForQualificationTypeRequest
+      properties:
+        QualificationTypeId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' The ID of the Qualification type to use when querying HITs. '
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: Pagination Token
+        MaxResults:
+          allOf:
+          - $ref: '#/components/schemas/ResultSize'
+          - description: ' Limit the number of results returned. '
+    RejectAssignmentRequest:
+      type: object
+      required:
+      - AssignmentId
+      - RequesterFeedback
+      title: RejectAssignmentRequest
+      properties:
         AssignmentId:
           allOf:
           - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the assignment associated with this bonus payment.
-        Reason:
+          - description: ' The ID of the assignment. The assignment must correspond to a HIT created by the Requester. '
+        RequesterFeedback:
           allOf:
           - $ref: '#/components/schemas/String'
-          - description: The Reason text given when the bonus was granted, if any.
-        GrantTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The date and time of when the bonus was granted.
-      description: An object representing a Bonus payment paid to a Worker.
-    UpdateQualificationTypeResponse:
-      type: object
-      properties:
-        QualificationType:
-          allOf:
-          - $ref: '#/components/schemas/QualificationType'
-          - description: ' Contains a QualificationType data structure.'
-    PolicyParameterList:
-      type: array
-      items:
-        $ref: '#/components/schemas/PolicyParameter'
-    UpdateHITTypeOfHITResponse:
-      type: object
-      properties: {}
-    SendTestEventNotificationRequest:
-      type: object
-      required:
-      - Notification
-      - TestEventType
-      title: SendTestEventNotificationRequest
-      properties:
-        Notification:
-          allOf:
-          - $ref: '#/components/schemas/NotificationSpecification'
-          - description: ' The notification specification to test. This value is identical to the value you would provide to the UpdateNotificationSettings operation when you establish the notification specification for a HIT type. '
-        TestEventType:
-          allOf:
-          - $ref: '#/components/schemas/EventType'
-          - description: ' The event to simulate to test the notification specification. This event is included in the test message even if the notification specification does not include the event type. The notification specification does not filter out the test event. '
-    UpdateNotificationSettingsRequest:
-      type: object
-      required:
-      - HITTypeId
-      title: UpdateNotificationSettingsRequest
-      properties:
-        HITTypeId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' The ID of the HIT type whose notification specification is being updated. '
-        Notification:
-          allOf:
-          - $ref: '#/components/schemas/NotificationSpecification'
-          - description: ' The notification specification for the HIT type. '
-        Active:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: ' Specifies whether notifications are sent for HITs of this HIT type, according to the notification specification. You must specify either the Notification parameter or the Active parameter for the call to UpdateNotificationSettings to succeed. '
-    AssociateQualificationWithWorkerResponse:
-      type: object
-      properties: {}
-    QualificationStatus:
+          - description: ' A message for the Worker, which the Worker can see in the Status section of the web site. '
+    EntityId:
       type: string
-      enum:
-      - Granted
-      - Revoked
-    ServiceFault: {}
-    StringList:
-      type: array
-      items:
-        $ref: '#/components/schemas/String'
-    CreateAdditionalAssignmentsForHITRequest:
+      pattern: ^[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    ListQualificationRequestsResponse:
+      type: object
+      properties:
+        NumResults:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The number of Qualification requests on this page in the filtered results list, equivalent to the number of Qualification requests being returned by this call.
+        NextToken:
+          $ref: '#/components/schemas/PaginationToken'
+        QualificationRequests:
+          allOf:
+          - $ref: '#/components/schemas/QualificationRequestList'
+          - description: The Qualification request. The response includes one QualificationRequest element for each Qualification request returned by the query.
+    DeleteQualificationTypeResponse:
+      type: object
+      properties: {}
+    ListReviewPolicyResultsForHITRequest:
       type: object
       required:
       - HITId
-      - NumberOfAdditionalAssignments
-      title: CreateAdditionalAssignmentsForHITRequest
+      title: ListReviewPolicyResultsForHITRequest
       properties:
         HITId:
           allOf:
           - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the HIT to extend.
-        NumberOfAdditionalAssignments:
+          - description: The unique identifier of the HIT to retrieve review results for.
+        PolicyLevels:
+          allOf:
+          - $ref: '#/components/schemas/ReviewPolicyLevelList'
+          - description: ' The Policy Level(s) to retrieve review results for - HIT or Assignment. If omitted, the default behavior is to retrieve all data for both policy levels. For a list of all the described policies, see Review Policies. '
+        RetrieveActions:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: ' Specify if the operation should retrieve a list of the actions taken executing the Review Policies and their outcomes. '
+        RetrieveResults:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: ' Specify if the operation should retrieve a list of the results computed by the Review Policies. '
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: Pagination token
+        MaxResults:
+          allOf:
+          - $ref: '#/components/schemas/ResultSize'
+          - description: Limit the number of results returned.
+    NotificationTransport:
+      type: string
+      enum:
+      - Email
+      - SQS
+      - SNS
+    ListReviewableHITsResponse:
+      type: object
+      properties:
+        NextToken:
+          $ref: '#/components/schemas/PaginationToken'
+        NumResults:
           allOf:
           - $ref: '#/components/schemas/Integer'
-          - description: The number of additional assignments to request for this HIT.
-        UniqueRequestToken:
+          - description: ' The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call. '
+        HITs:
           allOf:
-          - $ref: '#/components/schemas/IdempotencyToken'
-          - description: ' A unique identifier for this request, which allows you to retry the call on error without extending the HIT multiple times. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the extend HIT already exists in the system from a previous call using the same <code>UniqueRequestToken</code>, subsequent calls will return an error with a message containing the request ID. '
-    CustomerIdList:
+          - $ref: '#/components/schemas/HITList'
+          - description: ' The list of HIT elements returned by the query.'
+    NotifyWorkersRequest:
+      type: object
+      required:
+      - Subject
+      - MessageText
+      - WorkerIds
+      title: NotifyWorkersRequest
+      properties:
+        Subject:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The subject line of the email message to send. Can include up to 200 characters.
+        MessageText:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The text of the email message to send. Can include up to 4,096 characters
+        WorkerIds:
+          allOf:
+          - $ref: '#/components/schemas/CustomerIdList'
+          - description: A list of Worker IDs you wish to notify. You can notify upto 100 Workers at a time.
+    PolicyParameterList:
       type: array
       items:
-        $ref: '#/components/schemas/CustomerId'
+        $ref: '#/components/schemas/PolicyParameter'
+    GetQualificationTypeRequest:
+      type: object
+      required:
+      - QualificationTypeId
+      title: GetQualificationTypeRequest
+      properties:
+        QualificationTypeId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the QualificationType.
+    QualificationType:
+      type: object
+      properties:
+        QualificationTypeId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' A unique identifier for the Qualification type. A Qualification type is given a Qualification type ID when you call the CreateQualificationType operation. '
+        CreationTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' The date and time the Qualification type was created. '
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' The name of the Qualification type. The type name is used to identify the type, and to find the type using a Qualification type search. '
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' A long description for the Qualification type. '
+        Keywords:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' One or more words or phrases that describe theQualification type, separated by commas. The Keywords make the type easier to find using a search. '
+        QualificationTypeStatus:
+          allOf:
+          - $ref: '#/components/schemas/QualificationTypeStatus'
+          - description: ' The status of the Qualification type. A Qualification type''s status determines if users can apply to receive a Qualification of this type, and if HITs can be created with requirements based on this type. Valid values are Active | Inactive. '
+        Test:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' The questions for a Qualification test associated with this Qualification type that a user can take to obtain a Qualification of this type. This parameter must be specified if AnswerKey is present. A Qualification type cannot have both a specified Test parameter and an AutoGranted value of true. '
+        TestDurationInSeconds:
+          allOf:
+          - $ref: '#/components/schemas/Long'
+          - description: ' The amount of time, in seconds, given to a Worker to complete the Qualification test, beginning from the time the Worker requests the Qualification. '
+        AnswerKey:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The answers to the Qualification test specified in the Test parameter.
+        RetryDelayInSeconds:
+          allOf:
+          - $ref: '#/components/schemas/Long'
+          - description: ' The amount of time, in seconds, Workers must wait after taking the Qualification test before they can take it again. Workers can take a Qualification test multiple times if they were not granted the Qualification from a previous attempt, or if the test offers a gradient score and they want a better score. If not specified, retries are disabled and Workers can request a Qualification only once. '
+        IsRequestable:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: ' Specifies whether the Qualification type is one that a user can request through the Amazon Mechanical Turk web site, such as by taking a Qualification test. This value is False for Qualifications assigned automatically by the system. Valid values are True | False. '
+        AutoGranted:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: Specifies that requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test. Valid values are True | False.
+        AutoGrantedValue:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: ' The Qualification integer value to use for automatically granted Qualifications, if AutoGranted is true. This is 1 by default. '
+      description: ' The QualificationType data structure represents a Qualification type, a description of a property of a Worker that must match the requirements of a HIT for the Worker to be able to accept the HIT. The type also describes how a Worker can obtain a Qualification of that type, such as through a Qualification test. '
+    AssignmentList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Assignment'
     ReviewResultDetail:
       type: object
       properties:
@@ -2885,42 +2994,101 @@ components:
           - $ref: '#/components/schemas/String'
           - description: ' The values of Key provided by the review policies you have selected. '
       description: ' This data structure is returned multiple times for each result specified in the Review Policy. '
-    ListQualificationTypesResponse:
+    NotifyWorkersFailureStatus:
       type: object
       properties:
-        NumResults:
+        NotifyWorkersFailureCode:
           allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: ' The number of Qualification types on this page in the filtered results list, equivalent to the number of types this operation returns. '
+          - $ref: '#/components/schemas/NotifyWorkersFailureCode'
+          - description: ' Encoded value for the failure type. '
+        NotifyWorkersFailureMessage:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' A message detailing the reason the Worker could not be notified. '
+        WorkerId:
+          allOf:
+          - $ref: '#/components/schemas/CustomerId'
+          - description: ' The ID of the Worker.'
+      description: ' When MTurk encounters an issue with notifying the Workers you specified, it returns back this object with failure details. '
+    AssignmentStatusList:
+      type: array
+      items:
+        $ref: '#/components/schemas/AssignmentStatus'
+    GetAccountBalanceResponse:
+      type: object
+      properties:
+        AvailableBalance:
+          $ref: '#/components/schemas/CurrencyAmount'
+        OnHoldBalance:
+          $ref: '#/components/schemas/CurrencyAmount'
+    ReviewPolicy:
+      type: object
+      required:
+      - PolicyName
+      properties:
+        PolicyName:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01 '
+        Parameters:
+          allOf:
+          - $ref: '#/components/schemas/PolicyParameterList'
+          - description: Name of the parameter from the Review policy.
+      description: ' HIT Review Policy data structures represent HIT review policies, which you specify when you create a HIT. '
+    NotifyWorkersResponse:
+      type: object
+      properties:
+        NotifyWorkersFailureStatuses:
+          allOf:
+          - $ref: '#/components/schemas/NotifyWorkersFailureStatusList'
+          - description: ' When MTurk sends notifications to the list of Workers, it returns back any failures it encounters in this list of NotifyWorkersFailureStatus objects. '
+    LocaleList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Locale'
+    GetHITRequest:
+      type: object
+      required:
+      - HITId
+      title: GetHITRequest
+      properties:
+        HITId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the HIT to be retrieved.
+    HITStatus:
+      type: string
+      enum:
+      - Assignable
+      - Unassignable
+      - Reviewable
+      - Reviewing
+      - Disposed
+    ListReviewPolicyResultsForHITResponse:
+      type: object
+      properties:
+        HITId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The HITId of the HIT for which results have been returned.
+        AssignmentReviewPolicy:
+          allOf:
+          - $ref: '#/components/schemas/ReviewPolicy'
+          - description: ' The name of the Assignment-level Review Policy. This contains only the PolicyName element. '
+        HITReviewPolicy:
+          allOf:
+          - $ref: '#/components/schemas/ReviewPolicy'
+          - description: The name of the HIT-level Review Policy. This contains only the PolicyName element.
+        AssignmentReviewReport:
+          allOf:
+          - $ref: '#/components/schemas/ReviewReport'
+          - description: ' Contains both ReviewResult and ReviewAction elements for an Assignment. '
+        HITReviewReport:
+          allOf:
+          - $ref: '#/components/schemas/ReviewReport'
+          - description: 'Contains both ReviewResult and ReviewAction elements for a particular HIT. '
         NextToken:
           $ref: '#/components/schemas/PaginationToken'
-        QualificationTypes:
-          allOf:
-          - $ref: '#/components/schemas/QualificationTypeList'
-          - description: ' The list of QualificationType elements returned by the query. '
-    ListHITsRequest:
-      type: object
-      title: ListHITsRequest
-      properties:
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: Pagination token
-        MaxResults:
-          $ref: '#/components/schemas/ResultSize'
-    ListHITsForQualificationTypeResponse:
-      type: object
-      properties:
-        NextToken:
-          $ref: '#/components/schemas/PaginationToken'
-        NumResults:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: ' The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call. '
-        HITs:
-          allOf:
-          - $ref: '#/components/schemas/HITList'
-          - description: ' The list of HIT elements returned by the query.'
     GetQualificationScoreResponse:
       type: object
       properties:
@@ -2928,98 +3096,63 @@ components:
           allOf:
           - $ref: '#/components/schemas/Qualification'
           - description: ' The Qualification data structure of the Qualification assigned to a user, including the Qualification type and the value (score). '
-    GetFileUploadURLRequest:
+    DeleteWorkerBlockRequest:
       type: object
       required:
-      - AssignmentId
-      - QuestionIdentifier
-      title: GetFileUploadURLRequest
+      - WorkerId
+      title: DeleteWorkerBlockRequest
       properties:
-        AssignmentId:
+        WorkerId:
           allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the assignment that contains the question with a FileUploadAnswer.
-        QuestionIdentifier:
+          - $ref: '#/components/schemas/CustomerId'
+          - description: The ID of the Worker to unblock.
+        Reason:
           allOf:
           - $ref: '#/components/schemas/String'
-          - description: The identifier of the question with a FileUploadAnswer, as specified in the QuestionForm of the HIT.
-    DeleteWorkerBlockResponse:
-      type: object
-      properties: {}
-    EntityId:
-      type: string
-      pattern: ^[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    ListBonusPaymentsRequest:
-      type: object
-      title: ListBonusPaymentsRequest
-      properties:
-        HITId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the HIT associated with the bonus payments to retrieve. If not specified, all bonus payments for all assignments for the given HIT are returned. Either the HITId parameter or the AssignmentId parameter must be specified
-        AssignmentId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the assignment associated with the bonus payments to retrieve. If specified, only bonus payments for the given assignment are returned. Either the HITId parameter or the AssignmentId parameter must be specified
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: Pagination token
-        MaxResults:
-          $ref: '#/components/schemas/ResultSize'
-    DeleteHITResponse:
-      type: object
-      properties: {}
-    HITLayoutParameter:
+          - description: A message that explains the reason for unblocking the Worker. The Worker does not see this message.
+    AssociateQualificationWithWorkerRequest:
       type: object
       required:
-      - Name
-      - Value
-      properties:
-        Name:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' The name of the parameter in the HITLayout. '
-        Value:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: 'The value substituted for the parameter referenced in the HITLayout. '
-      description: ' The HITLayoutParameter data structure defines parameter values used with a HITLayout. A HITLayout is a reusable Amazon Mechanical Turk project template used to provide Human Intelligence Task (HIT) question data for CreateHIT. '
-    Qualification:
-      type: object
+      - QualificationTypeId
+      - WorkerId
+      title: AssociateQualificationWithWorkerRequest
       properties:
         QualificationTypeId:
           allOf:
           - $ref: '#/components/schemas/EntityId'
-          - description: ' The ID of the Qualification type for the Qualification.'
+          - description: The ID of the Qualification type to use for the assigned Qualification.
         WorkerId:
           allOf:
           - $ref: '#/components/schemas/CustomerId'
-          - description: ' The ID of the Worker who possesses the Qualification. '
-        GrantTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' The date and time the Qualification was granted to the Worker. If the Worker''s Qualification was revoked, and then re-granted based on a new Qualification request, GrantTime is the date and time of the last call to the AcceptQualificationRequest operation.'
+          - description: ' The ID of the Worker to whom the Qualification is being assigned. Worker IDs are included with submitted HIT assignments and Qualification requests. '
         IntegerValue:
           allOf:
           - $ref: '#/components/schemas/Integer'
-          - description: ' The value (score) of the Qualification, if the Qualification has an integer value.'
-        LocaleValue:
-          $ref: '#/components/schemas/Locale'
-        Status:
+          - description: The value of the Qualification to assign.
+        SendNotification:
           allOf:
-          - $ref: '#/components/schemas/QualificationStatus'
-          - description: ' The status of the Qualification. Valid values are Granted | Revoked.'
-      description: The Qualification data structure represents a Qualification assigned to a user, including the Qualification type and the value (score).
-    CreateHITResponse:
+          - $ref: '#/components/schemas/Boolean'
+          - description: ' Specifies whether to send a notification email message to the Worker saying that the qualification was assigned to the Worker. Note: this is true by default. '
+    AcceptQualificationRequestResponse:
+      type: object
+      properties: {}
+    ListWorkersWithQualificationTypeResponse:
       type: object
       properties:
-        HIT:
+        NextToken:
+          $ref: '#/components/schemas/PaginationToken'
+        NumResults:
           allOf:
-          - $ref: '#/components/schemas/HIT'
-          - description: ' Contains the newly created HIT data. For a description of the HIT data structure as it appears in responses, see the HIT Data Structure documentation. '
+          - $ref: '#/components/schemas/Integer'
+          - description: ' The number of Qualifications on this page in the filtered results list, equivalent to the number of Qualifications being returned by this call.'
+        Qualifications:
+          allOf:
+          - $ref: '#/components/schemas/QualificationList'
+          - description: ' The list of Qualification elements returned by this call. '
+    QualificationTypeList:
+      type: array
+      items:
+        $ref: '#/components/schemas/QualificationType'
     HIT:
       type: object
       properties:
@@ -3106,205 +3239,6 @@ components:
           - $ref: '#/components/schemas/Integer'
           - description: ' The number of assignments for this HIT that have been approved or rejected.'
       description: ' The HIT data structure represents a single HIT, including all the information necessary for a Worker to accept and complete the HIT.'
-    NotifyWorkersResponse:
-      type: object
-      properties:
-        NotifyWorkersFailureStatuses:
-          allOf:
-          - $ref: '#/components/schemas/NotifyWorkersFailureStatusList'
-          - description: ' When MTurk sends notifications to the list of Workers, it returns back any failures it encounters in this list of NotifyWorkersFailureStatus objects. '
-    QualificationType:
-      type: object
-      properties:
-        QualificationTypeId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' A unique identifier for the Qualification type. A Qualification type is given a Qualification type ID when you call the CreateQualificationType operation. '
-        CreationTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' The date and time the Qualification type was created. '
-        Name:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' The name of the Qualification type. The type name is used to identify the type, and to find the type using a Qualification type search. '
-        Description:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' A long description for the Qualification type. '
-        Keywords:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' One or more words or phrases that describe theQualification type, separated by commas. The Keywords make the type easier to find using a search. '
-        QualificationTypeStatus:
-          allOf:
-          - $ref: '#/components/schemas/QualificationTypeStatus'
-          - description: ' The status of the Qualification type. A Qualification type''s status determines if users can apply to receive a Qualification of this type, and if HITs can be created with requirements based on this type. Valid values are Active | Inactive. '
-        Test:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' The questions for a Qualification test associated with this Qualification type that a user can take to obtain a Qualification of this type. This parameter must be specified if AnswerKey is present. A Qualification type cannot have both a specified Test parameter and an AutoGranted value of true. '
-        TestDurationInSeconds:
-          allOf:
-          - $ref: '#/components/schemas/Long'
-          - description: ' The amount of time, in seconds, given to a Worker to complete the Qualification test, beginning from the time the Worker requests the Qualification. '
-        AnswerKey:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The answers to the Qualification test specified in the Test parameter.
-        RetryDelayInSeconds:
-          allOf:
-          - $ref: '#/components/schemas/Long'
-          - description: ' The amount of time, in seconds, Workers must wait after taking the Qualification test before they can take it again. Workers can take a Qualification test multiple times if they were not granted the Qualification from a previous attempt, or if the test offers a gradient score and they want a better score. If not specified, retries are disabled and Workers can request a Qualification only once. '
-        IsRequestable:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: ' Specifies whether the Qualification type is one that a user can request through the Amazon Mechanical Turk web site, such as by taking a Qualification test. This value is False for Qualifications assigned automatically by the system. Valid values are True | False. '
-        AutoGranted:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: Specifies that requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test. Valid values are True | False.
-        AutoGrantedValue:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: ' The Qualification integer value to use for automatically granted Qualifications, if AutoGranted is true. This is 1 by default. '
-      description: ' The QualificationType data structure represents a Qualification type, a description of a property of a Worker that must match the requirements of a HIT for the Worker to be able to accept the HIT. The type also describes how a Worker can obtain a Qualification of that type, such as through a Qualification test. '
-    CreateWorkerBlockRequest:
-      type: object
-      required:
-      - WorkerId
-      - Reason
-      title: CreateWorkerBlockRequest
-      properties:
-        WorkerId:
-          allOf:
-          - $ref: '#/components/schemas/CustomerId'
-          - description: The ID of the Worker to block.
-        Reason:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: A message explaining the reason for blocking the Worker. This parameter enables you to keep track of your Workers. The Worker does not see this message.
-    ApproveAssignmentRequest:
-      type: object
-      required:
-      - AssignmentId
-      title: ApproveAssignmentRequest
-      properties:
-        AssignmentId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' The ID of the assignment. The assignment must correspond to a HIT created by the Requester. '
-        RequesterFeedback:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' A message for the Worker, which the Worker can see in the Status section of the web site. '
-        OverrideRejection:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: ' A flag indicating that an assignment should be approved even if it was previously rejected. Defaults to <code>False</code>. '
-    GetAccountBalanceResponse:
-      type: object
-      properties:
-        AvailableBalance:
-          $ref: '#/components/schemas/CurrencyAmount'
-        OnHoldBalance:
-          $ref: '#/components/schemas/CurrencyAmount'
-    GetAssignmentRequest:
-      type: object
-      required:
-      - AssignmentId
-      title: GetAssignmentRequest
-      properties:
-        AssignmentId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the Assignment to be retrieved.
-    GetAssignmentResponse:
-      type: object
-      properties:
-        Assignment:
-          allOf:
-          - $ref: '#/components/schemas/Assignment'
-          - description: ' The assignment. The response includes one Assignment element. '
-        HIT:
-          allOf:
-          - $ref: '#/components/schemas/HIT'
-          - description: ' The HIT associated with this assignment. The response includes one HIT element.'
-    CustomerId:
-      type: string
-      pattern: ^A[A-Z0-9]+$
-      minLength: 1
-      maxLength: 64
-    ReviewActionStatus:
-      type: string
-      enum:
-      - Intended
-      - Succeeded
-      - Failed
-      - Cancelled
-    GetQualificationTypeResponse:
-      type: object
-      properties:
-        QualificationType:
-          allOf:
-          - $ref: '#/components/schemas/QualificationType'
-          - description: ' The returned Qualification Type'
-    AssignmentStatus:
-      type: string
-      enum:
-      - Submitted
-      - Approved
-      - Rejected
-    Long:
-      type: integer
-    ListReviewPolicyResultsForHITRequest:
-      type: object
-      required:
-      - HITId
-      title: ListReviewPolicyResultsForHITRequest
-      properties:
-        HITId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The unique identifier of the HIT to retrieve review results for.
-        PolicyLevels:
-          allOf:
-          - $ref: '#/components/schemas/ReviewPolicyLevelList'
-          - description: ' The Policy Level(s) to retrieve review results for - HIT or Assignment. If omitted, the default behavior is to retrieve all data for both policy levels. For a list of all the described policies, see Review Policies. '
-        RetrieveActions:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: ' Specify if the operation should retrieve a list of the actions taken executing the Review Policies and their outcomes. '
-        RetrieveResults:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: ' Specify if the operation should retrieve a list of the results computed by the Review Policies. '
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: Pagination token
-        MaxResults:
-          allOf:
-          - $ref: '#/components/schemas/ResultSize'
-          - description: Limit the number of results returned.
-    AcceptQualificationRequestRequest:
-      type: object
-      required:
-      - QualificationRequestId
-      title: AcceptQualificationRequestRequest
-      properties:
-        QualificationRequestId:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The ID of the Qualification request, as returned by the <code>GetQualificationRequests</code> operation.
-        IntegerValue:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: ' The value of the Qualification. You can omit this value if you are using the presence or absence of the Qualification as the basis for a HIT requirement. '
-    NotifyWorkersFailureStatusList:
-      type: array
-      items:
-        $ref: '#/components/schemas/NotifyWorkersFailureStatus'
     SendBonusRequest:
       type: object
       required:
@@ -3334,89 +3268,93 @@ components:
           allOf:
           - $ref: '#/components/schemas/IdempotencyToken'
           - description: A unique identifier for this request, which allows you to retry the call on error without granting multiple bonuses. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the bonus already exists in the system from a previous call using the same UniqueRequestToken, subsequent calls will return an error with a message containing the request ID.
-    AssignmentStatusList:
-      type: array
-      items:
-        $ref: '#/components/schemas/AssignmentStatus'
-    CreateWorkerBlockResponse:
-      type: object
-      properties: {}
-    ReviewReport:
+    ListWorkerBlocksResponse:
       type: object
       properties:
-        ReviewResults:
+        NextToken:
+          $ref: '#/components/schemas/PaginationToken'
+        NumResults:
           allOf:
-          - $ref: '#/components/schemas/ReviewResultDetailList'
-          - description: ' A list of ReviewResults objects for each action specified in the Review Policy. '
-        ReviewActions:
+          - $ref: '#/components/schemas/Integer'
+          - description: ' The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.'
+        WorkerBlocks:
           allOf:
-          - $ref: '#/components/schemas/ReviewActionDetailList'
-          - description: ' A list of ReviewAction objects for each action specified in the Review Policy. '
-      description: ' Contains both ReviewResult and ReviewAction elements for a particular HIT. '
-    WorkerBlock:
+          - $ref: '#/components/schemas/WorkerBlockList'
+          - description: ' The list of WorkerBlocks, containing the collection of Worker IDs and reasons for blocking.'
+    EventType:
+      type: string
+      enum:
+      - AssignmentAccepted
+      - AssignmentAbandoned
+      - AssignmentReturned
+      - AssignmentSubmitted
+      - AssignmentRejected
+      - AssignmentApproved
+      - HITCreated
+      - HITExpired
+      - HITReviewable
+      - HITExtended
+      - HITDisposed
+      - Ping
+    CreateAdditionalAssignmentsForHITResponse:
+      type: object
+      properties: {}
+    ParameterMapEntryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ParameterMapEntry'
+    GetAssignmentRequest:
+      type: object
+      required:
+      - AssignmentId
+      title: GetAssignmentRequest
+      properties:
+        AssignmentId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the Assignment to be retrieved.
+    BonusPayment:
       type: object
       properties:
         WorkerId:
           allOf:
           - $ref: '#/components/schemas/CustomerId'
-          - description: ' The ID of the Worker who accepted the HIT.'
+          - description: The ID of the Worker to whom the bonus was paid.
+        BonusAmount:
+          $ref: '#/components/schemas/CurrencyAmount'
+        AssignmentId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the assignment associated with this bonus payment.
         Reason:
           allOf:
           - $ref: '#/components/schemas/String'
-          - description: ' A message explaining the reason the Worker was blocked. '
-      description: ' The WorkerBlock data structure represents a Worker who has been blocked. It has two elements: the WorkerId and the Reason for the block. '
-    GetQualificationTypeRequest:
+          - description: The Reason text given when the bonus was granted, if any.
+        GrantTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date and time of when the bonus was granted.
+      description: An object representing a Bonus payment paid to a Worker.
+    ListAssignmentsForHITResponse:
       type: object
-      required:
-      - QualificationTypeId
-      title: GetQualificationTypeRequest
       properties:
-        QualificationTypeId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the QualificationType.
-    UpdateQualificationTypeRequest:
-      type: object
-      required:
-      - QualificationTypeId
-      title: UpdateQualificationTypeRequest
-      properties:
-        QualificationTypeId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the Qualification type to update.
-        Description:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The new description of the Qualification type.
-        QualificationTypeStatus:
-          allOf:
-          - $ref: '#/components/schemas/QualificationTypeStatus'
-          - description: The new status of the Qualification type - Active | Inactive
-        Test:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: '<p>The questions for the Qualification test a Worker must answer correctly to obtain a Qualification of this type. If this parameter is specified, <code>TestDurationInSeconds</code> must also be specified.</p> <p>Constraints: Must not be longer than 65535 bytes. Must be a QuestionForm data structure. This parameter cannot be specified if AutoGranted is true.</p> <p>Constraints: None. If not specified, the Worker may request the Qualification without answering any questions.</p>'
-        AnswerKey:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The answers to the Qualification test specified in the Test parameter, in the form of an AnswerKey data structure.
-        TestDurationInSeconds:
-          allOf:
-          - $ref: '#/components/schemas/Long'
-          - description: The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.
-        RetryDelayInSeconds:
-          allOf:
-          - $ref: '#/components/schemas/Long'
-          - description: The amount of time, in seconds, that Workers must wait after requesting a Qualification of the specified Qualification type before they can retry the Qualification request. It is not possible to disable retries for a Qualification type after it has been created with retries enabled. If you want to disable retries, you must dispose of the existing retry-enabled Qualification type using DisposeQualificationType and then create a new Qualification type with retries disabled using CreateQualificationType.
-        AutoGranted:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: '<p>Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.</p> <p>Constraints: If the Test parameter is specified, this parameter cannot be true.</p>'
-        AutoGrantedValue:
+        NextToken:
+          $ref: '#/components/schemas/PaginationToken'
+        NumResults:
           allOf:
           - $ref: '#/components/schemas/Integer'
-          - description: The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.
+          - description: ' The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.'
+        Assignments:
+          allOf:
+          - $ref: '#/components/schemas/AssignmentList'
+          - description: ' The collection of Assignment data structures returned by this call.'
+    ReviewActionStatus:
+      type: string
+      enum:
+      - Intended
+      - Succeeded
+      - Failed
+      - Cancelled
     ListAssignmentsForHITRequest:
       type: object
       required:
@@ -3437,7 +3375,10 @@ components:
           allOf:
           - $ref: '#/components/schemas/AssignmentStatusList'
           - description: 'The status of the assignments to return: Submitted | Approved | Rejected'
-    RequestError: {}
+    BonusPaymentList:
+      type: array
+      items:
+        $ref: '#/components/schemas/BonusPayment'
     DisassociateQualificationFromWorkerRequest:
       type: object
       required:
@@ -3457,49 +3398,67 @@ components:
           allOf:
           - $ref: '#/components/schemas/String'
           - description: A text message that explains why the Qualification was revoked. The user who had the Qualification sees this message.
-    RejectQualificationRequestRequest:
+    StringList:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+    CountryParameters:
+      type: string
+      minLength: 2
+      maxLength: 2
+    ReviewActionDetailList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ReviewActionDetail'
+    IntegerList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Integer'
+    ListBonusPaymentsResponse:
       type: object
-      required:
-      - QualificationRequestId
-      title: RejectQualificationRequestRequest
       properties:
-        QualificationRequestId:
+        NumResults:
           allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' The ID of the Qualification request, as returned by the <code>ListQualificationRequests</code> operation. '
-        Reason:
+          - $ref: '#/components/schemas/Integer'
+          - description: 'The number of bonus payments on this page in the filtered results list, equivalent to the number of bonus payments being returned by this call. '
+        NextToken:
+          $ref: '#/components/schemas/PaginationToken'
+        BonusPayments:
           allOf:
-          - $ref: '#/components/schemas/String'
-          - description: A text message explaining why the request was rejected, to be shown to the Worker who made the request.
-    DeleteHITRequest:
+          - $ref: '#/components/schemas/BonusPaymentList'
+          - description: 'A successful request to the ListBonusPayments operation returns a list of BonusPayment objects. '
+    NotifyWorkersFailureStatusList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NotifyWorkersFailureStatus'
+    UpdateExpirationForHITRequest:
       type: object
       required:
       - HITId
-      title: DeleteHITRequest
+      - ExpireAt
+      title: UpdateExpirationForHITRequest
       properties:
         HITId:
           allOf:
           - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the HIT to be deleted.
-    CurrencyAmount:
+          - description: ' The HIT to update. '
+        ExpireAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' The date and time at which you want the HIT to expire '
+    QualificationStatus:
       type: string
-      pattern: ^[0-9]+(\.)?[0-9]{0,2}$
-      description: A string representing a currency amount.
-    DeleteWorkerBlockRequest:
+      enum:
+      - Granted
+      - Revoked
+    EventTypeList:
+      type: array
+      items:
+        $ref: '#/components/schemas/EventType'
+    UpdateNotificationSettingsResponse:
       type: object
-      required:
-      - WorkerId
-      title: DeleteWorkerBlockRequest
-      properties:
-        WorkerId:
-          allOf:
-          - $ref: '#/components/schemas/CustomerId'
-          - description: The ID of the Worker to unblock.
-        Reason:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: A message that explains the reason for unblocking the Worker. The Worker does not see this message.
-    ListWorkerBlocksResponse:
+      properties: {}
+    ListHITsResponse:
       type: object
       properties:
         NextToken:
@@ -3507,52 +3466,51 @@ components:
         NumResults:
           allOf:
           - $ref: '#/components/schemas/Integer'
-          - description: ' The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.'
-        WorkerBlocks:
+          - description: The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call.
+        HITs:
           allOf:
-          - $ref: '#/components/schemas/WorkerBlockList'
-          - description: ' The list of WorkerBlocks, containing the collection of Worker IDs and reasons for blocking.'
-    HITReviewStatus:
+          - $ref: '#/components/schemas/HITList'
+          - description: ' The list of HIT elements returned by the query.'
+    HITAccessActions:
       type: string
       enum:
-      - NotReviewed
-      - MarkedForReview
-      - ReviewedAppropriate
-      - ReviewedInappropriate
+      - Accept
+      - PreviewAndAccept
+      - DiscoverPreviewAndAccept
+    QualificationTypeStatus:
+      type: string
+      enum:
+      - Active
+      - Inactive
+    SendBonusResponse:
+      type: object
+      properties: {}
+    CustomerId:
+      type: string
+      pattern: ^A[A-Z0-9]+$
+      minLength: 1
+      maxLength: 64
+    GetFileUploadURLResponse:
+      type: object
+      properties:
+        FileUploadURL:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' A temporary URL for the file that the Worker uploaded for the answer. '
+    ListHITsRequest:
+      type: object
+      title: ListHITsRequest
+      properties:
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: Pagination token
+        MaxResults:
+          $ref: '#/components/schemas/ResultSize'
     QualificationList:
       type: array
       items:
         $ref: '#/components/schemas/Qualification'
-    ListHITsForQualificationTypeRequest:
-      type: object
-      required:
-      - QualificationTypeId
-      title: ListHITsForQualificationTypeRequest
-      properties:
-        QualificationTypeId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' The ID of the Qualification type to use when querying HITs. '
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: Pagination Token
-        MaxResults:
-          allOf:
-          - $ref: '#/components/schemas/ResultSize'
-          - description: ' Limit the number of results returned. '
-    EventTypeList:
-      type: array
-      items:
-        $ref: '#/components/schemas/EventType'
-    WorkerBlockList:
-      type: array
-      items:
-        $ref: '#/components/schemas/WorkerBlock'
-    ReviewPolicyLevelList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ReviewPolicyLevel'
     ListQualificationTypesRequest:
       type: object
       required:
@@ -3577,124 +3535,65 @@ components:
           allOf:
           - $ref: '#/components/schemas/ResultSize'
           - description: ' The maximum number of results to return in a single call. '
-    ReviewResultDetailList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ReviewResultDetail'
-    EventType:
+    NotifyWorkersFailureCode:
       type: string
       enum:
-      - AssignmentAccepted
-      - AssignmentAbandoned
-      - AssignmentReturned
-      - AssignmentSubmitted
-      - AssignmentRejected
-      - AssignmentApproved
-      - HITCreated
-      - HITExpired
-      - HITReviewable
-      - HITExtended
-      - HITDisposed
-      - Ping
-    DeleteQualificationTypeResponse:
+      - SoftFailure
+      - HardFailure
+    ApproveAssignmentResponse:
       type: object
       properties: {}
-    ListReviewableHITsResponse:
-      type: object
-      properties:
-        NextToken:
-          $ref: '#/components/schemas/PaginationToken'
-        NumResults:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: ' The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call. '
-        HITs:
-          allOf:
-          - $ref: '#/components/schemas/HITList'
-          - description: ' The list of HIT elements returned by the query.'
-    UpdateNotificationSettingsResponse:
-      type: object
-      properties: {}
-    ReviewActionDetail:
-      type: object
-      properties:
-        ActionId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The unique identifier for the action.
-        ActionName:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' The nature of the action itself. The Review Policy is responsible for examining the HIT and Assignments, emitting results, and deciding which other actions will be necessary. '
-        TargetId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' The specific HITId or AssignmentID targeted by the action.'
-        TargetType:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' The type of object in TargetId.'
-        Status:
-          allOf:
-          - $ref: '#/components/schemas/ReviewActionStatus'
-          - description: ' The current disposition of the action: INTENDED, SUCCEEDED, FAILED, or CANCELLED. '
-        CompleteTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' The date when the action was completed.'
-        Result:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' A description of the outcome of the review.'
-        ErrorCode:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' Present only when the Results have a FAILED Status.'
-      description: ' Both the AssignmentReviewReport and the HITReviewReport elements contains the ReviewActionDetail data structure. This structure is returned multiple times for each action specified in the Review Policy. '
-    DeleteQualificationTypeRequest:
-      type: object
-      required:
-      - QualificationTypeId
-      title: DeleteQualificationTypeRequest
-      properties:
-        QualificationTypeId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the QualificationType to dispose.
-    CountryParameters:
-      type: string
-      minLength: 2
-      maxLength: 2
-    QualificationTypeList:
+    HITList:
       type: array
       items:
-        $ref: '#/components/schemas/QualificationType'
-    ListAssignmentsForHITResponse:
+        $ref: '#/components/schemas/HIT'
+    DisassociateQualificationFromWorkerResponse:
+      type: object
+      properties: {}
+    WorkerBlock:
       type: object
       properties:
-        NextToken:
-          $ref: '#/components/schemas/PaginationToken'
+        WorkerId:
+          allOf:
+          - $ref: '#/components/schemas/CustomerId'
+          - description: ' The ID of the Worker who accepted the HIT.'
+        Reason:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' A message explaining the reason the Worker was blocked. '
+      description: ' The WorkerBlock data structure represents a Worker who has been blocked. It has two elements: the WorkerId and the Reason for the block. '
+    ListQualificationTypesResponse:
+      type: object
+      properties:
         NumResults:
           allOf:
           - $ref: '#/components/schemas/Integer'
-          - description: ' The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.'
-        Assignments:
-          allOf:
-          - $ref: '#/components/schemas/AssignmentList'
-          - description: ' The collection of Assignment data structures returned by this call.'
-    ListBonusPaymentsResponse:
-      type: object
-      properties:
-        NumResults:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: 'The number of bonus payments on this page in the filtered results list, equivalent to the number of bonus payments being returned by this call. '
+          - description: ' The number of Qualification types on this page in the filtered results list, equivalent to the number of types this operation returns. '
         NextToken:
           $ref: '#/components/schemas/PaginationToken'
-        BonusPayments:
+        QualificationTypes:
           allOf:
-          - $ref: '#/components/schemas/BonusPaymentList'
-          - description: 'A successful request to the ListBonusPayments operation returns a list of BonusPayment objects. '
+          - $ref: '#/components/schemas/QualificationTypeList'
+          - description: ' The list of QualificationType elements returned by the query. '
+    IdempotencyToken:
+      type: string
+      minLength: 1
+      maxLength: 64
+    RejectQualificationRequestResponse:
+      type: object
+      properties: {}
+    ReviewReport:
+      type: object
+      properties:
+        ReviewResults:
+          allOf:
+          - $ref: '#/components/schemas/ReviewResultDetailList'
+          - description: ' A list of ReviewResults objects for each action specified in the Review Policy. '
+        ReviewActions:
+          allOf:
+          - $ref: '#/components/schemas/ReviewActionDetailList'
+          - description: ' A list of ReviewAction objects for each action specified in the Review Policy. '
+      description: ' Contains both ReviewResult and ReviewAction elements for a particular HIT. '
     ListQualificationRequestsRequest:
       type: object
       title: ListQualificationRequestsRequest
@@ -3709,183 +3608,44 @@ components:
           allOf:
           - $ref: '#/components/schemas/ResultSize'
           - description: ' The maximum number of results to return in a single call. '
-    QualificationRequestList:
-      type: array
-      items:
-        $ref: '#/components/schemas/QualificationRequest'
     ResultSize:
       type: integer
       minimum: 1
       maximum: 100
-    ReviewPolicy:
-      type: object
-      required:
-      - PolicyName
-      properties:
-        PolicyName:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01 '
-        Parameters:
-          allOf:
-          - $ref: '#/components/schemas/PolicyParameterList'
-          - description: Name of the parameter from the Review policy.
-      description: ' HIT Review Policy data structures represent HIT review policies, which you specify when you create a HIT. '
-    Assignment:
-      type: object
-      properties:
-        AssignmentId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' A unique identifier for the assignment.'
-        WorkerId:
-          allOf:
-          - $ref: '#/components/schemas/CustomerId'
-          - description: ' The ID of the Worker who accepted the HIT.'
-        HITId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' The ID of the HIT.'
-        AssignmentStatus:
-          allOf:
-          - $ref: '#/components/schemas/AssignmentStatus'
-          - description: ' The status of the assignment.'
-        AutoApprovalTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' If results have been submitted, AutoApprovalTime is the date and time the results of the assignment results are considered Approved automatically if they have not already been explicitly approved or rejected by the Requester. This value is derived from the auto-approval delay specified by the Requester in the HIT. This value is omitted from the assignment if the Worker has not yet submitted results.'
-        AcceptTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' The date and time the Worker accepted the assignment.'
-        SubmitTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' If the Worker has submitted results, SubmitTime is the date and time the assignment was submitted. This value is omitted from the assignment if the Worker has not yet submitted results.'
-        ApprovalTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' If the Worker has submitted results and the Requester has approved the results, ApprovalTime is the date and time the Requester approved the results. This value is omitted from the assignment if the Requester has not yet approved the results.'
-        RejectionTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' If the Worker has submitted results and the Requester has rejected the results, RejectionTime is the date and time the Requester rejected the results.'
-        Deadline:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' The date and time of the deadline for the assignment. This value is derived from the deadline specification for the HIT and the date and time the Worker accepted the HIT.'
-        Answer:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' The Worker''s answers submitted for the HIT contained in a QuestionFormAnswers document, if the Worker provides an answer. If the Worker does not provide any answers, Answer may contain a QuestionFormAnswers document, or Answer may be empty.'
-        RequesterFeedback:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' The feedback string included with the call to the ApproveAssignment operation or the RejectAssignment operation, if the Requester approved or rejected the assignment and specified feedback.'
-      description: ' The Assignment data structure represents a single assignment of a HIT to a Worker. The assignment tracks the Worker''s efforts to complete the HIT, and contains the results for later retrieval. '
-    ListReviewPolicyResultsForHITResponse:
-      type: object
-      properties:
-        HITId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The HITId of the HIT for which results have been returned.
-        AssignmentReviewPolicy:
-          allOf:
-          - $ref: '#/components/schemas/ReviewPolicy'
-          - description: ' The name of the Assignment-level Review Policy. This contains only the PolicyName element. '
-        HITReviewPolicy:
-          allOf:
-          - $ref: '#/components/schemas/ReviewPolicy'
-          - description: The name of the HIT-level Review Policy. This contains only the PolicyName element.
-        AssignmentReviewReport:
-          allOf:
-          - $ref: '#/components/schemas/ReviewReport'
-          - description: ' Contains both ReviewResult and ReviewAction elements for an Assignment. '
-        HITReviewReport:
-          allOf:
-          - $ref: '#/components/schemas/ReviewReport'
-          - description: 'Contains both ReviewResult and ReviewAction elements for a particular HIT. '
-        NextToken:
-          $ref: '#/components/schemas/PaginationToken'
-    AssociateQualificationWithWorkerRequest:
-      type: object
-      required:
-      - QualificationTypeId
-      - WorkerId
-      title: AssociateQualificationWithWorkerRequest
-      properties:
-        QualificationTypeId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the Qualification type to use for the assigned Qualification.
-        WorkerId:
-          allOf:
-          - $ref: '#/components/schemas/CustomerId'
-          - description: ' The ID of the Worker to whom the Qualification is being assigned. Worker IDs are included with submitted HIT assignments and Qualification requests. '
-        IntegerValue:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: The value of the Qualification to assign.
-        SendNotification:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: ' Specifies whether to send a notification email message to the Worker saying that the qualification was assigned to the Worker. Note: this is true by default. '
-    QualificationTypeStatus:
+    Integer:
+      type: integer
+    Comparator:
       type: string
       enum:
-      - Active
-      - Inactive
-    String:
-      type: string
-    CreateQualificationTypeRequest:
+      - LessThan
+      - LessThanOrEqualTo
+      - GreaterThan
+      - GreaterThanOrEqualTo
+      - EqualTo
+      - NotEqualTo
+      - Exists
+      - DoesNotExist
+      - In
+      - NotIn
+    CreateAdditionalAssignmentsForHITRequest:
       type: object
       required:
-      - Name
-      - Description
-      - QualificationTypeStatus
-      title: CreateQualificationTypeRequest
+      - HITId
+      - NumberOfAdditionalAssignments
+      title: CreateAdditionalAssignmentsForHITRequest
       properties:
-        Name:
+        HITId:
           allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' The name you give to the Qualification type. The type name is used to represent the Qualification to Workers, and to find the type using a Qualification type search. It must be unique across all of your Qualification types.'
-        Keywords:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: One or more words or phrases that describe the Qualification type, separated by commas. The keywords of a type make the type easier to find during a search.
-        Description:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: A long description for the Qualification type. On the Amazon Mechanical Turk website, the long description is displayed when a Worker examines a Qualification type.
-        QualificationTypeStatus:
-          allOf:
-          - $ref: '#/components/schemas/QualificationTypeStatus'
-          - description: '<p>The initial status of the Qualification type.</p> <p>Constraints: Valid values are: Active | Inactive</p>'
-        RetryDelayInSeconds:
-          allOf:
-          - $ref: '#/components/schemas/Long'
-          - description: '<p>The number of seconds that a Worker must wait after requesting a Qualification of the Qualification type before the worker can retry the Qualification request.</p> <p>Constraints: None. If not specified, retries are disabled and Workers can request a Qualification of this type only once, even if the Worker has not been granted the Qualification. It is not possible to disable retries for a Qualification type after it has been created with retries enabled. If you want to disable retries, you must delete existing retry-enabled Qualification type and then create a new Qualification type with retries disabled.</p>'
-        Test:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: '<p> The questions for the Qualification test a Worker must answer correctly to obtain a Qualification of this type. If this parameter is specified, <code>TestDurationInSeconds</code> must also be specified. </p> <p>Constraints: Must not be longer than 65535 bytes. Must be a QuestionForm data structure. This parameter cannot be specified if AutoGranted is true.</p> <p>Constraints: None. If not specified, the Worker may request the Qualification without answering any questions.</p>'
-        AnswerKey:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: '<p>The answers to the Qualification test specified in the Test parameter, in the form of an AnswerKey data structure.</p> <p>Constraints: Must not be longer than 65535 bytes.</p> <p>Constraints: None. If not specified, you must process Qualification requests manually.</p>'
-        TestDurationInSeconds:
-          allOf:
-          - $ref: '#/components/schemas/Long'
-          - description: The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.
-        AutoGranted:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: '<p>Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.</p> <p>Constraints: If the Test parameter is specified, this parameter cannot be true.</p>'
-        AutoGrantedValue:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the HIT to extend.
+        NumberOfAdditionalAssignments:
           allOf:
           - $ref: '#/components/schemas/Integer'
-          - description: The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.
+          - description: The number of additional assignments to request for this HIT.
+        UniqueRequestToken:
+          allOf:
+          - $ref: '#/components/schemas/IdempotencyToken'
+          - description: ' A unique identifier for this request, which allows you to retry the call on error without extending the HIT multiple times. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the extend HIT already exists in the system from a previous call using the same <code>UniqueRequestToken</code>, subsequent calls will return an error with a message containing the request ID. '
     CreateHITWithHITTypeRequest:
       type: object
       required:
@@ -3945,109 +3705,361 @@ components:
           - $ref: '#/components/schemas/StringList'
           - description: ' The list of answers to the question specified in the MapEntry Key element. The Worker must match all values in order for the answer to be scored correctly. '
       description: ' This data structure is the data type for the AnswerKey parameter of the ScoreMyKnownAnswers/2011-09-01 Review Policy. '
-    CreateQualificationTypeResponse:
+    Boolean:
+      type: boolean
+    ReviewPolicyLevelList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ReviewPolicyLevel'
+    UpdateQualificationTypeRequest:
+      type: object
+      required:
+      - QualificationTypeId
+      title: UpdateQualificationTypeRequest
+      properties:
+        QualificationTypeId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the Qualification type to update.
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The new description of the Qualification type.
+        QualificationTypeStatus:
+          allOf:
+          - $ref: '#/components/schemas/QualificationTypeStatus'
+          - description: The new status of the Qualification type - Active | Inactive
+        Test:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: '<p>The questions for the Qualification test a Worker must answer correctly to obtain a Qualification of this type. If this parameter is specified, <code>TestDurationInSeconds</code> must also be specified.</p> <p>Constraints: Must not be longer than 65535 bytes. Must be a QuestionForm data structure. This parameter cannot be specified if AutoGranted is true.</p> <p>Constraints: None. If not specified, the Worker may request the Qualification without answering any questions.</p>'
+        AnswerKey:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The answers to the Qualification test specified in the Test parameter, in the form of an AnswerKey data structure.
+        TestDurationInSeconds:
+          allOf:
+          - $ref: '#/components/schemas/Long'
+          - description: The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.
+        RetryDelayInSeconds:
+          allOf:
+          - $ref: '#/components/schemas/Long'
+          - description: The amount of time, in seconds, that Workers must wait after requesting a Qualification of the specified Qualification type before they can retry the Qualification request. It is not possible to disable retries for a Qualification type after it has been created with retries enabled. If you want to disable retries, you must dispose of the existing retry-enabled Qualification type using DisposeQualificationType and then create a new Qualification type with retries disabled using CreateQualificationType.
+        AutoGranted:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: '<p>Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.</p> <p>Constraints: If the Test parameter is specified, this parameter cannot be true.</p>'
+        AutoGrantedValue:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.
+    SendTestEventNotificationRequest:
+      type: object
+      required:
+      - Notification
+      - TestEventType
+      title: SendTestEventNotificationRequest
+      properties:
+        Notification:
+          allOf:
+          - $ref: '#/components/schemas/NotificationSpecification'
+          - description: ' The notification specification to test. This value is identical to the value you would provide to the UpdateNotificationSettings operation when you establish the notification specification for a HIT type. '
+        TestEventType:
+          allOf:
+          - $ref: '#/components/schemas/EventType'
+          - description: ' The event to simulate to test the notification specification. This event is included in the test message even if the notification specification does not include the event type. The notification specification does not filter out the test event. '
+    Locale:
+      type: object
+      required:
+      - Country
+      properties:
+        Country:
+          allOf:
+          - $ref: '#/components/schemas/CountryParameters'
+          - description: ' The country of the locale. Must be a valid ISO 3166 country code. For example, the code US refers to the United States of America. '
+        Subdivision:
+          allOf:
+          - $ref: '#/components/schemas/CountryParameters'
+          - description: The state or subdivision of the locale. A valid ISO 3166-2 subdivision code. For example, the code WA refers to the state of Washington.
+      description: The Locale data structure represents a geographical region or location.
+    ListBonusPaymentsRequest:
+      type: object
+      title: ListBonusPaymentsRequest
+      properties:
+        HITId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the HIT associated with the bonus payments to retrieve. If not specified, all bonus payments for all assignments for the given HIT are returned. Either the HITId parameter or the AssignmentId parameter must be specified
+        AssignmentId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the assignment associated with the bonus payments to retrieve. If specified, only bonus payments for the given assignment are returned. Either the HITId parameter or the AssignmentId parameter must be specified
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: Pagination token
+        MaxResults:
+          $ref: '#/components/schemas/ResultSize'
+    ServiceFault: {}
+    RequestError: {}
+    QualificationRequest:
+      type: object
+      properties:
+        QualificationRequestId:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: 'The ID of the Qualification request, a unique identifier generated when the request was submitted. '
+        QualificationTypeId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' The ID of the Qualification type the Worker is requesting, as returned by the CreateQualificationType operation. '
+        WorkerId:
+          allOf:
+          - $ref: '#/components/schemas/CustomerId'
+          - description: ' The ID of the Worker requesting the Qualification.'
+        Test:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' The contents of the Qualification test that was presented to the Worker, if the type has a test and the Worker has submitted answers. This value is identical to the QuestionForm associated with the Qualification type at the time the Worker requests the Qualification.'
+        Answer:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' The Worker''s answers for the Qualification type''s test contained in a QuestionFormAnswers document, if the type has a test and the Worker has submitted answers. If the Worker does not provide any answers, Answer may be empty. '
+        SubmitTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: 'The date and time the Qualification request had a status of Submitted. This is either the time the Worker submitted answers for a Qualification test, or the time the Worker requested the Qualification if the Qualification type does not have a test. '
+      description: ' The QualificationRequest data structure represents a request a Worker has made for a Qualification. '
+    DeleteHITResponse:
+      type: object
+      properties: {}
+    Assignment:
+      type: object
+      properties:
+        AssignmentId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' A unique identifier for the assignment.'
+        WorkerId:
+          allOf:
+          - $ref: '#/components/schemas/CustomerId'
+          - description: ' The ID of the Worker who accepted the HIT.'
+        HITId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' The ID of the HIT.'
+        AssignmentStatus:
+          allOf:
+          - $ref: '#/components/schemas/AssignmentStatus'
+          - description: ' The status of the assignment.'
+        AutoApprovalTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' If results have been submitted, AutoApprovalTime is the date and time the results of the assignment results are considered Approved automatically if they have not already been explicitly approved or rejected by the Requester. This value is derived from the auto-approval delay specified by the Requester in the HIT. This value is omitted from the assignment if the Worker has not yet submitted results.'
+        AcceptTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' The date and time the Worker accepted the assignment.'
+        SubmitTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' If the Worker has submitted results, SubmitTime is the date and time the assignment was submitted. This value is omitted from the assignment if the Worker has not yet submitted results.'
+        ApprovalTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' If the Worker has submitted results and the Requester has approved the results, ApprovalTime is the date and time the Requester approved the results. This value is omitted from the assignment if the Requester has not yet approved the results.'
+        RejectionTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' If the Worker has submitted results and the Requester has rejected the results, RejectionTime is the date and time the Requester rejected the results.'
+        Deadline:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' The date and time of the deadline for the assignment. This value is derived from the deadline specification for the HIT and the date and time the Worker accepted the HIT.'
+        Answer:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' The Worker''s answers submitted for the HIT contained in a QuestionFormAnswers document, if the Worker provides an answer. If the Worker does not provide any answers, Answer may contain a QuestionFormAnswers document, or Answer may be empty.'
+        RequesterFeedback:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' The feedback string included with the call to the ApproveAssignment operation or the RejectAssignment operation, if the Requester approved or rejected the assignment and specified feedback.'
+      description: ' The Assignment data structure represents a single assignment of a HIT to a Worker. The assignment tracks the Worker''s efforts to complete the HIT, and contains the results for later retrieval. '
+    Qualification:
+      type: object
+      properties:
+        QualificationTypeId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' The ID of the Qualification type for the Qualification.'
+        WorkerId:
+          allOf:
+          - $ref: '#/components/schemas/CustomerId'
+          - description: ' The ID of the Worker who possesses the Qualification. '
+        GrantTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' The date and time the Qualification was granted to the Worker. If the Worker''s Qualification was revoked, and then re-granted based on a new Qualification request, GrantTime is the date and time of the last call to the AcceptQualificationRequest operation.'
+        IntegerValue:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: ' The value (score) of the Qualification, if the Qualification has an integer value.'
+        LocaleValue:
+          $ref: '#/components/schemas/Locale'
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/QualificationStatus'
+          - description: ' The status of the Qualification. Valid values are Granted | Revoked.'
+      description: The Qualification data structure represents a Qualification assigned to a user, including the Qualification type and the value (score).
+    UpdateHITTypeOfHITResponse:
+      type: object
+      properties: {}
+    DeleteQualificationTypeRequest:
+      type: object
+      required:
+      - QualificationTypeId
+      title: DeleteQualificationTypeRequest
+      properties:
+        QualificationTypeId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the QualificationType to dispose.
+    ApproveAssignmentRequest:
+      type: object
+      required:
+      - AssignmentId
+      title: ApproveAssignmentRequest
+      properties:
+        AssignmentId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' The ID of the assignment. The assignment must correspond to a HIT created by the Requester. '
+        RequesterFeedback:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: ' A message for the Worker, which the Worker can see in the Status section of the web site. '
+        OverrideRejection:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: ' A flag indicating that an assignment should be approved even if it was previously rejected. Defaults to <code>False</code>. '
+    UpdateQualificationTypeResponse:
       type: object
       properties:
         QualificationType:
           allOf:
           - $ref: '#/components/schemas/QualificationType'
-          - description: The created Qualification type, returned as a QualificationType data structure.
-    CreateHITTypeRequest:
+          - description: ' Contains a QualificationType data structure.'
+    ReviewActionDetail:
       type: object
-      required:
-      - AssignmentDurationInSeconds
-      - Reward
-      - Title
-      - Description
-      title: CreateHITTypeRequest
       properties:
-        AutoApprovalDelayInSeconds:
+        ActionId:
           allOf:
-          - $ref: '#/components/schemas/Long'
-          - description: ' The number of seconds after an assignment for the HIT has been submitted, after which the assignment is considered Approved automatically unless the Requester explicitly rejects it. '
-        AssignmentDurationInSeconds:
-          allOf:
-          - $ref: '#/components/schemas/Long'
-          - description: ' The amount of time, in seconds, that a Worker has to complete the HIT after accepting it. If a Worker does not complete the assignment within the specified duration, the assignment is considered abandoned. If the HIT is still active (that is, its lifetime has not elapsed), the assignment becomes available for other users to find and accept. '
-        Reward:
-          allOf:
-          - $ref: '#/components/schemas/CurrencyAmount'
-          - description: ' The amount of money the Requester will pay a Worker for successfully completing the HIT. '
-        Title:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The unique identifier for the action.
+        ActionName:
           allOf:
           - $ref: '#/components/schemas/String'
-          - description: ' The title of the HIT. A title should be short and descriptive about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT title appears in search results, and everywhere the HIT is mentioned. '
-        Keywords:
+          - description: ' The nature of the action itself. The Review Policy is responsible for examining the HIT and Assignments, emitting results, and deciding which other actions will be necessary. '
+        TargetId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' The specific HITId or AssignmentID targeted by the action.'
+        TargetType:
           allOf:
           - $ref: '#/components/schemas/String'
-          - description: ' One or more words or phrases that describe the HIT, separated by commas. These words are used in searches to find HITs. '
-        Description:
+          - description: ' The type of object in TargetId.'
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/ReviewActionStatus'
+          - description: ' The current disposition of the action: INTENDED, SUCCEEDED, FAILED, or CANCELLED. '
+        CompleteTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' The date when the action was completed.'
+        Result:
           allOf:
           - $ref: '#/components/schemas/String'
-          - description: ' A general description of the HIT. A description includes detailed information about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT description appears in the expanded view of search results, and in the HIT and assignment screens. A good description gives the user enough information to evaluate the HIT before accepting it. '
-        QualificationRequirements:
+          - description: ' A description of the outcome of the review.'
+        ErrorCode:
           allOf:
-          - $ref: '#/components/schemas/QualificationRequirementList'
-          - description: ' Conditions that a Worker''s Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the <code>ActionsGuarded</code> field on each <code>QualificationRequirement</code> structure. '
-    AcceptQualificationRequestResponse:
-      type: object
-      properties: {}
-    AssignmentList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Assignment'
+          - $ref: '#/components/schemas/String'
+          - description: ' Present only when the Results have a FAILED Status.'
+      description: ' Both the AssignmentReviewReport and the HITReviewReport elements contains the ReviewActionDetail data structure. This structure is returned multiple times for each action specified in the Review Policy. '
     ReviewPolicyLevel:
       type: string
       enum:
       - Assignment
       - HIT
-    NotifyWorkersFailureStatus:
-      type: object
-      properties:
-        NotifyWorkersFailureCode:
-          allOf:
-          - $ref: '#/components/schemas/NotifyWorkersFailureCode'
-          - description: ' Encoded value for the failure type. '
-        NotifyWorkersFailureMessage:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: ' A message detailing the reason the Worker could not be notified. '
-        WorkerId:
-          allOf:
-          - $ref: '#/components/schemas/CustomerId'
-          - description: ' The ID of the Worker.'
-      description: ' When MTurk encounters an issue with notifying the Workers you specified, it returns back this object with failure details. '
-    Boolean:
-      type: boolean
-    UpdateHITReviewStatusRequest:
+    QualificationRequirement:
       type: object
       required:
-      - HITId
-      title: UpdateHITReviewStatusRequest
+      - QualificationTypeId
+      - Comparator
       properties:
-        HITId:
+        QualificationTypeId:
           allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: ' The ID of the HIT to update. '
-        Revert:
+          - $ref: '#/components/schemas/String'
+          - description: ' The ID of the Qualification type for the requirement.'
+        Comparator:
+          allOf:
+          - $ref: '#/components/schemas/Comparator'
+          - description: 'The kind of comparison to make against a Qualification''s value. You can compare a Qualification''s value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user''s profile, regardless of its value. '
+        IntegerValues:
+          allOf:
+          - $ref: '#/components/schemas/IntegerList'
+          - description: ' The integer value to compare against the Qualification''s value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. '
+        LocaleValues:
+          allOf:
+          - $ref: '#/components/schemas/LocaleList'
+          - description: ' The locale value to compare against the Qualification''s value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. '
+        RequiredToPreview:
           allOf:
           - $ref: '#/components/schemas/Boolean'
-          - description: <p> Specifies how to update the HIT status. Default is <code>False</code>. </p> <ul> <li> <p> Setting this to false will only transition a HIT from <code>Reviewable</code> to <code>Reviewing</code> </p> </li> <li> <p> Setting this to true will only transition a HIT from <code>Reviewing</code> to <code>Reviewable</code> </p> </li> </ul>
+          - deprecated: true
+            description: ' DEPRECATED: Use the <code>ActionsGuarded</code> field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker''s Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT''s question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the <code>ActionsGuarded</code> field. '
+        ActionsGuarded:
+          allOf:
+          - $ref: '#/components/schemas/HITAccessActions'
+          - description: ' Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include "Accept" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), "PreviewAndAccept" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and "DiscoverPreviewAndAccept" (Worker cannot accept, preview, or see the HIT in their search results). It''s possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the <code>RequiredToPreview</code> field. '
+      description: ' The QualificationRequirement data structure describes a Qualification that a Worker must have before the Worker is allowed to accept a HIT. A requirement may optionally state that a Worker must have the Qualification in order to preview the HIT, or see the HIT in search results. '
+    CreateHITTypeResponse:
+      type: object
+      properties:
+        HITTypeId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: ' The ID of the newly registered HIT type.'
+    ReviewResultDetailList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ReviewResultDetail'
   parameters:
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -4060,18 +4072,6 @@ components:
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
