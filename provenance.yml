@@ -10,221 +10,221 @@ artifacts:
     method: derived
     evidence: declared in the artifact
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-acceptqualificationrequest-api.opencollection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-acceptqualificationrequest-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-acceptqualificationrequest-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-acceptqualificationrequest-api
+  : method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-approveassignment-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-approveassignment-api
+    method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-approveassignment-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-approveassignment-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-associatequalificationwithworker-api.opencollection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-associatequalificationwithworker-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-associatequalificationwithworker-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-associatequalificationwithworker-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createadditionalassignmentsforhit-api.opencollection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createadditionalassignmentsforhit-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createadditionalassignmentsforhit-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createadditionalassignmentsforhit-api
+  : method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhit-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhit-api
+    method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhit-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhit-api
+    method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhittype-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhittype-api
+    method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhittype-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhittype-api
+    method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhitwithhittype-api.opencollection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhitwithhittype-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhitwithhittype-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhitwithhittype-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createqualificationtype-api.opencollection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createqualificationtype-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createqualificationtype-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createqualificationtype-api
+  : method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createworkerblock-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createworkerblock-api
+    method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createworkerblock-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createworkerblock-api
+  : method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletehit-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletehit-api
+    method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletehit-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletehit-api
+    method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletequalificationtype-api.opencollection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletequalificationtype-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletequalificationtype-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletequalificationtype-api
+  : method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deleteworkerblock-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deleteworkerblock-api
+    method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deleteworkerblock-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deleteworkerblock-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-disassociatequalificationfromworker-api.opencollection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-disassociatequalificationfromworker-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-disassociatequalificationfromworker-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-disassociatequalificationfromworker-api
+  : method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getaccountbalance-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getaccountbalance-api
+    method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getaccountbalance-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getaccountbalance-api
+  : method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getassignment-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getassignment-api
+    method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getassignment-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getassignment-api
+    method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getfileuploadurl-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getfileuploadurl-api
+    method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getfileuploadurl-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getfileuploadurl-api
+  : method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-gethit-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-gethit-api
+    method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-gethit-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-gethit-api
+    method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationscore-api.opencollection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationscore-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationscore-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationscore-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationtype-api.opencollection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationtype-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationtype-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationtype-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listassignmentsforhit-api.opencollection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listassignmentsforhit-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listassignmentsforhit-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listassignmentsforhit-api
+  : method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listbonuspayments-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listbonuspayments-api
+    method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listbonuspayments-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listbonuspayments-api
+  : method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhits-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhits-api
+    method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhits-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhits-api
+    method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhitsforqualificationtype-api.opencollection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhitsforqualificationtype-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhitsforqualificationtype-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhitsforqualificationtype-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationrequests-api.opencollection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationrequests-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationrequests-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationrequests-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationtypes-api.opencollection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationtypes-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationtypes-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationtypes-api
+  : method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerblocks-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerblocks-api
+    method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerblocks-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerblocks-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerswithqualificationtype-api.opencollection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerswithqualificationtype-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerswithqualificationtype-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerswithqualificationtype-api
+  : method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-notifyworkers-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-notifyworkers-api
+    method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-notifyworkers-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-notifyworkers-api
+    method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectassignment-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectassignment-api
+    method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectassignment-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectassignment-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectqualificationrequest-api.opencollection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectqualificationrequest-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectqualificationrequest-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectqualificationrequest-api
+  : method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendbonus-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendbonus-api
+    method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendbonus-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendbonus-api
+    method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendtesteventnotification-api.opencollection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendtesteventnotification-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendtesteventnotification-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendtesteventnotification-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updateexpirationforhit-api.opencollection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updateexpirationforhit-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updateexpirationforhit-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updateexpirationforhit-api
+  : method: unknown
+    evidence: no authorship recorded
   collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatehittypeofhit-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatehittypeofhit-api
+    method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatehittypeofhit-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatehittypeofhit-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatenotificationsettings-api.opencollection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatenotificationsettings-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatenotificationsettings-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatenotificationsettings-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatequalificationtype-api.opencollection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatequalificationtype-api
+  : method: unknown
+    evidence: no authorship recorded
   ? collections/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatequalificationtype-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatequalificationtype-api
+  : method: unknown
+    evidence: no authorship recorded
   examples/amazon-mechanical-turk-accept-qualification-request-request-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -1530,127 +1530,7 @@ artifacts:
   json-structure/amazon-mechanical-turk-worker-block-structure.json:
     method: unknown
     evidence: no authorship recorded
-  kin/checks-2026-09-24T161608.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T125852.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T133943.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T143147.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T154045.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-26T215308.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T094438.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T103455.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T123021.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T132314.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T140727.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-28T221322.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-29T213958.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-29T230545.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-30T203505.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-30T220315.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-31T223420.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T063623.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T210448.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T222808.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-02T211804.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-02T224043.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-03T161828.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-03T174231.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T062714.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T212454.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T224856.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T055819.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T072335.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T144739.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T195450.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T211839.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T011047.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T211804.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T224210.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-07T200636.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-07T213054.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-08T214843.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-08T232836.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-10T204815.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-10T222408.yml:
+  kin/checks-2026-10-11T110117.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-12T062655.yml:
@@ -1734,247 +1614,148 @@ artifacts:
   kin/score-2026-09-24T161608.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-25T210408.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-25T232841.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-03T000835.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-03T024842.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-11T110117.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   openapi/_original/amazon-mechanical-turk-openapi-original.yaml:
     method: harvested
     evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
       to the provider's source is unverified
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-acceptqualificationrequest-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-approveassignment-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  ? openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-associatequalificationwithworker-api-openapi.yml
-  : method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  ? openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createadditionalassignmentsforhit-api-openapi.yml
-  : method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhit-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhittype-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhitwithhittype-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createqualificationtype-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createworkerblock-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletehit-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletequalificationtype-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deleteworkerblock-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  ? openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-disassociatequalificationfromworker-api-openapi.yml
-  : method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getaccountbalance-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getassignment-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getfileuploadurl-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-gethit-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationscore-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationtype-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listassignmentsforhit-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listbonuspayments-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhits-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhitsforqualificationtype-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationrequests-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationtypes-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listreviewablehits-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listreviewpolicyresultsforhit-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerblocks-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  ? openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerswithqualificationtype-api-openapi.yml
-  : method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-notifyworkers-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectassignment-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectqualificationrequest-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendbonus-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendtesteventnotification-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updateexpirationforhit-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatehitreviewstatus-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatehittypeofhit-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatenotificationsettings-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatequalificationtype-api-openapi.yml:
+  openapi/amazon-mechanical-turk-amazon-mechanical-turk-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   plans/amazon-mechanical-turk-plans-pricing.yml:
-    method: generated
+    method: searched
     evidence: declared in the artifact
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-acceptqualificationrequest-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-acceptqualificationrequest-api
+  : method: unknown
+    evidence: no authorship recorded
   postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-approveassignment-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-approveassignment-api
+    method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-associatequalificationwithworker-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-associatequalificationwithworker-api
+  : method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createadditionalassignmentsforhit-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createadditionalassignmentsforhit-api
+  : method: unknown
+    evidence: no authorship recorded
   postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhit-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhit-api
+    method: unknown
+    evidence: no authorship recorded
   postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhittype-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhittype-api
+    method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhitwithhittype-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhitwithhittype-api
+  : method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createqualificationtype-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createqualificationtype-api
+  : method: unknown
+    evidence: no authorship recorded
   postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createworkerblock-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createworkerblock-api
+    method: unknown
+    evidence: no authorship recorded
   postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletehit-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletehit-api
+    method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletequalificationtype-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletequalificationtype-api
+  : method: unknown
+    evidence: no authorship recorded
   postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deleteworkerblock-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deleteworkerblock-api
+    method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-disassociatequalificationfromworker-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-disassociatequalificationfromworker-api
+  : method: unknown
+    evidence: no authorship recorded
   postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getaccountbalance-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getaccountbalance-api
+    method: unknown
+    evidence: no authorship recorded
   postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getassignment-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getassignment-api
+    method: unknown
+    evidence: no authorship recorded
   postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getfileuploadurl-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getfileuploadurl-api
+    method: unknown
+    evidence: no authorship recorded
   postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-gethit-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-gethit-api
+    method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationscore-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationscore-api
+  : method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationtype-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationtype-api
+  : method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listassignmentsforhit-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listassignmentsforhit-api
+  : method: unknown
+    evidence: no authorship recorded
   postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listbonuspayments-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listbonuspayments-api
+    method: unknown
+    evidence: no authorship recorded
   postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhits-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhits-api
+    method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhitsforqualificationtype-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhitsforqualificationtype-api
+  : method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationrequests-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationrequests-api
+  : method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationtypes-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationtypes-api
+  : method: unknown
+    evidence: no authorship recorded
   postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listreviewablehits-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listreviewablehits-api
+    method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listreviewpolicyresultsforhit-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listreviewpolicyresultsforhit-api
+  : method: unknown
+    evidence: no authorship recorded
   postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerblocks-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerblocks-api
+    method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerswithqualificationtype-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listworkerswithqualificationtype-api
+  : method: unknown
+    evidence: no authorship recorded
   postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-notifyworkers-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-notifyworkers-api
+    method: unknown
+    evidence: no authorship recorded
   postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectassignment-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectassignment-api
+    method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectqualificationrequest-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-rejectqualificationrequest-api
+  : method: unknown
+    evidence: no authorship recorded
   postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendbonus-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendbonus-api
+    method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendtesteventnotification-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-sendtesteventnotification-api
+  : method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updateexpirationforhit-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updateexpirationforhit-api
+  : method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatehitreviewstatus-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatehitreviewstatus-api
+  : method: unknown
+    evidence: no authorship recorded
   postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatehittypeofhit-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatehittypeofhit-api
+    method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatenotificationsettings-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatenotificationsettings-api
+  : method: unknown
+    evidence: no authorship recorded
   ? postman/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatequalificationtype-api.postman_collection.json
-  : method: derived
-    evidence: openapi/amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-updatequalificationtype-api
+  : method: unknown
+    evidence: no authorship recorded
   rate-limits/amazon-mechanical-turk-rate-limits.yml:
     method: generated
     evidence: declared in the artifact
