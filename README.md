@@ -1,4 +1,4 @@
-# Amazon Mechanical Turk (amazon-mechanical-turk)
+# Amazon Mechanical Turk
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,138 +64,224 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
+> **No longer operating.** This company or product has shut down, been discontinued, or been deprecated. This profile is kept as a historical record and is not maintained or rated.
+
 Amazon Mechanical Turk (MTurk) is a crowdsourcing marketplace that makes it easier for individuals and businesses to coordinate the use of human intelligence to perform tasks that computers are currently unable to do well. It enables access to a global, on-demand, 24x7 workforce for data labeling, content moderation, surveys, transcription, and machine learning training data collection.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/amazon-mechanical-turk/refs/heads/main/apis.yml)
+**Areas:** AWS · Crowdsourcing · Human Intelligence · Labor · Machine Learning · Task
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Amazon Mechanical Turk on APIs.io (historical record)
 
-## Tags:
+Everything profiled for Amazon Mechanical Turk is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-mechanical-turk/](https://apis.io/providers/amazon-mechanical-turk/)** — or go straight to one of the APIs or properties below.
 
- - AWS, Crowdsourcing, Human Intelligence, Labor, Machine Learning, Tasks
+### APIs (1)
 
-## Timestamps
+- [Amazon Mechanical Turk Amazon Mechanical Turk API](https://apis.io/apis/amazon-mechanical-turk/amazon-mechanical-turk-amazon-mechanical-turk-api/) — The Amazon Mechanical Turk API from Amazon Mechanical Turk — 39 operation(s) for amazon mechanical turk.
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Amazon Mechanical Turk API
-The Amazon Mechanical Turk API provides programmatic access to create and manage HITs, qualifications, workers, assignments, and bonuses for coordinating crowdsourced human intelligence tasks. Covers 39 operations for the complete HIT lifecycle from creation through assignment review, worker management, and payment processing.
+#### Agentic access (1)
 
-**Human URL:** [https://www.mturk.com/](https://www.mturk.com/)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags:
+- [Amazon Mechanical Turk Agentic Access](https://apis.io/agentic-access/amazon-mechanical-turk/amazon-mechanical-turk-agentic-access/)
 
- - Crowdsourcing, Human Intelligence, Machine Learning, Tasks
+#### JSON Schema (144)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html)
-- [OpenAPI](openapi/amazon-mechanical-turk-openapi-original.yaml)
-- [GettingStarted](https://www.mturk.com/get-started)
-- [Pricing](https://www.mturk.com/pricing)
-- [FAQ](https://www.mturk.com/faqs)
+- [AcceptQualificationRequestRequest](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-accept-qualification-request-request/)
+- [AcceptQualificationRequestResponse](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-accept-qualification-request-response/)
+- [ApproveAssignmentRequest](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-approve-assignment-request/)
+- [ApproveAssignmentResponse](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-approve-assignment-response/)
+- [Assignment](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-assignment/)
+- [AssignmentList](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-assignment-list/)
+- [AssignmentStatus](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-assignment-status/)
+- [AssignmentStatusList](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-assignment-status-list/)
+- [AssociateQualificationWithWorkerRequest](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-associate-qualification-with-worker-request/)
+- [AssociateQualificationWithWorkerResponse](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-associate-qualification-with-worker-response/)
+- [BonusPayment](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-bonus-payment/)
+- [BonusPaymentList](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-bonus-payment-list/)
+- [Boolean](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-boolean/)
+- [Comparator](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-comparator/)
+- [CountryParameters](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-country-parameters/)
+- [CreateAdditionalAssignmentsForHITRequest](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-create-additional-assignments-for-hit-request/)
+- [CreateAdditionalAssignmentsForHITResponse](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-create-additional-assignments-for-hit-response/)
+- [CreateHITRequest](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-create-hit-request/)
+- [CreateHITResponse](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-create-hit-response/)
+- [CreateHITTypeRequest](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-create-hit-type-request/)
+- [CreateHITTypeResponse](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-create-hit-type-response/)
+- [CreateHITWithHITTypeRequest](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-create-hit-with-hit-type-request/)
+- [CreateHITWithHITTypeResponse](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-create-hit-with-hit-type-response/)
+- [CreateQualificationTypeRequest](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-create-qualification-type-request/)
+- [CreateQualificationTypeResponse](https://apis.io/schemas/amazon-mechanical-turk/amazon-mechanical-turk-create-qualification-type-response/)
+- …and 119 more published on APIs.io
 
-## Common Properties
+#### JSON Structure (144)
 
-- [Portal](https://www.mturk.com/)
+Data models expressed in JSON Structure.
+
+- [Amazon Mechanical Turk Accept Qualification Request Request Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-accept-qualification-request-request-structure/)
+- [Amazon Mechanical Turk Accept Qualification Request Response Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-accept-qualification-request-response-structure/)
+- [Amazon Mechanical Turk Approve Assignment Request Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-approve-assignment-request-structure/)
+- [Amazon Mechanical Turk Approve Assignment Response Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-approve-assignment-response-structure/)
+- [Amazon Mechanical Turk Assignment List Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-assignment-list-structure/)
+- [Amazon Mechanical Turk Assignment Status List Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-assignment-status-list-structure/)
+- [Amazon Mechanical Turk Assignment Status Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-assignment-status-structure/)
+- [Amazon Mechanical Turk Assignment Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-assignment-structure/)
+- [Amazon Mechanical Turk Associate Qualification With Worker Request Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-associate-qualification-with-worker-request-structure/)
+- [Amazon Mechanical Turk Associate Qualification With Worker Response Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-associate-qualification-with-worker-response-structure/)
+- [Amazon Mechanical Turk Bonus Payment List Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-bonus-payment-list-structure/)
+- [Amazon Mechanical Turk Bonus Payment Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-bonus-payment-structure/)
+- [Amazon Mechanical Turk Boolean Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-boolean-structure/)
+- [Amazon Mechanical Turk Comparator Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-comparator-structure/)
+- [Amazon Mechanical Turk Country Parameters Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-country-parameters-structure/)
+- [Amazon Mechanical Turk Create Additional Assignments For Hit Request Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-create-additional-assignments-for-hit-request-structure/)
+- [Amazon Mechanical Turk Create Additional Assignments For Hit Response Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-create-additional-assignments-for-hit-response-structure/)
+- [Amazon Mechanical Turk Create Hit Request Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-create-hit-request-structure/)
+- [Amazon Mechanical Turk Create Hit Response Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-create-hit-response-structure/)
+- [Amazon Mechanical Turk Create Hit Type Request Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-create-hit-type-request-structure/)
+- [Amazon Mechanical Turk Create Hit Type Response Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-create-hit-type-response-structure/)
+- [Amazon Mechanical Turk Create Hit With Hit Type Request Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-create-hit-with-hit-type-request-structure/)
+- [Amazon Mechanical Turk Create Hit With Hit Type Response Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-create-hit-with-hit-type-response-structure/)
+- [Amazon Mechanical Turk Create Qualification Type Request Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-create-qualification-type-request-structure/)
+- [Amazon Mechanical Turk Create Qualification Type Response Structure](https://apis.io/json-structure/amazon-mechanical-turk/amazon-mechanical-turk-create-qualification-type-response-structure/)
+- …and 119 more published on APIs.io
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Amazon Mechanical Turk Context](https://apis.io/jsonld/amazon-mechanical-turk/amazon-mechanical-turk-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Amazon Mechanical Turk Vocabulary](https://apis.io/vocabularies/amazon-mechanical-turk/amazon-mechanical-turk-vocabulary/)
+
+#### Examples (144)
+
+Example requests and responses.
+
+- [Amazon Mechanical Turk Accept Qualification Request Request Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-accept-qualification-request-request-example/)
+- [Amazon Mechanical Turk Accept Qualification Request Response Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-accept-qualification-request-response-example/)
+- [Amazon Mechanical Turk Approve Assignment Request Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-approve-assignment-request-example/)
+- [Amazon Mechanical Turk Approve Assignment Response Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-approve-assignment-response-example/)
+- [Amazon Mechanical Turk Assignment Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-assignment-example/)
+- [Amazon Mechanical Turk Assignment List Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-assignment-list-example/)
+- [Amazon Mechanical Turk Assignment Status Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-assignment-status-example/)
+- [Amazon Mechanical Turk Assignment Status List Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-assignment-status-list-example/)
+- [Amazon Mechanical Turk Associate Qualification With Worker Request Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-associate-qualification-with-worker-request-example/)
+- [Amazon Mechanical Turk Associate Qualification With Worker Response Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-associate-qualification-with-worker-response-example/)
+- [Amazon Mechanical Turk Bonus Payment Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-bonus-payment-example/)
+- [Amazon Mechanical Turk Bonus Payment List Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-bonus-payment-list-example/)
+- [Amazon Mechanical Turk Boolean Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-boolean-example/)
+- [Amazon Mechanical Turk Comparator Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-comparator-example/)
+- [Amazon Mechanical Turk Country Parameters Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-country-parameters-example/)
+- [Amazon Mechanical Turk Create Additional Assignments For Hit Request Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-create-additional-assignments-for-hit-request-example/)
+- [Amazon Mechanical Turk Create Additional Assignments For Hit Response Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-create-additional-assignments-for-hit-response-example/)
+- [Amazon Mechanical Turk Create Hit Request Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-create-hit-request-example/)
+- [Amazon Mechanical Turk Create Hit Response Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-create-hit-response-example/)
+- [Amazon Mechanical Turk Create Hit Type Request Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-create-hit-type-request-example/)
+- [Amazon Mechanical Turk Create Hit Type Response Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-create-hit-type-response-example/)
+- [Amazon Mechanical Turk Create Hit With Hit Type Request Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-create-hit-with-hit-type-request-example/)
+- [Amazon Mechanical Turk Create Hit With Hit Type Response Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-create-hit-with-hit-type-response-example/)
+- [Amazon Mechanical Turk Create Qualification Type Request Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-create-qualification-type-request-example/)
+- [Amazon Mechanical Turk Create Qualification Type Response Example](https://apis.io/examples/amazon-mechanical-turk/amazon-mechanical-turk-create-qualification-type-response-example/)
+- …and 119 more published on APIs.io
+
+#### Collections (75)
+
+Postman and Open Collection request collections.
+
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-acceptqualificationrequest-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ApproveAssignment API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-approveassignment-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AssociateQualificationWithWorker API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-associatequalificationwithworker-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createadditionalassignmentsforhit-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.CreateHIT API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhit-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.CreateHITType API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhittype-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.CreateHITWithHITType API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createhitwithhittype-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.CreateQualificationType API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createqualificationtype-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.CreateWorkerBlock API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-createworkerblock-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.DeleteHIT API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletehit-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.DeleteQualificationType API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deletequalificationtype-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.DeleteWorkerBlock API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-deleteworkerblock-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-disassociatequalificationfromworker-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.GetAccountBalance API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getaccountbalance-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.GetAssignment API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getassignment-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.GetFileUploadURL API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getfileuploadurl-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.GetHIT API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-gethit-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationScore API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationscore-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.GetQualificationType API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-getqualificationtype-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListAssignmentsForHIT API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listassignmentsforhit-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListBonusPayments API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listbonuspayments-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListHITs API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhits-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListHITsForQualificationType API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listhitsforqualificationtype-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListQualificationRequests API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationrequests-api/)
+- [Amazon Mechanical Turk #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.AcceptQualificationRequest #X Amz Target=MTurkRequesterServiceV20170117.ListQualificationTypes API](https://apis.io/collections/amazon-mechanical-turk/open-amazon-mechanical-turk-x-amz-target-mturkrequesterservicev20170117-listqualificationtypes-api/)
+- …and 50 more published on APIs.io
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon Mechanical Turk — jsonschema rules](https://apis.io/rules/amazon-mechanical-turk/amazon-mechanical-turk-jsonschema-spectral-rules/)
+- [Amazon Mechanical Turk API Rules](https://apis.io/rules/amazon-mechanical-turk/amazon-mechanical-turk-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Mechanical Turk Authentication](https://apis.io/security/amazon-mechanical-turk/amazon-mechanical-turk-authentication/)
+- [Amazon Mechanical Turk Domain Security](https://apis.io/security/amazon-mechanical-turk/amazon-mechanical-turk-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Amazon Mechanical Turk Plans Pricing](https://apis.io/plans/amazon-mechanical-turk/amazon-mechanical-turk-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Amazon Mechanical Turk Rate Limits](https://apis.io/rate-limits/amazon-mechanical-turk/amazon-mechanical-turk-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Amazon Mechanical Turk Finops](https://apis.io/finops/amazon-mechanical-turk/amazon-mechanical-turk-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.mturk.com/)
 - [Documentation](https://docs.aws.amazon.com/mturk/)
-- [TermsOfService](https://www.mturk.com/participation-agreement)
-- [PrivacyPolicy](https://aws.amazon.com/privacy/)
+- [Pricing](https://www.mturk.com/pricing)
 - [Support](https://www.mturk.com/contact)
 - [Blog](https://blog.mturk.com/)
-- [GitHubOrganization](https://github.com/aws)
-- [SignUp](https://www.mturk.com/get-started)
-- [Login](https://requester.mturk.com/)
-- [StatusPage](https://health.aws.amazon.com/health/status)
-- [Contact](https://www.mturk.com/contact)
-- [SpectralRules](rules/amazon-mechanical-turk-spectral-rules.yml)
-- [Vocabulary](vocabulary/amazon-mechanical-turk-vocabulary.yaml)
-- [NaftikoCapability](capabilities/crowdsourcing-workflow.yaml)
+- [Terms of service](https://www.mturk.com/participation-agreement)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [GitHub](https://github.com/aws)
+- [Status](https://health.aws.amazon.com/health/status)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Human Intelligence Tasks (HITs) | Create and manage discrete units of work distributed to the global MTurk worker population. |
-| Qualification Types | Define custom qualification tests and requirements to target the right worker pool for each task type. |
-| Assignment Review and Approval | Review submitted assignments and approve or reject work with feedback to workers. |
-| Worker Bonuses | Award bonus payments to workers for exceptional task completion beyond the base HIT reward. |
-| Worker Notifications | Send targeted messages to specific workers to communicate task updates or instructions. |
-| Worker Blocks | Prevent specific workers from accessing your HITs when quality does not meet requirements. |
-| Sandbox Environment | Test HIT templates and requester workflows using the MTurk sandbox before going to production. |
+**Not rated** — this company is recorded as no longer operating, so no score is published. If it is in fact operating, say so on this repository and it will be re-profiled.
 
-## Use Cases
+## How this profile is made
 
-| Name | Description |
-|------|-------------|
-| Machine Learning Data Labeling | Label images, text, audio, and video to create training datasets for machine learning models. |
-| Content Moderation | Review and moderate user-generated content for inappropriate material at scale. |
-| Transcription Services | Transcribe audio and video recordings using human workers for high accuracy. |
-| Survey and Research Data Collection | Conduct surveys and collect research data from a diverse global workforce. |
-| Data Validation and Quality Assurance | Validate and verify structured data for accuracy using human review. |
-| Sentiment Analysis Training Data | Generate labeled sentiment data for training NLP and sentiment analysis models. |
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-## Integrations
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon Mechanical Turk: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-| Name | Description |
-|------|-------------|
-| Amazon SageMaker Ground Truth | Use MTurk workers directly within SageMaker Ground Truth for ML data labeling jobs. |
-| AWS Lambda | Trigger Lambda functions on HIT completion events for automated downstream processing. |
-| Amazon S3 | Store HIT input data and collect worker output files in S3 buckets. |
-| Amazon CloudWatch | Monitor MTurk task completion rates and worker performance metrics. |
-| AWS IAM | Control requester access to the MTurk API through IAM policies and roles. |
+## Open an issue
 
-## Artifacts
-
-Machine-readable API specifications organized by format.
-
-### OpenAPI
-
-- [Amazon Mechanical Turk OpenAPI](openapi/amazon-mechanical-turk-openapi-original.yaml)
-
-### JSON Schema
-
-144 schema files available in the [json-schema/](json-schema/) directory.
-
-### JSON Structure
-
-144 structure files available in the [json-structure/](json-structure/) directory.
-
-### JSON-LD
-
-- [Amazon Mechanical Turk Context](json-ld/amazon-mechanical-turk-context.jsonld)
-
-### Examples
-
-144 example files available in the [examples/](examples/) directory.
-
-## Capabilities
-
-Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
-
-### Shared Per-API Definitions
-
-- [Amazon Mechanical Turk Requester API](capabilities/shared/mturk-requester.yaml) — 16 operations for HIT management, assignment review, qualifications, and worker payments
-
-### Workflow Capabilities
-
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|---------|
-| [Crowdsourcing Workflow](capabilities/crowdsourcing-workflow.yaml) | Amazon Mechanical Turk | 10 | Data Scientist, Researcher |
-
-## Vocabulary
-
-- [Amazon Mechanical Turk Vocabulary](vocabulary/amazon-mechanical-turk-vocabulary.yaml) — Unified taxonomy mapping 6 resources, 10 actions, 1 workflow, and 2 personas across operational (OpenAPI) and capability (Naftiko) dimensions
-
-## Rules
-
-- [Amazon Mechanical Turk Spectral Rules](rules/amazon-mechanical-turk-spectral-rules.yml) — Rules enforcing Amazon Mechanical Turk API conventions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-mechanical-turk/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
