@@ -43,19 +43,20 @@ plans:
   period: per-use
   unit: per assignment
 x-canonical:
-  generated: '2026-11-02'
+  generated: '2026-11-06'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid
   - subscription
-  units: []
+  units:
+  - money
   plans:
   - name: MTurk Fee
     access: other
     model: hybrid
     model_how: derived
     units:
-    - other
+    - money
     periods:
     - other
   - name: Masters Qualification
@@ -63,7 +64,7 @@ x-canonical:
     model: subscription
     model_how: derived
     units:
-    - other
+    - money
     periods:
     - other
   - name: Premium Qualifications
